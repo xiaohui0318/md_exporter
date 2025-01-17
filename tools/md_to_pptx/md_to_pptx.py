@@ -20,13 +20,15 @@ class MarkdownToPptxFile(Tool):
             raise ValueError("Invalid input md_text")
 
         try:
-            # convert markdown text to pptx file
-            current_script_folder = os.path.split(os.path.realpath(__file__))[0]
+            # write markdown text to a temp source file
             with NamedTemporaryFile(suffix=".md", delete=True) as temp_md_file:
-                temp_md_file.write(md_text.encode("utf-8"))
+                Path(temp_md_file.name).write_text(md_text, encoding="utf-8")
+
+                # run md2pptx to convert md file to pptx file
                 with NamedTemporaryFile(suffix=".pptx", delete=True) as temp_pptx_file:
+                    current_script_folder = os.path.split(os.path.realpath(__file__))[0]
                     cmd = f"{current_script_folder}/md2pptx-5.2.2/md2pptx {Path(temp_md_file.name)} {Path(temp_pptx_file.name)}"
-                    print(f"cmd: {cmd}")
+                    print(f"command: {cmd}")
                     os.system(cmd)
                     result_file_bytes = Path(temp_pptx_file.name).read_bytes()
 
@@ -36,5 +38,6 @@ class MarkdownToPptxFile(Tool):
             return
 
         # yield self.create_text_message("The PPTX file is saved.")
-        yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": "application/pdf"})
+        yield self.create_blob_message(blob=result_file_bytes, meta={
+            "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"})
         return
