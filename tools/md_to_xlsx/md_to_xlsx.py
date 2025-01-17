@@ -8,6 +8,8 @@ import markdown
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.utils.mimetype_utils import MimeType
+
 
 class MarkdownToXlsxFile(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
@@ -45,5 +47,5 @@ class MarkdownToXlsxFile(Tool):
 
         # yield self.create_text_message("The XLSX file is saved.")
         yield self.create_blob_message(blob=result_file_bytes, meta={
-            "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"})
+            "mime_type": MimeType.XLSX})
         return

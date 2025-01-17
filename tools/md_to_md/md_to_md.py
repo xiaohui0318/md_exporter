@@ -3,6 +3,8 @@ from typing import Generator
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.utils.mimetype_utils import MimeType
+
 
 class MarkdownToMarkdownFile(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
@@ -20,6 +22,6 @@ class MarkdownToMarkdownFile(Tool):
         # yield self.create_text_message("The Markdown file is saved."),
         yield self.create_blob_message(
             blob=result_file_bytes,
-            meta={"mime_type": "text/markdown"},
+            meta={"mime_type": MimeType.MD},
         )
         return

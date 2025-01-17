@@ -8,6 +8,7 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from markdowntodocx import markdownconverter
 
 from tools.utils.md_utils import MarkdownUtils
+from tools.utils.mimetype_utils import MimeType
 
 
 class MarkdownToDocxFile(Tool):
@@ -33,6 +34,6 @@ class MarkdownToDocxFile(Tool):
         # yield self.create_text_message("The DOCX file is saved."),
         yield self.create_blob_message(
             blob=result_file_bytes,
-            meta={"mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"},
+            meta={"mime_type": MimeType.DOCX},
         )
         return

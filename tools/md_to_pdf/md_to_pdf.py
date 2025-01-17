@@ -5,6 +5,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.md_utils import MarkdownUtils
+from tools.utils.mimetype_utils import MimeType
 
 
 class MarkdownToPdfFile(Tool):
@@ -33,7 +34,7 @@ class MarkdownToPdfFile(Tool):
             return
 
         # yield self.create_text_message("The PDF file is saved.")
-        yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": "application/pdf"})
+        yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": MimeType.PDF})
         return
 
     @staticmethod
