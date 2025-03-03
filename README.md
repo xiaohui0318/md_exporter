@@ -4,7 +4,7 @@
 
 ### Description
 
-This plugins provides a way to export markdown files to powerpoint files.
+This plugins provides tools to export markdown text to Docx/Xlsx/Pptx/PDF/HTML/md files.
 
 | Tool         | Purpose                           | Input                     | Output        |
 |--------------|-----------------------------------|---------------------------|---------------|
