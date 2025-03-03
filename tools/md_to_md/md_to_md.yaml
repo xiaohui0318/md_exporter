@@ -2,7 +2,7 @@ identity:
   name: md_to_md
   author: Bowen Liang
   label:
-    en_US: Markdown to file
+    en_US: Markdown to md file
     zh_Hans: Markdown转md文件
 description:
   human:
