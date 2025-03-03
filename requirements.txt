@@ -1,4 +1,4 @@
-dify_plugin==0.0.1b60
+dify_plugin==0.0.1b69
 beautifulsoup4~=4.12.3
 cairosvg~=2.7.1
 markdowntodocx~=0.1.5.5
