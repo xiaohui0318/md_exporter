@@ -17,7 +17,6 @@ tools:
   - tools/md_to_pdf/md_to_pdf.yaml
   - tools/md_to_md/md_to_md.yaml
   - tools/md_to_xlsx/md_to_xlsx.yaml
-  - tools/md_to_pptx/md_to_pptx.yaml
 extra:
   python:
     source: provider/md_exporter.py

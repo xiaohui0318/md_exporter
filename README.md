@@ -4,7 +4,7 @@
 
 ### Description
 
-This plugins provides tools to export markdown text to Docx/Xlsx/Pptx/PDF/HTML/md files.
+This plugins provides tools to export markdown text to Docx/Xlsx/PDF/HTML/md files.
 
 | Tool         | Purpose                           | Input                     | Output        |
 |--------------|-----------------------------------|---------------------------|---------------|
@@ -12,7 +12,6 @@ This plugins provides tools to export markdown text to Docx/Xlsx/Pptx/PDF/HTML/m
 | `md_to_html` | Convert Markdown to HTML          | Markdown text             | HTML file     |
 | `md_to_md`   | Convert Markdown to Markdown file | Markdown text             | Markdown file |
 | `md_to_pdf`  | Convert Markdown to PDF           | Markdown text             | PDF file      |
-| `md_to_pptx` | Convert Markdown to PPTX          | Markdown text             | PPTX file     |
 | `md_to_xlsx` | Convert Markdown to XLSX          | Tables in Markdown syntax | XLSX file     |
 
 - `md_to_docx` Tool
@@ -54,25 +53,6 @@ output HTML file:
 - output PDF file:
   ![img12.png](_assets/img12.png)
 
-- `md_to_pptx` Tool
-  input markdown text:
-
-```markdown
-# This Is A Presentation Title Page
-
-## This Is A Presentation Section Page
-
-### This Is A Bulleted List Page
-
-* One
-    * One A
-    * One B
-* Two
-```
-
-output PPTX file:
-![img12.png](_assets/img13.png)
-
 - `md_to_xlsx` Tool
 
 input markdown text:
@@ -94,9 +74,4 @@ output XLSX file:
 
 ![img4.png](_assets/img4.png)
 
-### Open Source Project declaration
-
-- md2pptx
-    - repo: https://github.com/MartinPacker/md2pptx
-    - licence: MIT licence
 
