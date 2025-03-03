@@ -1,7 +1,5 @@
 ## Privacy
 
-# Privacy Policy
-
 ## Introduction
 
 When using the md_exporter plugin, we are committed to protecting your privacy. This Privacy Policy outlines our practices regarding the collection, use, and storage of your data.
