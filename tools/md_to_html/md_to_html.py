@@ -26,6 +26,5 @@ class MarkdownToHtmlFile(Tool):
             yield self.create_text_message(f"Failed to convert markdown text to HTML file, error: {str(e)}")
             return
 
-        # yield self.create_text_message("The HTML file is saved.")
         yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": "text/html"})
         return

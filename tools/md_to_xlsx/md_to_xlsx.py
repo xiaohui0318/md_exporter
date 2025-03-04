@@ -45,7 +45,6 @@ class MarkdownToXlsxFile(Tool):
                 f"Failed to convert markdown text to XLSX file, error: {str(e)}, html_str: {html_str}")
             return
 
-        # yield self.create_text_message("The XLSX file is saved.")
         yield self.create_blob_message(blob=result_file_bytes, meta={
             "mime_type": MimeType.XLSX})
         return

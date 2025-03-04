@@ -31,7 +31,6 @@ class MarkdownToDocxFile(Tool):
             yield self.create_text_message(f"Failed to convert markdown text to DOCX file, error: {str(e)}")
             return
 
-        # yield self.create_text_message("The DOCX file is saved."),
         yield self.create_blob_message(
             blob=result_file_bytes,
             meta={"mime_type": MimeType.DOCX},

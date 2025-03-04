@@ -33,7 +33,6 @@ class MarkdownToPdfFile(Tool):
             yield self.create_text_message(f"Failed to convert markdown text to PDF file, error: {str(e)}")
             return
 
-        # yield self.create_text_message("The PDF file is saved.")
         yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": MimeType.PDF})
         return
 

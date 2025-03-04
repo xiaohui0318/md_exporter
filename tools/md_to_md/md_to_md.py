@@ -19,7 +19,6 @@ class MarkdownToMarkdownFile(Tool):
 
         result_file_bytes = md_text.encode("utf-8")
 
-        # yield self.create_text_message("The Markdown file is saved."),
         yield self.create_blob_message(
             blob=result_file_bytes,
             meta={"mime_type": MimeType.MD},
