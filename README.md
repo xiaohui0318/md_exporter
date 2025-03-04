@@ -2,17 +2,19 @@
 
 **Author:** [bowenliang123](https://github.com/bowenliang123)
 
+**Repository:** https://github.com/bowenliang123/md_exporter
+
 ### Description
 
-This plugins provides tools to export markdown text to Docx/Xlsx/PDF/HTML/md files.
+This plugins provides tools to export Markdown text to Docx/Xlsx/PDF/HTML/md files.
 
-| Tool         | Purpose                           | Input                     | Output        |
-|--------------|-----------------------------------|---------------------------|---------------|
-| `md_to_docx` | Convert Markdown to DOCX          | Markdown text             | DOCX file     |
-| `md_to_html` | Convert Markdown to HTML          | Markdown text             | HTML file     |
-| `md_to_md`   | Convert Markdown to Markdown file | Markdown text             | Markdown file |
-| `md_to_pdf`  | Convert Markdown to PDF           | Markdown text             | PDF file      |
-| `md_to_xlsx` | Convert Markdown to XLSX          | Tables in Markdown syntax | XLSX file     |
+| Tool         | Input                    | Output        |
+|--------------|--------------------------|---------------|
+| `md_to_docx` | Markdown text            | DOCX file     |
+| `md_to_html` | Markdown text            | HTML file     |
+| `md_to_md`   | Markdown text            | Markdown file |
+| `md_to_pdf`  | Markdown text            | PDF file      |
+| `md_to_xlsx` | Table in Markdown syntax | XLSX file     |
 
 - `md_to_docx` Tool
 
