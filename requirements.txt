@@ -1,7 +1,7 @@
 dify_plugin==0.0.1b70
 beautifulsoup4~=4.13.3
 cairosvg~=2.7.1
-markdowntodocx~=0.1.5.8
+markdowntodocx~=0.1.5.10
 markdown~=3.7.0
 pandas[excel,performance]~=2.2.3
 python-docx~=1.1.2
