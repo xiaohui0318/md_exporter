@@ -2,25 +2,26 @@
 
 **Author:** [bowenliang123](https://github.com/bowenliang123)
 
-**Repository:** https://github.com/bowenliang123/md_exporter
+**Github Repo:** https://github.com/bowenliang123/md_exporter
 
 ### Description
 
-This plugins provides tools to export Markdown text to Docx/Xlsx/PDF/HTML/md files.
-The transformation process is as follows:
+This plugin provides tools to export Markdown text to Docx/Xlsx/PDF/HTML/md files.
+The transformation process for file formats are as follows:
+
 - Docx file: Markdown -> Docx file
 - HTML file: Markdown -> HTML text -> HTML file
-- Xlsx file: Markdown -> HTML -> Pandas Dataframe -> Xlsx file
 - PDF file: Markdown -> HTML text -> PDF file
+- Xlsx file: Markdown -> HTML -> Pandas Dataframe -> Xlsx file
 - md file: A .md file with raw Markdown text
 
 | Tool         | Input                    | Output        |
 |--------------|--------------------------|---------------|
 | `md_to_docx` | Markdown text            | DOCX file     |
 | `md_to_html` | Markdown text            | HTML file     |
-| `md_to_md`   | Markdown text            | Markdown file |
 | `md_to_pdf`  | Markdown text            | PDF file      |
 | `md_to_xlsx` | Table in Markdown syntax | XLSX file     |
+| `md_to_md`   | Markdown text            | Markdown file |
 
 - `md_to_docx` Tool
 
@@ -44,22 +45,20 @@ A Lua é um corpo celeste que orbita a Terra, com um diâmetro de cerca de 3.474
 ```
 
 usage:
-![img1.png](_assets/img1.png)
+<img src="./_assets/img1.png" width="100%" >
 
 output DOCX file:
-![img2.png](_assets/img2.png)
+<img src="./_assets/img2.png" width="100%" >
 
 - `md_to_html` Tool
 
 output HTML file:
-![img11.png](_assets/img11.png)
-
-- `md_to_md` Tool
+<img src="./_assets/img11.png" width="100%" >
 
 - `md_to_pdf` Tool
 
 - output PDF file:
-  ![img12.png](_assets/img12.png)
+  <img src="./_assets/img12.png" width="100%" >
 
 - `md_to_xlsx` Tool
 
@@ -76,10 +75,10 @@ input markdown text:
 
 usage:
 
-![img3.png](_assets/img3.png)
+<img src="./_assets/img3.png" width="100%" >
 
 output XLSX file:
 
-![img4.png](_assets/img4.png)
+<img src="./_assets/img4.png" width="100%" >
 
-
+- `md_to_md` Tool
