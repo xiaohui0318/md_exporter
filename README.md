@@ -7,6 +7,12 @@
 ### Description
 
 This plugins provides tools to export Markdown text to Docx/Xlsx/PDF/HTML/md files.
+The transformation process is as follows:
+- Docx file: Markdown -> Docx file
+- HTML file: Markdown -> HTML text -> HTML file
+- Xlsx file: Markdown -> HTML -> Pandas Dataframe -> Xlsx file
+- PDF file: Markdown -> HTML text -> PDF file
+- md file: A .md file with raw Markdown text
 
 | Tool         | Input                    | Output        |
 |--------------|--------------------------|---------------|
