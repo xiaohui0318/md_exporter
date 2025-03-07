@@ -12,7 +12,7 @@ The transformation process for file formats are as follows:
 - Docx file: Markdown -> Docx file
 - HTML file: Markdown -> HTML text -> HTML file
 - PDF file: Markdown -> HTML text -> PDF file
-- md file: A .md file with raw Markdown text
+- md file: Markdown -> md file
 - Xlsx file: Markdown -> HTML -> Pandas DataFrame -> Xlsx file
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
 
