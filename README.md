@@ -12,8 +12,9 @@ The transformation process for file formats are as follows:
 - Docx file: Markdown -> Docx file
 - HTML file: Markdown -> HTML text -> HTML file
 - PDF file: Markdown -> HTML text -> PDF file
-- Xlsx file: Markdown -> HTML -> Pandas Dataframe -> Xlsx file
 - md file: A .md file with raw Markdown text
+- Xlsx file: Markdown -> HTML -> Pandas Dataframe -> Xlsx file
+- CSV file: Markdown -> HTML -> Pandas Dataframe -> CSV file
 
 | Tool         | Input                    | Output        |
 |--------------|--------------------------|---------------|
@@ -45,20 +46,20 @@ A Lua é um corpo celeste que orbita a Terra, com um diâmetro de cerca de 3.474
 ```
 
 usage:
-<img src="./_assets/img1.png" width="100%" >
+<img src="./_assets/img1.png" width="400px" >
 
 output DOCX file:
-<img src="./_assets/img2.png" width="100%" >
+<img src="./_assets/img2.png" width="400px" >
 
 - `md_to_html` Tool
 
 output HTML file:
-<img src="./_assets/img11.png" width="100%" >
+<img src="./_assets/img11.png" width="400px" >
 
 - `md_to_pdf` Tool
 
 - output PDF file:
-  <img src="./_assets/img12.png" width="100%" >
+  <img src="./_assets/img12.png" width="400px" >
 
 - `md_to_xlsx` Tool
 
@@ -75,10 +76,12 @@ input markdown text:
 
 usage:
 
-<img src="./_assets/img3.png" width="100%" >
+<img src="./_assets/img3.png" width="400px" >
 
 output XLSX file:
 
-<img src="./_assets/img4.png" width="100%" >
+<img src="./_assets/img4.png" width="400px" >
+
+- `md_to_csv` Tool
 
 - `md_to_md` Tool

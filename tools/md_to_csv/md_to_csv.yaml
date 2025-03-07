@@ -1,0 +1,25 @@
+identity:
+  name: md_to_csv
+  author: Bowen Liang
+  label:
+    en_US: Markdown to CSV file
+    zh_Hans: Markdown转CSV文件
+description:
+  human:
+    en_US: A tool for generating CSV file from Markdown text
+    zh_Hans: 一个用于将Markdown转换为CSV文件的工具
+  llm: A tool for generating CSV file from Markdown text
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本，必须为Markdown表格格式
+    form: llm
+extra:
+  python:
+    source: tools/md_to_csv/md_to_csv.py

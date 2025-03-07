@@ -7,9 +7,9 @@ label:
   zh_Hans: Markdown 转换器
   ja_JP: Markdownエクスポーター
 description:
-  en_US: Export Markdown to Docx, Xlsx, PDF, HTML, md files.
-  zh_Hans: 导出 Markdown 为 Docx、Xlsx、PDF、HTML、md 文件。
-  ja_JP: MarkdownをDocx、Xlsx、PDF、HTML、mdファイルにエクスポートします
+  en_US: Export Markdown to Docx, PDF, HTML, md, Xlsx, CSV files.
+  zh_Hans: 导出 Markdown 为 Docx, PDF, HTML, md, Xlsx, CSV 文件。
+  ja_JP: MarkdownをDocx, PDF, HTML, md, Xlsx, CSVファイルにエクスポートします
 icon: icon.svg
 resource:
   memory: 268435456
