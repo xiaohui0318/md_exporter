@@ -23,7 +23,7 @@ The transformation process for file formats are as follows:
 | `md_to_pdf`  | Markdown text                   | PDF file      |
 | `md_to_md`   | Markdown text                   | Markdown file |
 | `md_to_xlsx` | Tables in Markdown syntax       | XLSX file     |
-| `md_to_csv`  | Single table in Markdown syntax | XLSX file     |
+| `md_to_csv`  | Single table in Markdown syntax | CSV file      |
 
 - `md_to_docx` Tool
 
