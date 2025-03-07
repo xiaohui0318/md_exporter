@@ -6,7 +6,7 @@
 
 ### Description
 
-This plugin provides tools to export Markdown text to Docx/Xlsx/PDF/HTML/md files.
+This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV files.
 The transformation process for file formats are as follows:
 
 - Docx file: Markdown -> Docx file
@@ -26,7 +26,7 @@ The transformation process for file formats are as follows:
 
 - `md_to_docx` Tool
 
-  input markdown text:
+  Input Markdown text:
 
 ```
 # English
@@ -46,24 +46,27 @@ A Lua é um corpo celeste que orbita a Terra, com um diâmetro de cerca de 3.474
 ```
 
 usage:
-<img src="./_assets/img1.png" width="400px" >
+
+<img src="./_assets/img1.png" width="600px" >
 
 output DOCX file:
-<img src="./_assets/img2.png" width="400px" >
+
+<img src="./_assets/img2.png" width="600px" >
 
 - `md_to_html` Tool
 
 output HTML file:
-<img src="./_assets/img11.png" width="400px" >
+<img src="./_assets/img11.png" width="600px" >
 
 - `md_to_pdf` Tool
 
 - output PDF file:
-  <img src="./_assets/img12.png" width="400px" >
+
+<img src="./_assets/img12.png" width="600px" >
 
 - `md_to_xlsx` Tool
 
-input markdown text:
+Input Markdown text:
 
 ```
 | Name    | Age | City        |
@@ -76,11 +79,11 @@ input markdown text:
 
 usage:
 
-<img src="./_assets/img3.png" width="400px" >
+<img src="./_assets/img3.png" width="600px" >
 
 output XLSX file:
 
-<img src="./_assets/img4.png" width="400px" >
+<img src="./_assets/img4.png" width="600px" >
 
 - `md_to_csv` Tool
 
