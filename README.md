@@ -16,13 +16,14 @@ The transformation process for file formats are as follows:
 - Xlsx file: Markdown -> HTML -> Pandas Dataframe -> Xlsx file
 - CSV file: Markdown -> HTML -> Pandas Dataframe -> CSV file
 
-| Tool         | Input                    | Output        |
-|--------------|--------------------------|---------------|
-| `md_to_docx` | Markdown text            | DOCX file     |
-| `md_to_html` | Markdown text            | HTML file     |
-| `md_to_pdf`  | Markdown text            | PDF file      |
-| `md_to_xlsx` | Table in Markdown syntax | XLSX file     |
-| `md_to_md`   | Markdown text            | Markdown file |
+| Tool         | Input                           | Output        |
+|--------------|---------------------------------|---------------|
+| `md_to_docx` | Markdown text                   | DOCX file     |
+| `md_to_html` | Markdown text                   | HTML file     |
+| `md_to_pdf`  | Markdown text                   | PDF file      |
+| `md_to_md`   | Markdown text                   | Markdown file |
+| `md_to_xlsx` | Tables in Markdown syntax       | XLSX file     |
+| `md_to_csv`  | Single table in Markdown syntax | XLSX file     |
 
 - `md_to_docx` Tool
 
