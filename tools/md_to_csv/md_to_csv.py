@@ -33,10 +33,9 @@ class MarkdownToCsvFile(Tool):
 
         # generate CSV file
         try:
+            table = tables[0]
             with NamedTemporaryFile(suffix=".csv", delete=True) as temp_csv_file:
-                with pd.ExcelWriter(temp_csv_file) as writer:
-                    table = tables[0]
-                    table.to_csv(writer, index=False)
+                table.to_csv(temp_csv_file, index=False, encoding="utf-8")
                 result_file_bytes = Path(temp_csv_file.name).read_bytes()
 
         except Exception as e:
