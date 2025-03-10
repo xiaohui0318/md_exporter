@@ -6,9 +6,9 @@ identity:
     zh_Hans: Markdown 转换器
     ja_JP: Markdownエクスポーター
   description:
-    en_US: Export Markdown to Docx, PDF, HTML, md, Xlsx, CSV files.
-    zh_Hans: 导出 Markdown 为 Docx, PDF, HTML, md, Xlsx, CSV 文件。
-    ja_JP: MarkdownをDocx, PDF, HTML, md, Xlsx, CSVファイルにエクスポートします
+    en_US: Export Markdown to Docx, PDF, HTML, md, Xlsx, CSV, JSON files.
+    zh_Hans: 导出 Markdown 为 Docx, PDF, HTML, md, Xlsx, CSV, JSON 文件。
+    ja_JP: MarkdownをDocx, PDF, HTML, md, Xlsx, CSV, JSON ファイルにエクスポートします
   icon: icon.svg
 tools:
   - tools/md_to_docx/md_to_docx.yaml
@@ -17,6 +17,7 @@ tools:
   - tools/md_to_md/md_to_md.yaml
   - tools/md_to_xlsx/md_to_xlsx.yaml
   - tools/md_to_csv/md_to_csv.yaml
+  - tools/md_to_json/md_to_json.yaml
 extra:
   python:
     source: provider/md_exporter.py
