@@ -5,8 +5,8 @@ from typing import Generator
 
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
-from tools.lib.utils import parse_md_to_tables
 
+from tools.lib.table_parser import parse_md_to_tables
 from tools.utils.mimetype_utils import MimeType
 
 
