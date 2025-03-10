@@ -8,7 +8,7 @@ from tools.utils.mimetype_utils import MimeType
 from tools.utils.table_utils import TableParser
 
 
-class MarkdownToCsvFile(Tool):
+class MarkdownToXmlFile(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools
@@ -22,19 +22,19 @@ class MarkdownToCsvFile(Tool):
         # parse markdown to tables
         tables = TableParser.parse_md_to_tables(md_text)
 
-        # generate CSV file
+        # generate XML file
         try:
             table = tables[0]
-            csv_str = table.to_csv(index=False, encoding="utf-8")
-            result_file_bytes = csv_str.encode("utf-8")
+            xml_str = table.to_xml(index=False)
+            result_file_bytes = xml_str.encode("utf-8")
 
         except Exception as e:
-            logging.exception("Failed to convert to CSV file")
-            yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")
+            logging.exception("Failed to convert to XML file")
+            yield self.create_text_message(f"Failed to convert markdown text to XML file, error: {str(e)}")
             return
 
         yield self.create_blob_message(
             blob=result_file_bytes,
-            meta={"mime_type": MimeType.CSV},
+            meta={"mime_type": MimeType.XML},
         )
         return

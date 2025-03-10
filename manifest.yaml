@@ -12,7 +12,7 @@ description:
   ja_JP: MarkdownをDocx, PDF, HTML, md, Xlsx, CSVファイルにエクスポートします
 icon: icon.svg
 resource:
-  memory: 268435456
+  memory: 536870912
   permission:
     tool:
       enabled: true

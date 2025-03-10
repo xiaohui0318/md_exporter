@@ -9,3 +9,4 @@ class MimeType(StrEnum):
     DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     PDF = "application/pdf"
     XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    XML = "text/xml"

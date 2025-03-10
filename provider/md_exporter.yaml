@@ -18,6 +18,7 @@ tools:
   - tools/md_to_xlsx/md_to_xlsx.yaml
   - tools/md_to_csv/md_to_csv.yaml
   - tools/md_to_json/md_to_json.yaml
+  - tools/md_to_xml/md_to_xml.yaml
 extra:
   python:
     source: provider/md_exporter.py

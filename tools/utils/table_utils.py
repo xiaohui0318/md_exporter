@@ -4,6 +4,7 @@ from io import StringIO
 import markdown
 import pandas as pd
 
+
 class TableParser:
     @staticmethod
     def parse_md_to_tables(md_text: str) -> list[pd.DataFrame]:
