@@ -6,7 +6,7 @@
 
 ### Description
 
-This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/JSON files.
+This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/JSON/XML files.
 The transformation process for file formats are as follows:
 
 - Docx file: Markdown -> Docx file
