@@ -1,12 +1,11 @@
 import logging
-from io import StringIO
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Generator
 
-import markdown
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
+from tools.lib.utils import parse_md_to_tables
 
 from tools.utils.mimetype_utils import MimeType
 
@@ -16,7 +15,6 @@ class MarkdownToCsvFile(Tool):
         """
         invoke tools
         """
-        import pandas as pd
 
         # get parameters
         md_text = tool_parameters.get("md_text")
@@ -24,12 +22,7 @@ class MarkdownToCsvFile(Tool):
             raise ValueError("Invalid input md_text")
 
         # parse markdown to tables
-        try:
-            html_str = markdown.markdown(text=md_text, extensions=['tables'])
-            tables = pd.read_html(StringIO(html_str))
-        except Exception:
-            logging.exception("Failed to parse markdown to table")
-            raise ValueError("Failed to parse markdown to table.")
+        tables = parse_md_to_tables(md_text)
 
         # generate CSV file
         try:
@@ -40,8 +33,7 @@ class MarkdownToCsvFile(Tool):
 
         except Exception as e:
             logging.exception("Failed to convert to CSV file")
-            yield self.create_text_message(
-                f"Failed to convert markdown text to CSV file, error: {str(e)}, html_str: {html_str}")
+            yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")
             return
 
         yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": MimeType.CSV})

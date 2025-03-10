@@ -1,13 +1,12 @@
 import logging
-from io import StringIO
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Generator
 
-import markdown
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.lib.table_parser import parse_md_to_tables
 from tools.utils.mimetype_utils import MimeType
 
 
@@ -24,12 +23,7 @@ class MarkdownToXlsxFile(Tool):
             raise ValueError("Invalid input md_text")
 
         # parse markdown to tables
-        try:
-            html_str = markdown.markdown(text=md_text, extensions=['tables'])
-            tables = pd.read_html(StringIO(html_str))
-        except Exception:
-            logging.exception("Failed to parse markdown to tables")
-            raise ValueError("Failed to parse markdown to tables.")
+        tables = parse_md_to_tables(md_text)
 
         # generate XLSX file
         try:
@@ -42,7 +36,7 @@ class MarkdownToXlsxFile(Tool):
         except Exception as e:
             logging.exception("Failed to convert file")
             yield self.create_text_message(
-                f"Failed to convert markdown text to XLSX file, error: {str(e)}, html_str: {html_str}")
+                f"Failed to convert markdown text to XLSX file, error: {str(e)}")
             return
 
         yield self.create_blob_message(blob=result_file_bytes, meta={
