@@ -6,8 +6,8 @@ from typing import Generator
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
-from tools.core.table_parser import parse_md_to_tables
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.table_utils import TableParser
 
 
 class MarkdownToXlsxFile(Tool):
@@ -23,7 +23,7 @@ class MarkdownToXlsxFile(Tool):
             raise ValueError("Invalid input md_text")
 
         # parse markdown to tables
-        tables = parse_md_to_tables(md_text)
+        tables = TableParser.parse_md_to_tables(md_text)
 
         # generate XLSX file
         try:
