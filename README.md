@@ -16,6 +16,7 @@ The transformation process for file formats are as follows:
 - Xlsx file: Markdown -> HTML -> Pandas DataFrame -> Xlsx file
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
 - JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
+- XML file: Markdown -> HTML -> Pandas DataFrame -> XML file
 
 | Tool         | Input                           | Output        |
 |--------------|---------------------------------|---------------|
@@ -26,6 +27,7 @@ The transformation process for file formats are as follows:
 | `md_to_xlsx` | Tables in Markdown syntax       | XLSX file     |
 | `md_to_csv`  | Single table in Markdown syntax | CSV file      |
 | `md_to_json` | Single table in Markdown syntax | JSON file     |
+| `md_to_xml`  | Single table in Markdown syntax | XML file      |
 
 - `md_to_docx` Tool
 
@@ -95,5 +97,11 @@ output XLSX file:
 
 output JSON file:
 <img src="./_assets/img5.png" width="300px" >
+
+- `md_to_xml` Tool
+
+output XML file:
+
+<img src="./_assets/img6.png" width="300px" >
 
 - `md_to_md` Tool
