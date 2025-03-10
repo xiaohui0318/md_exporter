@@ -36,5 +36,8 @@ class MarkdownToCsvFile(Tool):
             yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")
             return
 
-        yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": MimeType.CSV})
+        yield self.create_blob_message(
+            blob=result_file_bytes,
+            meta={"mime_type": MimeType.CSV},
+        )
         return

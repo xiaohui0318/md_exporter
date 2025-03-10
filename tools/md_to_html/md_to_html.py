@@ -5,6 +5,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.md_utils import MarkdownUtils
+from tools.utils.mimetype_utils import MimeType
 
 
 class MarkdownToHtmlFile(Tool):
@@ -26,5 +27,8 @@ class MarkdownToHtmlFile(Tool):
             yield self.create_text_message(f"Failed to convert markdown text to HTML file, error: {str(e)}")
             return
 
-        yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": "text/html"})
+        yield self.create_blob_message(
+            blob=result_file_bytes,
+            meta={"mime_type": MimeType.HTML},
+        )
         return

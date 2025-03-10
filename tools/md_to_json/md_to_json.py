@@ -36,5 +36,8 @@ class MarkdownToJsonFile(Tool):
             yield self.create_text_message(f"Failed to convert markdown text to JSON file, error: {str(e)}")
             return
 
-        yield self.create_blob_message(blob=result_file_bytes, meta={"mime_type": MimeType.JSON})
+        yield self.create_blob_message(
+            blob=result_file_bytes,
+            meta={"mime_type": MimeType.JSON},
+        )
         return
