@@ -7,16 +7,6 @@
 ### Description
 
 This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/JSON/XML files.
-The transformation process for file formats are as follows:
-
-- Docx file: Markdown -> Docx file
-- HTML file: Markdown -> HTML -> HTML file
-- PDF file: Markdown -> HTML -> PDF file
-- md file: Markdown -> md file
-- Xlsx file: Markdown -> HTML -> Pandas DataFrame -> Xlsx file
-- CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
-- JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
-- XML file: Markdown -> HTML -> Pandas DataFrame -> XML file
 
 | Tool         | Input                           | Output        |
 |--------------|---------------------------------|---------------|
@@ -28,6 +18,19 @@ The transformation process for file formats are as follows:
 | `md_to_csv`  | Single table in Markdown syntax | CSV file      |
 | `md_to_json` | Single table in Markdown syntax | JSON file     |
 | `md_to_xml`  | Single table in Markdown syntax | XML file      |
+
+The transformation processes for each file format are as followed:
+
+- Docx file: Markdown -> Docx file
+- HTML file: Markdown -> HTML -> HTML file
+- PDF file: Markdown -> HTML -> PDF file
+- md file: Markdown -> md file
+- Xlsx file: Markdown -> HTML -> Pandas DataFrame -> Xlsx file
+- CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
+- JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
+- XML file: Markdown -> HTML -> Pandas DataFrame -> XML file
+
+## Tools
 
 - `md_to_docx` Tool
 
