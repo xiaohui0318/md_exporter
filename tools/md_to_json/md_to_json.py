@@ -34,7 +34,7 @@ class MarkdownToJsonFile(Tool):
         # generate JSON file
         try:
             table = tables[0]
-            with NamedTemporaryFile(suffix=".json", delete=True) as temp_json_file:
+            with NamedTemporaryFile(suffix=".json", delete=True, encoding="utf-8") as temp_json_file:
                 table.to_json(temp_json_file, index=False, orient='records')
                 result_file_bytes = Path(temp_json_file.name).read_bytes()
 
