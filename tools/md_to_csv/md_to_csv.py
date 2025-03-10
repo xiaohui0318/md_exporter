@@ -22,12 +22,10 @@ class MarkdownToCsvFile(Tool):
         # parse markdown to tables
         tables = TableParser.parse_md_to_tables(md_text)
 
-        # generate CSV file
         try:
             table = tables[0]
             csv_str = table.to_csv(index=False, encoding="utf-8")
             result_file_bytes = csv_str.encode("utf-8")
-
         except Exception as e:
             logging.exception("Failed to convert to CSV file")
             yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")

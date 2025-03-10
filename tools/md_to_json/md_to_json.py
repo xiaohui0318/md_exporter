@@ -1,6 +1,4 @@
 import logging
-from pathlib import Path
-from tempfile import NamedTemporaryFile
 from typing import Generator
 
 from dify_plugin import Tool
@@ -24,13 +22,10 @@ class MarkdownToJsonFile(Tool):
         # parse markdown to tables
         tables = TableParser.parse_md_to_tables(md_text)
 
-        # generate JSON file
         try:
             table = tables[0]
-            with NamedTemporaryFile(suffix=".json", delete=True) as temp_json_file:
-                table.to_json(temp_json_file, index=False, orient='records')
-                result_file_bytes = Path(temp_json_file.name).read_bytes()
-
+            json_str = table.to_json(index=False, orient='records')
+            result_file_bytes = json_str.encode("utf-8")
         except Exception as e:
             logging.exception("Failed to convert to JSON file")
             yield self.create_text_message(f"Failed to convert markdown text to JSON file, error: {str(e)}")
