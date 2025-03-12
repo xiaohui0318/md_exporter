@@ -24,7 +24,7 @@ class MarkdownToLatexFile(Tool):
 
         try:
             table = tables[0]
-            latex_str = table.to_latex(index=False, encoding="utf-8")
+            latex_str = table.to_latex(index=False)
             result_file_bytes = latex_str.encode("utf-8")
         except Exception as e:
             logging.exception("Failed to convert to LaTeX file")
