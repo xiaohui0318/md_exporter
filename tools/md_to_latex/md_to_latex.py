@@ -24,11 +24,14 @@ class MarkdownToLatexFile(Tool):
 
         try:
             table = tables[0]
-            table_latex_str = table.to_latex(index=False)
-            doc_latex_str = ("\documentclass[]{{article}}\n"
+            table_latex_str = table.to_latex(index=False, bold_rows=True)
+            doc_latex_str = ("\\documentclass[]{{article}}\n"
+                             + "\\usepackage{{booktabs}}\n"
                              + "\\begin{document}}\n"
+                             + "\n"
                              + table_latex_str
-                             + "\end{document}")
+                             + "\n"
+                             + "\\end{document}\n")
             result_file_bytes = doc_latex_str.encode("utf-8")
         except Exception as e:
             logging.exception("Failed to convert to LaTeX file")
