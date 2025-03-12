@@ -148,6 +148,11 @@ output XML file:
 
 - `md_to_latex` Tool
 
+output LaTex file:
+
 <img src="./_assets/img7.png" width="300px" >
+
+Viewed as PDF:
+<img src="./_assets/img8.png" width="300px" >
 
 - `md_to_md` Tool
