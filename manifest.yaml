@@ -2,6 +2,8 @@ version: 0.0.4
 type: plugin
 author: bowenliang123
 name: md_exporter
+tags:
+  - utilities
 label:
   en_US: Markdown Exporter
   zh_Hans: Markdown 转换器
