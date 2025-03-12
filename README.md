@@ -8,16 +8,17 @@
 
 This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/JSON/XML files.
 
-| Tool         | Input                           | Output        |
-|--------------|---------------------------------|---------------|
-| `md_to_docx` | Markdown text                   | DOCX file     |
-| `md_to_html` | Markdown text                   | HTML file     |
-| `md_to_pdf`  | Markdown text                   | PDF file      |
-| `md_to_md`   | Markdown text                   | Markdown file |
-| `md_to_xlsx` | Tables in Markdown syntax       | XLSX file     |
-| `md_to_csv`  | Single table in Markdown syntax | CSV file      |
-| `md_to_json` | Single table in Markdown syntax | JSON file     |
-| `md_to_xml`  | Single table in Markdown syntax | XML file      |
+| Tool          | Input                           | Output        |
+|---------------|---------------------------------|---------------|
+| `md_to_docx`  | Markdown text                   | DOCX file     |
+| `md_to_html`  | Markdown text                   | HTML file     |
+| `md_to_pdf`   | Markdown text                   | PDF file      |
+| `md_to_md`    | Markdown text                   | Markdown file |
+| `md_to_xlsx`  | Tables in Markdown syntax       | XLSX file     |
+| `md_to_csv`   | Single table in Markdown syntax | CSV file      |
+| `md_to_json`  | Single table in Markdown syntax | JSON file     |
+| `md_to_xml`   | Single table in Markdown syntax | XML file      |
+| `md_to_latex` | Single table in Markdown syntax | LaTeX file    |
 
 The transformation processes for each file format are as followed:
 
@@ -29,6 +30,7 @@ The transformation processes for each file format are as followed:
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
 - JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
 - XML file: Markdown -> HTML -> Pandas DataFrame -> XML file
+- Latex file: Markdown -> HTML -> Pandas DataFrame -> Latex file
 
 ## Tools
 
@@ -106,5 +108,7 @@ output JSON file:
 output XML file:
 
 <img src="./_assets/img6.png" width="300px" >
+
+- `md_to_latex` Tool
 
 - `md_to_md` Tool
