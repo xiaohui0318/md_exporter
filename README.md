@@ -8,17 +8,54 @@
 
 This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/JSON/XML files.
 
-| Tool          | Input                           | Output        |
-|---------------|---------------------------------|---------------|
-| `md_to_docx`  | Markdown text                   | DOCX file     |
-| `md_to_html`  | Markdown text                   | HTML file     |
-| `md_to_pdf`   | Markdown text                   | PDF file      |
-| `md_to_md`    | Markdown text                   | Markdown file |
-| `md_to_xlsx`  | Tables in Markdown syntax       | XLSX file     |
-| `md_to_csv`   | Single table in Markdown syntax | CSV file      |
-| `md_to_json`  | Single table in Markdown syntax | JSON file     |
-| `md_to_xml`   | Single table in Markdown syntax | XML file      |
-| `md_to_latex` | Single table in Markdown syntax | LaTeX file    |
+<table>
+  <tr>
+    <th>Tool</th>
+    <th>Input</th>
+    <th>Output</th>
+  </tr>
+  <tr>
+    <td><code>md_to_docx</code></td>
+    <td rowspan="4">Markdown text</td>
+    <td>DOCX file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_html</code></td>
+    <td>HTML file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_pdf</code></td>
+    <td>PDF file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_md</code></td>
+    <td>Markdown file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_xlsx</code></td>
+    <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
+    <td>XLSX file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_csv</code></td>
+    <td rowspan="4">
+      <a href="https://www.markdownguide.org/extended-syntax/#tables">Single Markdown table</a>
+  </td>
+    <td>CSV file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_json</code></td>
+    <td>JSON file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_xml</code></td>
+    <td>XML file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_latex</code></td>
+    <td>LaTeX file</td>
+  </tr>
+</table>
 
 The transformation processes for each file format are as followed:
 
