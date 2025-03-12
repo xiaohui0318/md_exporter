@@ -24,8 +24,12 @@ class MarkdownToLatexFile(Tool):
 
         try:
             table = tables[0]
-            latex_str = table.to_latex(index=False)
-            result_file_bytes = latex_str.encode("utf-8")
+            table_latex_str = table.to_latex(index=False)
+            doc_latex_str = ("\documentclass[]{{article}}\n"
+                             + "\\begin{document}}\n"
+                             + table_latex_str
+                             + "\end{document}")
+            result_file_bytes = doc_latex_str.encode("utf-8")
         except Exception as e:
             logging.exception("Failed to convert to LaTeX file")
             yield self.create_text_message(f"Failed to convert markdown text to LaTeX file, error: {str(e)}")
