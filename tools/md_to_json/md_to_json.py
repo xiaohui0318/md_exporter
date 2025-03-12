@@ -24,7 +24,7 @@ class MarkdownToJsonFile(Tool):
 
         try:
             table = tables[0]
-            json_str = table.to_json(index=False, orient='records')
+            json_str = table.to_json(index=False, orient='records', force_ascii=False)
             result_file_bytes = json_str.encode("utf-8")
         except Exception as e:
             logging.exception("Failed to convert to JSON file")
