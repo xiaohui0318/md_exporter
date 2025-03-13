@@ -1,11 +1,10 @@
 import logging
-from pathlib import Path
-from tempfile import NamedTemporaryFile
 from typing import Generator
 
+import markdown
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
-from markdowntodocx import markdownconverter
+from html2docx import html2docx
 
 from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
@@ -23,9 +22,16 @@ class MarkdownToDocxFile(Tool):
 
         try:
             md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
-            with NamedTemporaryFile(suffix=".docx", delete=True) as temp_docx_file:
-                markdownconverter.markdownToWordFromString(string=md_text, outfile=temp_docx_file)
-                result_file_bytes = Path(temp_docx_file.name).read_bytes()
+
+            # Legacy: using markdowntodocx lib
+            # with NamedTemporaryFile(suffix=".docx", delete=True) as temp_docx_file:
+            #     markdownconverter.markdownToWordFromString(string=md_text, outfile=temp_docx_file)
+            #     result_file_bytes = Path(temp_docx_file.name).read_bytes()
+
+            extensions = ["extra", "toc"]
+            html = markdown.markdown(text=md_text, extensions=extensions)
+            output_buf = html2docx(html, title="My Document")
+            result_file_bytes = output_buf.getvalue()
         except Exception as e:
             logging.exception("Failed to convert file")
             yield self.create_text_message(f"Failed to convert markdown text to DOCX file, error: {str(e)}")
