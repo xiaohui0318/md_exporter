@@ -18,12 +18,11 @@ class MarkdownUtils:
     def convert_markdown_to_html(cls, md_text: str) -> str:
         # official supported Markdown extensions:
         # https://python-markdown.github.io/extensions/#officially-supported-extensions
-        extensions = ["extra", "toc"]
-        html = markdown.markdown(text=md_text, extensions=extensions)
+        html = markdown.markdown(text=md_text, extensions=["extra", "toc"])
         return f"""
         {html}
-        {cls.CSS_FOR_TABLE if "<table>" in html else ""}
-        """
+        {cls.CSS_FOR_TABLE}
+        """ if "<table>" in html else html
 
     @staticmethod
     def strip_markdown_wrapper(md_text: str) -> str:

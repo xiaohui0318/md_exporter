@@ -21,8 +21,7 @@ class MarkdownToXmlTool(Tool):
             raise ValueError("Invalid input md_text")
 
         try:
-            extensions = ["extra", "toc"]
-            html_str = markdown.markdown(text=md_text, extensions=extensions)
+            html_str = markdown.markdown(text=md_text, extensions=["extra", "toc"])
             xml_element = html.fromstring(html_str)
             result_file_bytes = etree.tostring(xml_element, xml_declaration=True, pretty_print=True, encoding="UTF-8")
         except Exception as e:

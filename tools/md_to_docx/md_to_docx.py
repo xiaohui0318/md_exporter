@@ -28,8 +28,7 @@ class MarkdownToDocxTool(Tool):
             #     markdownconverter.markdownToWordFromString(string=md_text, outfile=temp_docx_file)
             #     result_file_bytes = Path(temp_docx_file.name).read_bytes()
 
-            extensions = ["extra", "toc"]
-            html = markdown.markdown(text=md_text, extensions=extensions)
+            html = markdown.markdown(text=md_text, extensions=["extra", "toc"])
             output_buf = html2docx(html, title="My Document")
             result_file_bytes = output_buf.getvalue()
         except Exception as e:
