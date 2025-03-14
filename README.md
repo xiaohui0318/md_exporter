@@ -16,7 +16,7 @@ This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/
   </tr>
   <tr>
     <td><code>md_to_docx</code></td>
-    <td rowspan="4">Markdown text</td>
+    <td rowspan="5">Markdown text</td>
     <td>DOCX file</td>
   </tr>
   <tr>
@@ -30,6 +30,10 @@ This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/
   <tr>
     <td><code>md_to_md</code></td>
     <td>Markdown file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_xml</code></td>
+    <td>XML file</td>
   </tr>
   <tr>
     <td><code>md_to_xlsx</code></td>
@@ -48,10 +52,6 @@ This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/
     <td>JSON file</td>
   </tr>
   <tr>
-    <td><code>md_to_xml</code></td>
-    <td>XML file</td>
-  </tr>
-  <tr>
     <td><code>md_to_latex</code></td>
     <td>LaTeX file</td>
   </tr>
@@ -59,15 +59,15 @@ This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/
 
 The transformation processes for each file format are as followed:
 
-- Docx file: Markdown -> Docx file
+- Docx file: Markdown > HTML -> Docx file
 - HTML file: Markdown -> HTML -> HTML file
 - PDF file: Markdown -> HTML -> PDF file
 - md file: Markdown -> md file
+- XML file: Markdown -> HTML -> XML file
 - Xlsx file: Markdown -> HTML -> Pandas DataFrame -> Xlsx file
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
 - JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
-- XML file: Markdown -> HTML -> Pandas DataFrame -> XML file
-- Latex file: Markdown -> HTML -> Pandas DataFrame -> Latex file
+- LaTeX file: Markdown -> HTML -> Pandas DataFrame -> LaTeX file
 
 ## Tools
 
