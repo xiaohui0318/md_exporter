@@ -6,7 +6,7 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.utils.mimetype_utils import MimeType
 
 
-class MarkdownToMarkdownFile(Tool):
+class MarkdownToMarkdownTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools

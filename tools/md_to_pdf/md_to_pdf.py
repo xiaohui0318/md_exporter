@@ -8,7 +8,7 @@ from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
 
 
-class MarkdownToPdfFile(Tool):
+class MarkdownToPdfTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools

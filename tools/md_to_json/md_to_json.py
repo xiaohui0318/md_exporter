@@ -8,7 +8,7 @@ from tools.utils.mimetype_utils import MimeType
 from tools.utils.table_utils import TableParser
 
 
-class MarkdownToJsonFile(Tool):
+class MarkdownToJsonTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools

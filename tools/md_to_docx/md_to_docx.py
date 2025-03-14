@@ -10,7 +10,7 @@ from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
 
 
-class MarkdownToDocxFile(Tool):
+class MarkdownToDocxTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools
