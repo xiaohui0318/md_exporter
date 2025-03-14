@@ -1,4 +1,5 @@
 import logging
+from io import StringIO
 
 import markdown
 import pandas as pd
@@ -14,7 +15,7 @@ class TableParser:
         """
         try:
             html_str = markdown.markdown(text=md_text, extensions=['tables'])
-            tables = pd.read_html(html_str)
+            tables = pd.read_html(StringIO(html_str))
             if not tables or len(tables) < 1:
                 raise ValueError("No available tables parsed from markdown text")
             return tables
