@@ -6,7 +6,7 @@
 
 ### Description
 
-This plugin provides tools to export Markdown text to Docx/PDF/HTML/PPTX/md/Xlsx/CSV/JSON/XML files.
+This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files.
 
 <table>
   <tr>
@@ -36,14 +36,14 @@ This plugin provides tools to export Markdown text to Docx/PDF/HTML/PPTX/md/Xlsx
     <td>XML file</td>
   </tr>
   <tr>
-    <td><code>md_to_xlsx</code></td>
-    <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
-    <td>XLSX file</td>
-  </tr>
-  <tr>
     <td><code>md_to_pptx</code></td>
     <td><a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md">Slides in md2pptx's Markdown syntax</a></td>
     <td>PPTX file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_xlsx</code></td>
+    <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
+    <td>XLSX file</td>
   </tr>
   <tr>
     <td><code>md_to_csv</code></td>
@@ -69,7 +69,8 @@ The transformation processes for each file format are as followed:
 - PDF file: Markdown -> HTML -> PDF file
 - md file: Markdown -> md file
 - XML file: Markdown -> HTML -> XML file
-- Xlsx file: Markdown -> HTML -> Pandas DataFrame -> Xlsx file
+- PPTX file: Markdown -> PPTX file
+- XLSX file: Markdown -> HTML -> Pandas DataFrame -> XLSX file
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
 - JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
 - LaTeX file: Markdown -> HTML -> Pandas DataFrame -> LaTeX file
