@@ -42,6 +42,7 @@ class MarkdownToPptxFile(Tool):
                     )
                     if result.returncode != 0:
                         raise Exception(f"Failed to convert markdown text to PPTX file,"
+                                        f" return code: {result.returncode},"
                                         f" stdout: {result.stdout},"
                                         f" error: {result.stderr}")
                     result_file_bytes = Path(temp_pptx_file.name).read_bytes()
