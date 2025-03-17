@@ -1,4 +1,4 @@
-version: 0.0.6
+version: 0.1.0
 type: plugin
 author: bowenliang123
 name: md_exporter
@@ -9,9 +9,9 @@ label:
   zh_Hans: Markdown 转换器
   ja_JP: Markdownエクスポーター
 description:
-  en_US: Export Markdown to Docx, PDF, HTML, md, Xlsx, CSV, JSON, XML files.
-  zh_Hans: 导出 Markdown 为 Docx, PDF, HTML, md, Xlsx, CSV, JSON, XML 文件。
-  ja_JP: MarkdownをDocx, PDF, HTML, md, Xlsx, CSV, JSON, XML ファイルにエクスポートします
+  en_US: Export Markdown to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files.
+  zh_Hans: 导出 Markdown 为 DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex 文件。
+  ja_JP: MarkdownをDOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex ファイルにエクスポートします
 icon: icon.svg
 resource:
   memory: 536870912
