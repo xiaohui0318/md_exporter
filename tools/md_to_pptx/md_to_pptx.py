@@ -1,5 +1,6 @@
 import logging
 import os.path
+import subprocess
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Generator
@@ -29,9 +30,20 @@ class MarkdownToPptxFile(Tool):
                 # run md2pptx to convert md file to pptx file
                 with NamedTemporaryFile(suffix=".pptx", delete=True) as temp_pptx_file:
                     current_script_folder = os.path.split(os.path.realpath(__file__))[0]
-                    cmd = f"{current_script_folder}/md2pptx-5.4.1/md2pptx {Path(temp_md_file.name)} {Path(temp_pptx_file.name)}"
-                    print(f"command: {cmd}")
-                    os.system(cmd)
+                    cmd = [f"{current_script_folder}/md2pptx-5.4.1/md2pptx", f"{Path(temp_md_file.name)}",
+                           f"{Path(temp_pptx_file.name)}"]
+                    print(f"md2pptx command: {" ".join(cmd)}")
+
+                    result = subprocess.run(
+                        cmd,
+                        timeout=60,  # timeout in seconds
+                        capture_output=True,
+                        text=True
+                    )
+                    if result.returncode != 0:
+                        raise Exception(f"Failed to convert markdown text to PPTX file,"
+                                        f" stdout: {result.stdout},"
+                                        f" error: {result.stderr}")
                     result_file_bytes = Path(temp_pptx_file.name).read_bytes()
 
         except Exception as e:
