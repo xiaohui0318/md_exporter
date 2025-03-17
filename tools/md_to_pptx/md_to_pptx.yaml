@@ -1,0 +1,25 @@
+identity:
+  name: md_to_pptx
+  author: Bowen Liang
+  label:
+    en_US: Markdown to PPTX file
+    zh_Hans: Markdown转PPTX文件
+description:
+  human:
+    en_US: A tool for generating PPTX file from Markdown text
+    zh_Hans: 一个用于将Markdown转换为PPTX文件的工具
+  llm: A tool for generating PPTX file from Markdown text
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text，PPTX style reference：https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md
+      zh_Hans: Markdown格式文本，PPTX样式参照： https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md
+    form: llm
+extra:
+  python:
+    source: tools/md_to_pptx/md_to_pptx.py
