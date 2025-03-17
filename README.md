@@ -188,3 +188,13 @@ Viewed as PDF:
 <img src="./_assets/img8.png" width="300px" >
 
 - `md_to_md` Tool
+
+
+### Used Open sourced projects
+
+This Dify plugin uses the following open sourced projects:
+- [html2docx](https://github.com/erezlife/html2docx), MIT License
+- [md2pptx](https://github.com/MartinPacker/md2pptx) , MIT License
+- [python-pptx](https://github.com/scanny/python-pptx), MIT License
+- [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf), Apache License 2.0
+- [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
