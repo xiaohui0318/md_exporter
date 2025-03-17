@@ -6,7 +6,7 @@
 
 ### Description
 
-This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/JSON/XML files.
+This plugin provides tools to export Markdown text to Docx/PDF/HTML/PPTX/md/Xlsx/CSV/JSON/XML files.
 
 <table>
   <tr>
@@ -39,6 +39,11 @@ This plugin provides tools to export Markdown text to Docx/PDF/HTML/md/Xlsx/CSV/
     <td><code>md_to_xlsx</code></td>
     <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
     <td>XLSX file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_pptx</code></td>
+    <td><a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md">Slides in md2pptx's Markdown syntax</a></td>
+    <td>PPTX file</td>
   </tr>
   <tr>
     <td><code>md_to_csv</code></td>
@@ -112,6 +117,31 @@ output HTML file:
 
 <img src="./_assets/img12.png" width="600px" >
 
+- `md_to_pptx` Tool
+
+Input Markdown text in [md2pptx's Markdown syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md):
+
+```
+# This Is A Presentation Title Page
+
+## This Is A Presentation Section Page
+
+### This Is A Bulleted List Page
+
+* One
+    * One A
+    * One B
+* Two
+
+Here are some slide notes. Note you leave an empty line between the content - in this case a bulleted list - and the notes.
+
+You can do multiple paragraphs and even use symbols.
+```
+
+output PPTX file:
+
+<img src="./_assets/img14.png" width="600px" >
+
 - `md_to_xlsx` Tool
 
 Input Markdown text:
@@ -134,7 +164,6 @@ output XLSX file:
 <img src="./_assets/img4.png" width="600px" >
 
 - `md_to_csv` Tool
-
 
 - `md_to_json` Tool
 
