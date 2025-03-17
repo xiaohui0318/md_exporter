@@ -18,13 +18,8 @@ class MarkdownToPptxFile(Tool):
         md_text = tool_parameters.get("md_text")
         if not md_text:
             raise ValueError("Invalid input md_text")
-
-        # prepend template name
-        # the default template name is "Martin Template.pptx" in "md2pptx-*" subfolder
-        ppt_template_name = "template: Martin Template.pptx"
-        if not md_text.startswith(ppt_template_name):
-            md_text = ppt_template_name + "\n" + md_text
-        md_text = "removeFirstSlide: yes\n" + md_text
+        else:
+            md_text = self._prepend_metadata(md_text)
 
         try:
             # write markdown text to a temp source file
@@ -48,3 +43,19 @@ class MarkdownToPptxFile(Tool):
         yield self.create_blob_message(blob=result_file_bytes, meta={
             "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"})
         return
+
+    @staticmethod
+    def _prepend_metadata(md_text: str) -> str:
+        """
+        Prepend metadata to markdown text
+        """
+        # the default template name is "Martin Template.pptx" in "md2pptx-*" subfolder
+        ppt_template = "template: Martin Template.pptx"
+
+        # delete the first slide
+        # doc: https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#deleting-the-first-processing-summary-slide---with-deletefirstslide
+        delete_first_slide = "DeleteFirstSlide: yes"
+
+        metadata_str = "\n".join([ppt_template, delete_first_slide])
+        text = metadata_str + "\n" + md_text
+        return text
