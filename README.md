@@ -11,12 +11,14 @@ This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF
 <table>
   <tr>
     <th>Tool</th>
-    <th>Input</th>
+    <th>Input (Syntax)</th>
     <th>Output</th>
   </tr>
   <tr>
     <td><code>md_to_docx</code></td>
-    <td rowspan="5">Markdown text</td>
+    <td rowspan="5">
+      <a href="https://daringfireball.net/projects/markdown/syntax">Markdown text</a>
+    </td>
     <td>DOCX file</td>
   </tr>
   <tr>
@@ -37,7 +39,7 @@ This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF
   </tr>
   <tr>
     <td><code>md_to_pptx</code></td>
-    <td><a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md">Slides in md2pptx's Markdown syntax</a></td>
+    <td><a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md">Markdown of md2pptx slides</a></td>
     <td>PPTX file</td>
   </tr>
   <tr>
