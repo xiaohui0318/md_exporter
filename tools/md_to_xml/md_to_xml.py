@@ -23,7 +23,7 @@ class MarkdownToXmlTool(Tool):
         try:
             html_str = markdown.markdown(text=md_text, extensions=["extra", "toc"])
             xml_element = html.fromstring(html_str)
-            result_file_bytes = etree.tostring(element_or_tree=etree.indent(xml_element),
+            result_file_bytes = etree.tostring(element_or_tree=xml_element,
                                                xml_declaration=True, pretty_print=True, encoding="UTF-8")
         except Exception as e:
             logging.exception("Failed to convert to XML file")
