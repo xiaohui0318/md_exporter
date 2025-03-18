@@ -7,9 +7,10 @@ from typing import Generator
 
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
+import pptx  # type: ignore
 
 
-class MarkdownToPptxFile(Tool):
+class MarkdownToPptxTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools

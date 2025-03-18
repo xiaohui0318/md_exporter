@@ -3,6 +3,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Generator
 
+import pandas as pd
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
@@ -15,7 +16,6 @@ class MarkdownToXlsxTool(Tool):
         """
         invoke tools
         """
-        import pandas as pd
 
         # get parameters
         md_text = tool_parameters.get("md_text")
