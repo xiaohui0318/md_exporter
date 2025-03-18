@@ -6361,5 +6361,4 @@ script = ""
 for slide in prs.slides:
     exec(script)
 
-
 sys.exit()
