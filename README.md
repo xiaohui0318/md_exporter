@@ -40,7 +40,10 @@ files.
   </tr>
   <tr>
     <td><code>md_to_rst</code></td>
-    <td>RST(reStructuredText) file</td>
+    <td>
+      <p>RST file</p>
+      (with basic reStructuredText syntax support)
+    </td>
   </tr>
   <tr>
     <td><code>md_to_pptx</code></td>
@@ -200,6 +203,18 @@ Viewed as PDF:
 <img src="./_assets/img8.png" width="300px" >
 
 - `md_to_md` Tool
+
+### Changelog
+
+- 0.2.0:
+    - Introducing `md_to_rst` tool, support reStructuredText `.rst` file format as destination file format
+
+- 0.1.x:
+    - Introducing `md_to_pptx` tool, support PowerPoint `.pptx` file format as destination file format
+
+- 0.0.x:
+    - Published to Dify Marketplace
+    - support exporting Markdown to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files
 
 ### Used Open sourced projects
 
