@@ -20,29 +20,29 @@ files.
     <td rowspan="6">
       <a href="https://daringfireball.net/projects/markdown/syntax">Markdown text</a>
     </td>
-    <td>DOCX file</td>
+    <td>Word file (.docx)</td>
   </tr>
   <tr>
     <td><code>md_to_html</code></td>
-    <td>HTML file</td>
+    <td>HTML file (.html)</td>
   </tr>
   <tr>
     <td><code>md_to_pdf</code></td>
-    <td>PDF file</td>
+    <td>PDF file (.pdf)</td>
   </tr>
   <tr>
     <td><code>md_to_md</code></td>
-    <td>Markdown file</td>
+    <td>Markdown file (.md)</td>
   </tr>
   <tr>
     <td><code>md_to_xml</code></td>
-    <td>XML file</td>
+    <td>XML file (.xml)</td>
   </tr>
   <tr>
     <td><code>md_to_rst</code></td>
     <td>
-      <p>RST file</p>
-      (with basic reStructuredText syntax support)
+      <p>reStructuredText file (.rst)</p>
+      [with basic syntax support]
     </td>
   </tr>
   <tr>
@@ -52,27 +52,27 @@ files.
         Markdown slides in md2pptx dialect
       </a>
     </td>
-    <td>PPTX file</td>
+    <td>PowerPoint file (.pptx)</td>
   </tr>
   <tr>
     <td><code>md_to_xlsx</code></td>
     <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
-    <td>XLSX file</td>
+    <td>Excel file (.xlsx)</td>
   </tr>
   <tr>
     <td><code>md_to_csv</code></td>
     <td rowspan="4">
       <a href="https://www.markdownguide.org/extended-syntax/#tables">Single Markdown table</a>
   </td>
-    <td>CSV file</td>
+    <td>CSV file (.csv)</td>
   </tr>
   <tr>
     <td><code>md_to_json</code></td>
-    <td>JSON file</td>
+    <td>JSON file (.json)</td>
   </tr>
   <tr>
     <td><code>md_to_latex</code></td>
-    <td>LaTeX file</td>
+    <td>LaTeX file (.tex)</td>
   </tr>
 </table>
 
@@ -226,6 +226,7 @@ This Dify plugin uses the following open sourced projects:
 
 - [html2docx](https://github.com/erezlife/html2docx), MIT License
 - [md2pptx](https://github.com/MartinPacker/md2pptx) , MIT License
+- [mistune](https://github.com/lepture/mistune), BSD 3-Clause License
+- [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
 - [python-pptx](https://github.com/scanny/python-pptx), MIT License
 - [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf), Apache License 2.0
-- [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
