@@ -72,7 +72,7 @@ files.
 The transformation processes for each file format are as followed:
 
 - Docx file: Markdown > HTML -> Docx file
-- HTML file: Markdown -> HTML -> HTML file
+- HTML file: Markdown -> HTML file
 - PDF file: Markdown -> HTML -> PDF file
 - md file: Markdown -> md file
 - XML file: Markdown -> HTML -> XML file
