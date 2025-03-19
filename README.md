@@ -6,7 +6,8 @@
 
 ### Description
 
-This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files.
+This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex, RST
+files.
 
 <table>
   <tr>
@@ -16,7 +17,7 @@ This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF
   </tr>
   <tr>
     <td><code>md_to_docx</code></td>
-    <td rowspan="5">
+    <td rowspan="6">
       <a href="https://daringfireball.net/projects/markdown/syntax">Markdown text</a>
     </td>
     <td>DOCX file</td>
@@ -36,6 +37,10 @@ This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF
   <tr>
     <td><code>md_to_xml</code></td>
     <td>XML file</td>
+  </tr>
+  <tr>
+    <td><code>md_to_rst</code></td>
+    <td>RST(reStructuredText) file</td>
   </tr>
   <tr>
     <td><code>md_to_pptx</code></td>
@@ -71,6 +76,7 @@ The transformation processes for each file format are as followed:
 - PDF file: Markdown -> HTML -> PDF file
 - md file: Markdown -> md file
 - XML file: Markdown -> HTML -> XML file
+- RST file: Markdown -> RST file
 - PPTX file: Markdown -> PPTX file
 - XLSX file: Markdown -> HTML -> Pandas DataFrame -> XLSX file
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
@@ -122,7 +128,8 @@ output HTML file:
 
 - `md_to_pptx` Tool
 
-Input Markdown text in [md2pptx's Markdown syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md):
+Input Markdown text
+in [md2pptx's Markdown syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md):
 
 ```
 # This Is A Presentation Title Page
@@ -144,6 +151,8 @@ You can do multiple paragraphs and even use symbols.
 output PPTX file:
 
 <img src="./_assets/img14.png" width="600px" >
+
+- `md_to_rst` Tool
 
 - `md_to_xlsx` Tool
 
@@ -192,10 +201,10 @@ Viewed as PDF:
 
 - `md_to_md` Tool
 
-
 ### Used Open sourced projects
 
 This Dify plugin uses the following open sourced projects:
+
 - [html2docx](https://github.com/erezlife/html2docx), MIT License
 - [md2pptx](https://github.com/MartinPacker/md2pptx) , MIT License
 - [python-pptx](https://github.com/scanny/python-pptx), MIT License
