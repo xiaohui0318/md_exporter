@@ -9,6 +9,6 @@ class MimeType(StrEnum):
     LATEX = "application/x-tex"
     MD = "text/markdown"
     PDF = "application/pdf"
-    RST = "text/x-rst"
+    RST = "text/prs.fallenstein.rst"
     XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     XML = "text/xml"
