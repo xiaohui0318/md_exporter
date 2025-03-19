@@ -17,8 +17,8 @@ parameters:
       en_US: Markdown text
       zh_Hans: Markdown格式文本
     human_description:
-      en_US: Markdown text，PPTX style reference：https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md
-      zh_Hans: Markdown格式文本，PPTX样式参照： https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md
+      en_US: Markdown text，style docs：https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides
+      zh_Hans: Markdown格式文本，样式文档： https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides
     form: llm
 extra:
   python:

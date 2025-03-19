@@ -47,7 +47,11 @@ files.
   </tr>
   <tr>
     <td><code>md_to_pptx</code></td>
-    <td><a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md">Markdown of md2pptx slides</a></td>
+    <td>
+      <a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides">
+        Markdown slides in md2pptx dialect
+      </a>
+    </td>
     <td>PPTX file</td>
   </tr>
   <tr>
@@ -132,7 +136,7 @@ output HTML file:
 - `md_to_pptx` Tool
 
 Input Markdown text
-in [md2pptx's Markdown syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md):
+in [md2pptx's Markdown slides syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides):
 
 ```
 # This Is A Presentation Title Page

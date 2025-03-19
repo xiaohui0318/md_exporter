@@ -17,8 +17,8 @@ parameters:
       en_US: Markdown text
       zh_Hans: Markdown格式文本
     human_description:
-      en_US: Markdown table text
-      zh_Hans: Markdown格式文本，必须为Markdown表格格式
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
     form: llm
 extra:
   python:
