@@ -3,6 +3,7 @@ from typing import Any
 from dify_plugin import ToolProvider
 from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 
+from tools.md_to_codeblock.md_to_codeblock import MarkdownToCodeblockTool
 from tools.md_to_csv.md_to_csv import MarkdownToCsvTool
 from tools.md_to_docx.md_to_docx import MarkdownToDocxTool
 from tools.md_to_html.md_to_html import MarkdownToHtmlTool
@@ -29,5 +30,6 @@ class MdExporterProvider(ToolProvider):
             MarkdownToPptxTool.from_credentials({})
             MarkdownToXlsxTool.from_credentials({})
             MarkdownToRstTool.from_credentials({})
+            MarkdownToCodeblockTool.from_credentials({})
         except Exception as e:
             raise ToolProviderCredentialValidationError(str(e))
