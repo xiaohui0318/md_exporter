@@ -38,15 +38,10 @@ class MarkdownToCodeblockTool(Tool):
 
     @staticmethod
     def extract_markdown_code_blocks(text: str) -> list[dict[str:str]]:
-        """
-        从Markdown文本中提取所有代码块及其语言类型
-        返回格式：[{"type": "语言名称", "content": "代码内容"}, ...]
-        """
         code_blocks = []
-        # 正则表达式模式（支持语言类型识别和多行代码）
+        # Extract language type and code content
         pattern = re.compile(r'```([a-zA-Z0-9\+#\-_]*)\s*\n(.*?)\n```', re.DOTALL)
 
-        # 遍历所有匹配结果
         for match in pattern.finditer(text):
             lang_type = match.group(1).strip() or 'text'
             code_content = match.group(2).strip()
