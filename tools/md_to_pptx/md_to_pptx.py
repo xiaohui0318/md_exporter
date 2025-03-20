@@ -34,7 +34,7 @@ class MarkdownToPptxTool(Tool):
                     cmd = [f"python3", f"{current_script_folder}/md2pptx-5.4.1/md2pptx.py",
                            f"{Path(temp_md_file.name)}",
                            f"{Path(temp_pptx_file.name)}"]
-                    print(f"md2pptx command: {" ".join(cmd)}")
+                    # print(f"md2pptx command: {" ".join(cmd)}")
 
                     result = subprocess.run(
                         cmd,

@@ -7,7 +7,7 @@
 ### Description
 
 This Dify plugin provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex, RST
-files.
+files, and extract code blocks to snippet files as .py file, .sh file, and etc.
 
 <table>
   <tr>
@@ -55,6 +55,33 @@ files.
     <td>PowerPoint file (.pptx)</td>
   </tr>
   <tr>
+    <td><code>md_to_codeblock</code></td>
+    <td>
+      <a href="https://www.markdownguide.org/extended-syntax/#fenced-code-blocks">
+        Markdown Code Blocks
+      </a>
+eg.
+<pre>
+```python
+print("Hello Dify!")
+```</pre>
+    </td>
+    <td>
+      Generated files by language type of the code blocks:
+      <ul>
+          <li>python → .py file</li>
+          <li>javascript → .js file</li>
+          <li>html → .html file</li>
+          <li>bash → .sh file</li>
+          <li>json → .json file</li>
+          <li>xml → .xml file</li>
+          <li>svg → .svg file</li>
+          <li>css → .css file</li>
+          <li>markdown → .md file</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
     <td><code>md_to_xlsx</code></td>
     <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
     <td>Excel file (.xlsx)</td>
@@ -89,6 +116,7 @@ The transformation processes for each file format are as followed:
 - CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
 - JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
 - LaTeX file: Markdown -> HTML -> Pandas DataFrame -> LaTeX file
+- Code Blocks: Markdown -> Code Blocks with language type and content -> Varying files formats by language type
 
 ## Tools
 
@@ -208,9 +236,12 @@ Viewed as PDF:
 
 - `md_to_md` Tool
 
+- `md_to_codeblock` Tool
+
 ### Changelog
 
 - 0.2.0:
+    - Introducing `md_to_codeblock` tool, support extracting code blocks in Markdown to Python, JSON, JS, BASH, SVG, HTML, XML, MARKDOWN files. 
     - Introducing `md_to_rst` tool, support reStructuredText `.rst` file format as destination file format
 
 - 0.1.x:

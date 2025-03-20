@@ -1,0 +1,25 @@
+identity:
+  name: md_to_codeblock
+  author: Bowen Liang
+  label:
+    en_US: Codeblocks to file
+    zh_Hans: 提取Codeblock为文件
+description:
+  human:
+    en_US: A tool for generating files from code blocks from Markdown text
+    zh_Hans: 一个用于将Markdown中代码块转换为文件的工具
+  llm: A tool for generating files from code blocks from Markdown text
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    form: llm
+extra:
+  python:
+    source: tools/md_to_codeblock/md_to_codeblock.py
