@@ -177,10 +177,6 @@ in [md2pptx's Markdown slides syntax](https://github.com/MartinPacker/md2pptx/bl
     * One A
     * One B
 * Two
-
-Here are some slide notes. Note you leave an empty line between the content - in this case a bulleted list - and the notes.
-
-You can do multiple paragraphs and even use symbols.
 ```
 
 output PPTX file:
