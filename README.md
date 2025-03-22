@@ -246,7 +246,7 @@ Output `.md` file with orginal input Markdown text.
 
 ## Changelog
 
-- 0.2.1:
+- 0.3.0:
     - Fixed the error in importing libraries of `md_to_pptx` tool when running on self-hosted Dify plugin-daemon service
 
 - 0.2.0:
