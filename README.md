@@ -267,3 +267,10 @@ This Dify plugin uses the following open sourced projects:
 
 ## License
 - Apache License 2.0
+
+
+## Privacy
+
+This plugin collects no personal data.
+
+All the file transformation is done in the place of the plugin and no data is transmitted to other services.
