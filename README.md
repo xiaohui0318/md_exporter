@@ -66,12 +66,6 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
        Code Blocks in Markdown text
       </a>
       </p>
-      
-eg.
-<pre>
-```python
-print("Hello Dify!")
-```</pre>
     </td>
     <td>
       Multiple generated files in formats by language type of the extracted code blocks:
