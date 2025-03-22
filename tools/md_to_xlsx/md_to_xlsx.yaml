@@ -2,13 +2,13 @@ identity:
   name: md_to_xlsx
   author: Bowen Liang
   label:
-    en_US: Markdown to Xlsx file
-    zh_Hans: Markdown转Xlsx文件
+    en_US: Markdown to XLSX file
+    zh_Hans: Markdown转XLSX文件
 description:
   human:
-    en_US: A tool for generating Xlsx file from Markdown text
-    zh_Hans: 一个用于将Markdown转换为Xlsx文件的工具
-  llm: A tool for generating Xlsx file from Markdown text
+    en_US: A tool for generating XLSX file from Markdown text
+    zh_Hans: 一个用于将Markdown转换为XLSX文件的工具
+  llm: A tool for generating XLSX file from Markdown text
 parameters:
   - name: md_text
     type: string
