@@ -108,49 +108,13 @@ print("Hello Dify!")
   </tr>
 </table>
 
-The transformation processes for each file format are as followed:
+## Usage
+<img src="./_assets/img1.png" width="600px" >
 
-- Docx file: Markdown > HTML -> Docx file
-- HTML file: Markdown -> HTML file
-- PDF file: Markdown -> HTML -> PDF file
-- md file: Markdown -> md file
-- XML file: Markdown -> HTML -> XML file
-- RST file: Markdown -> RST file
-- PPTX file: Markdown -> PPTX file
-- XLSX file: Markdown -> HTML -> Pandas DataFrame -> XLSX file
-- CSV file: Markdown -> HTML -> Pandas DataFrame -> CSV file
-- JSON file: Markdown -> HTML -> Pandas DataFrame -> JSON file
-- LaTeX file: Markdown -> HTML -> Pandas DataFrame -> LaTeX file
-- Code Blocks: Markdown -> Code Blocks with language type and content -> Varying files formats by language type
 
 ## Tools
 
-### `md_to_docx` Tool
-
-  Input Markdown text:
-
-```
-# English
-The Moon is a celestial body that orbits the Earth, with a diameter of about 3,474 kilometers.
-
-# 月球
-月球是一个围绕地球运行的星球，直径约为3474公里。
-
-# 繁体中文
-月球是一個圍繞地球運行的星球，直徑約為3474公里。
-
-# 日本語
-月は地球の周りを回る天体で、直径は約3474キロメートルです。
-
-# Português
-A Lua é um corpo celeste que orbita a Terra, com um diâmetro de cerca de 3.474 quilômetros.
-```
-
-usage:
-
-<img src="./_assets/img1.png" width="600px" >
-
-output DOCX file:
+### Markdown → DOCX
 
 <img src="./_assets/img2.png" width="600px" >
 
