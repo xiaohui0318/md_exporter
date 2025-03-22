@@ -1,8 +1,10 @@
-# Markdown Exporter
+# Markdown Exporter - Generate files from Mardown
 
 **Author:** [bowenliang123](https://github.com/bowenliang123)
 
 **Github Repository:** https://github.com/bowenliang123/md_exporter
+
+**Dify Marketplace:** https://marketplace.dify.ai/plugins/bowenliang123/md_exporter
 
 ## Description
 
@@ -109,31 +111,28 @@ print("Hello Dify!")
 </table>
 
 ## Usage
-<img src="./_assets/img1.png" width="600px" >
+![](_assets/usage_md_to_docx.png)
 
 
 ## Tools
 
 ### Markdown → DOCX
+![](_assets/md_to_docx_1.png)
 
-<img src="./_assets/img2.png" width="600px" >
 
-### `md_to_html` Tool
+### Markdown → HTML
 
-output HTML file:
+![](_assets/md_to_html_1.png)
 
-<img src="./_assets/img11.png" width="600px" >
+### Markdown → PDF
 
-### `md_to_pdf` Tool
+![](_assets/md_to_pdf_1.png)
 
-- output PDF file:
 
-<img src="./_assets/img12.png" width="600px" >
+### Markdown → PPTX
+The input Markdown text of slides must follows the syle rules of [md2pptx's  syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides).
 
-### `md_to_pptx` Tool
-
-Input Markdown text
-in [md2pptx's Markdown slides syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides):
+<details>
 
 ```
 # This Is A Presentation Title Page
@@ -147,14 +146,17 @@ in [md2pptx's Markdown slides syntax](https://github.com/MartinPacker/md2pptx/bl
     * One B
 * Two
 ```
+</details>
 
-output PPTX file:
 
-<img src="./_assets/img14.png" width="600px" >
+![](_assets/md_to_pptx_1.png)
 
-### `md_to_rst` Tool
 
-### `md_to_xlsx` Tool
+### Markdown → RST (reStructedText)
+
+Converted .rst file by using mistune's RST render with basic reStructedText syntax support.
+
+### Markdown → XLSX
 
 Input Markdown text:
 
@@ -167,41 +169,34 @@ Input Markdown text:
 | David   | 40  | Miami       |
 ```
 
-usage:
-
-<img src="./_assets/img3.png" width="600px" >
 
 output XLSX file:
 
-<img src="./_assets/img4.png" width="600px" >
+![](_assets/md_to_xlsx_1.png)
 
-### `md_to_csv` Tool
+### Markdown → CSV
 
-### `md_to_json` Tool
+### Markdown → JSON
 
-output JSON file:
+![](_assets/md_to_json_1.png)
 
-<img src="./_assets/img5.png" width="300px" >
+### Markdown → XML
 
-### `md_to_xml` Tool
+![](_assets/md_to_xml_1.png)
 
-output XML file:
+### Markdown → LaTeX
 
-<img src="./_assets/img6.png" width="300px" >
+output LaTeX file:
 
-### `md_to_latex` Tool
+![](_assets/md_to_latex_1.png)
 
-output LaTex file:
+viewed as PDF:
 
-<img src="./_assets/img7.png" width="300px" >
+![](_assets/md_to_latex_2.png)
 
-Viewed as PDF:
+### Markdown → Markdown
 
-<img src="./_assets/img8.png" width="300px" >
-
-### `md_to_md` Tool
-
-### `md_to_codeblock` Tool
+### Markdown → Code Blocks files (.py/.sh/.html/.css, etc.)
 
 ## License
 - Apache License 2.0
