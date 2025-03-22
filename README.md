@@ -236,6 +236,9 @@ Viewed as PDF:
 
 ### Changelog
 
+- 0.2.1:
+    - Fixed the error in importing libraries of `md_to_pptx` tool when running on self-hosted Dify plugin-daemon service
+
 - 0.2.0:
     - Introducing `md_to_codeblock` tool, support extracting code blocks in Markdown to Python, JSON, JS, BASH, SVG, HTML, XML, MARKDOWN files. 
     - Introducing `md_to_rst` tool, support reStructuredText `.rst` file format as destination file format
