@@ -8,7 +8,7 @@
 
 ## Description
 
-This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex, RST files, and extract code blocks to snippet files as `.py`, `.sh` , `.js`, `.xml` files, and etc.
+This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex, RST files, and extract code blocks to snippet files as `.py`, `.sh` , `.js`, `.xml` file, and etc.
 
 <table>
   <tr>
