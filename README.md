@@ -1,17 +1,20 @@
-## Markdown Exporter
+# Markdown Exporter
 
 **Author:** [bowenliang123](https://github.com/bowenliang123)
 
-**Github Repo:** https://github.com/bowenliang123/md_exporter
+**Github Repository:** https://github.com/bowenliang123/md_exporter
 
-### Description
+## Description
 
 This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex, RST files, and extract code blocks to snippet files as `.py` file, `.sh` file, and etc.
 
 <table>
   <tr>
     <th>Tool</th>
-    <th>Input (Syntax)</th>
+    <th>
+    	Input
+    	<p>(Syntax)</p>
+    </th>
     <th>Output</th>
   </tr>
   <tr>
@@ -56,9 +59,12 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
   <tr>
     <td><code>md_to_codeblock</code></td>
     <td>
+    	<p>
       <a href="https://www.markdownguide.org/extended-syntax/#fenced-code-blocks">
-        Markdown Code Blocks
+       Code Blocks in Markdown text
       </a>
+      </p>
+      
 eg.
 <pre>
 ```python
@@ -66,7 +72,7 @@ print("Hello Dify!")
 ```</pre>
     </td>
     <td>
-      Generated files by language type of the code blocks:
+      Multiple generated files in formats by language type of the extracted code blocks:
       <ul>
           <li>python → .py file</li>
           <li>javascript → .js file</li>
@@ -119,7 +125,7 @@ The transformation processes for each file format are as followed:
 
 ## Tools
 
-- `md_to_docx` Tool
+### `md_to_docx` Tool
 
   Input Markdown text:
 
@@ -148,19 +154,19 @@ output DOCX file:
 
 <img src="./_assets/img2.png" width="600px" >
 
-- `md_to_html` Tool
+### `md_to_html` Tool
 
 output HTML file:
 
 <img src="./_assets/img11.png" width="600px" >
 
-- `md_to_pdf` Tool
+### `md_to_pdf` Tool
 
 - output PDF file:
 
 <img src="./_assets/img12.png" width="600px" >
 
-- `md_to_pptx` Tool
+### `md_to_pptx` Tool
 
 Input Markdown text
 in [md2pptx's Markdown slides syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides):
@@ -182,9 +188,9 @@ output PPTX file:
 
 <img src="./_assets/img14.png" width="600px" >
 
-- `md_to_rst` Tool
+### `md_to_rst` Tool
 
-- `md_to_xlsx` Tool
+### `md_to_xlsx` Tool
 
 Input Markdown text:
 
@@ -205,21 +211,21 @@ output XLSX file:
 
 <img src="./_assets/img4.png" width="600px" >
 
-- `md_to_csv` Tool
+### `md_to_csv` Tool
 
-- `md_to_json` Tool
+### `md_to_json` Tool
 
 output JSON file:
 
 <img src="./_assets/img5.png" width="300px" >
 
-- `md_to_xml` Tool
+### `md_to_xml` Tool
 
 output XML file:
 
 <img src="./_assets/img6.png" width="300px" >
 
-- `md_to_latex` Tool
+### `md_to_latex` Tool
 
 output LaTex file:
 
@@ -229,11 +235,14 @@ Viewed as PDF:
 
 <img src="./_assets/img8.png" width="300px" >
 
-- `md_to_md` Tool
+### `md_to_md` Tool
 
-- `md_to_codeblock` Tool
+### `md_to_codeblock` Tool
 
-### Changelog
+## License
+- Apache License 2.0
+
+## Changelog
 
 - 0.2.1:
     - Fixed the error in importing libraries of `md_to_pptx` tool when running on self-hosted Dify plugin-daemon service
@@ -249,7 +258,7 @@ Viewed as PDF:
     - Published to Dify Marketplace
     - support exporting Markdown to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files
 
-### Used Open sourced projects
+## Used Open sourced projects
 
 This Dify plugin uses the following open sourced projects:
 
