@@ -6,6 +6,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 from lxml import html, etree
 
+from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
 
 
@@ -21,6 +22,7 @@ class MarkdownToXmlTool(Tool):
             raise ValueError("Invalid input md_text")
 
         try:
+            md_text=MarkdownUtils.strip_markdown_wrapper(md_text)
             html_str = markdown.markdown(text=md_text, extensions=["extra", "toc"])
             xml_element = html.fromstring(html_str)
             result_file_bytes = etree.tostring(element_or_tree=xml_element,

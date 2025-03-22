@@ -4,6 +4,8 @@ from io import StringIO
 import markdown
 import pandas as pd
 
+from tools.utils.md_utils import MarkdownUtils
+
 
 class TableParser:
     @staticmethod
@@ -14,6 +16,7 @@ class TableParser:
         :return: list of tables
         """
         try:
+            md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
             html_str = markdown.markdown(text=md_text, extensions=['tables'])
             tables = pd.read_html(StringIO(html_str))
             if not tables or len(tables) < 1:

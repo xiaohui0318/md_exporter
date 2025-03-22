@@ -119,15 +119,27 @@ print("Hello Dify!")
 ### Markdown → DOCX
 ![](_assets/md_to_docx_1.png)
 
+---
 
-### Markdown → HTML
+### Markdown → XLSX
 
-![](_assets/md_to_html_1.png)
+Input Markdown text:
 
-### Markdown → PDF
+```
+| Name    | Age | City        |
+|---------|-----|-------------|
+| Alice   | 30  | New York    |
+| Bowen   | 25  | Guangzhou   |
+| Charlie | 35  | Tokyo       |
+| David   | 40  | Miami       |
+```
 
-![](_assets/md_to_pdf_1.png)
 
+output XLSX file:
+
+![](_assets/md_to_xlsx_1.png)
+
+---
 
 ### Markdown → PPTX
 The input Markdown text of slides must follows the syle rules of [md2pptx's  syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides).
@@ -151,38 +163,66 @@ The input Markdown text of slides must follows the syle rules of [md2pptx's  syn
 
 ![](_assets/md_to_pptx_1.png)
 
+---
+
+### Markdown → HTML
+
+![](_assets/md_to_html_1.png)
+
+---
+
+### Markdown → PDF
+
+![](_assets/md_to_pdf_1.png)
+
+---
+
+### Markdown → Code Blocks files (.py/.sh/.html/.css, etc.)
+
+  Multiple generated files in formats by language type of the extracted code blocks:
+  <ul>
+      <li>python → .py file</li>
+      <li>javascript → .js file</li>
+      <li>html → .html file</li>
+      <li>bash → .sh file</li>
+      <li>json → .json file</li>
+      <li>xml → .xml file</li>
+      <li>svg → .svg file</li>
+      <li>css → .css file</li>
+      <li>markdown → .md file</li>
+  </ul>
+
+![](_assets/usage_md_to_codeblock_2.png)
+
+---
 
 ### Markdown → RST (reStructedText)
 
 Converted .rst file by using mistune's RST render with basic reStructedText syntax support.
 
-### Markdown → XLSX
+![](_assets/md_to_rst_1.png)
 
-Input Markdown text:
-
-```
-| Name    | Age | City        |
-|---------|-----|-------------|
-| Alice   | 30  | New York    |
-| Bowen   | 25  | Guangzhou   |
-| Charlie | 35  | Tokyo       |
-| David   | 40  | Miami       |
-```
-
-
-output XLSX file:
-
-![](_assets/md_to_xlsx_1.png)
+---
 
 ### Markdown → CSV
+
+
+![](_assets/md_to_csv_1.png)
+
+
+---
 
 ### Markdown → JSON
 
 ![](_assets/md_to_json_1.png)
 
+---
+
 ### Markdown → XML
 
 ![](_assets/md_to_xml_1.png)
+
+---
 
 ### Markdown → LaTeX
 
@@ -194,12 +234,15 @@ viewed as PDF:
 
 ![](_assets/md_to_latex_2.png)
 
+---
+
 ### Markdown → Markdown
 
-### Markdown → Code Blocks files (.py/.sh/.html/.css, etc.)
+Output `.md` file with orginal input Markdown text.
 
-## License
-- Apache License 2.0
+
+
+---
 
 ## Changelog
 
@@ -227,3 +270,6 @@ This Dify plugin uses the following open sourced projects:
 - [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
 - [python-pptx](https://github.com/scanny/python-pptx), MIT License
 - [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf), Apache License 2.0
+
+## License
+- Apache License 2.0

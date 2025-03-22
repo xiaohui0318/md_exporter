@@ -2,7 +2,7 @@ identity:
   name: md_to_codeblock
   author: Bowen Liang
   label:
-    en_US: Codeblocks to file
+    en_US: Codeblocks to files
     zh_Hans: 提取Codeblock为文件
 description:
   human:
