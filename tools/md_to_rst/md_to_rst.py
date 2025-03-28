@@ -7,6 +7,7 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from mistune.renderers.rst import RSTRenderer
 
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToRstTool(Tool):
@@ -16,10 +17,7 @@ class MarkdownToRstTool(Tool):
         """
 
         # get parameters
-        md_text = tool_parameters.get("md_text")
-        if not md_text:
-            raise ValueError("Invalid input md_text")
-
+        md_text = get_md_text(tool_parameters)
         try:
             convert_rst = mistune.create_markdown(renderer=RSTRenderer())
             rst_str = convert_rst(md_text)

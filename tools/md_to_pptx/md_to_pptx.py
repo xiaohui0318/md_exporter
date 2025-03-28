@@ -11,6 +11,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToPptxTool(Tool):
@@ -20,11 +21,10 @@ class MarkdownToPptxTool(Tool):
         """
 
         # get parameters
-        md_text = tool_parameters.get("md_text")
-        if not md_text:
-            raise ValueError("Invalid input md_text")
-        else:
-            md_text = self._prepend_metadata(md_text)
+        md_text = get_md_text(tool_parameters)
+
+        # prepend md2pptx metadata configs
+        md_text = self._prepend_metadata(md_text)
 
         try:
             # write markdown text to a temp source file

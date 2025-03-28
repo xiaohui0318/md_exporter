@@ -16,10 +16,7 @@ class MarkdownToDocxTool(Tool):
         invoke tools
         """
         # get parameters
-        md_text = tool_parameters.get("md_text")
-        if not md_text:
-            raise ValueError("Invalid input md_text")
-
+        md_text = get_md_text(tool_parameters)
         try:
             md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
 

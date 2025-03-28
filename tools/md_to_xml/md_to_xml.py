@@ -8,6 +8,7 @@ from lxml import html, etree
 
 from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToXmlTool(Tool):
@@ -17,12 +18,9 @@ class MarkdownToXmlTool(Tool):
         """
 
         # get parameters
-        md_text = tool_parameters.get("md_text")
-        if not md_text:
-            raise ValueError("Invalid input md_text")
-
+        md_text = get_md_text(tool_parameters)
         try:
-            md_text=MarkdownUtils.strip_markdown_wrapper(md_text)
+            md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
             html_str = markdown.markdown(text=md_text, extensions=["extra", "toc"])
             xml_element = html.fromstring(html_str)
             result_file_bytes = etree.tostring(element_or_tree=xml_element,

@@ -5,6 +5,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.param_utils import get_md_text
 from tools.utils.table_utils import TableParser
 
 
@@ -15,10 +16,7 @@ class MarkdownToCsvTool(Tool):
         """
 
         # get parameters
-        md_text = tool_parameters.get("md_text")
-        if not md_text:
-            raise ValueError("Invalid input md_text")
-
+        md_text = get_md_text(tool_parameters)
         # parse markdown to tables
         tables = TableParser.parse_md_to_tables(md_text)
 

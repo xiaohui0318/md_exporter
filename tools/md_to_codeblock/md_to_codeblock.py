@@ -5,6 +5,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToCodeblockTool(Tool):
@@ -14,10 +15,7 @@ class MarkdownToCodeblockTool(Tool):
         """
 
         # get parameters
-        md_text = tool_parameters.get("md_text")
-        if not md_text:
-            raise ValueError("Invalid input md_text")
-
+        md_text = get_md_text(tool_parameters)
         code_blocks = self.extract_markdown_code_blocks(md_text)
 
         for code_block in code_blocks:
