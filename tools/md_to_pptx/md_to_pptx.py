@@ -10,6 +10,8 @@ import pptx  # type: ignore
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.utils.mimetype_utils import MimeType
+
 
 class MarkdownToPptxTool(Tool):
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
@@ -59,7 +61,7 @@ class MarkdownToPptxTool(Tool):
         yield self.create_blob_message(
             blob=result_file_bytes,
             meta={
-                "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                "mime_type": MimeType.PPTX,
             })
         return
 

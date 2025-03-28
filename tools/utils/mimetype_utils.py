@@ -11,6 +11,7 @@ class MimeType(StrEnum):
     LATEX = "application/x-tex"
     MD = "text/markdown"
     PDF = "application/pdf"
+    PPTX = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
     PY = "text/x-python"
     RST = "text/prs.fallenstein.rst"
     TXT = "text/plain"
