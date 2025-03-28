@@ -1,4 +1,4 @@
-dify_plugin~=0.0.1b74
+dify_plugin~=0.0.1b75
 html2docx~=1.6.0
 markdown~=3.7.0
 pandas[excel,html,xml]~=2.2.3
