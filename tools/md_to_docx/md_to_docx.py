@@ -6,7 +6,6 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 from html2docx import html2docx
 
-from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 
@@ -17,10 +16,8 @@ class MarkdownToDocxTool(Tool):
         invoke tools
         """
         # get parameters
-        md_text = get_md_text(tool_parameters)
+        md_text = get_md_text(tool_parameters, is_strip_wrapper=True)
         try:
-            md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
-
             # Legacy: using markdowntodocx lib
             # with NamedTemporaryFile(suffix=".docx", delete=True) as temp_docx_file:
             #     markdownconverter.markdownToWordFromString(string=md_text, outfile=temp_docx_file)

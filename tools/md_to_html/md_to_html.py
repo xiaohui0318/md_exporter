@@ -18,7 +18,6 @@ class MarkdownToHtmlTool(Tool):
         md_text = get_md_text(tool_parameters)
 
         try:
-            md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
             html_str = MarkdownUtils.convert_markdown_to_html(md_text)
             result_file_bytes = html_str.encode("utf-8")
         except Exception as e:
