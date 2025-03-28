@@ -53,7 +53,7 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     <td><code>md_to_pptx</code></td>
     <td>
       <a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides">
-        Markdown slides in md2pptx dialect
+        Markdown slides
       </a>
     </td>
     <td>PowerPoint file (.pptx)</td>
