@@ -8,6 +8,7 @@ from html2docx import html2docx
 
 from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
+from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToDocxTool(Tool):
