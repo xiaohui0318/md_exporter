@@ -22,7 +22,7 @@ parameters:
     form: llm
   - name: is_compress
     type: select
-    required: true
+    required: false
     default: "false"
     options:
       - value: "true"
@@ -34,7 +34,7 @@ parameters:
           en_US: "No"
           zh_Hans: 否
     label:
-      en_US: Whether to generate into ZIP file
+      en_US: Generate into ZIP file
       zh_Hans: 是否压缩为ZIP文件
     human_description:
       en_US: Whether to generate into ZIP file

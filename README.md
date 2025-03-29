@@ -52,23 +52,31 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
   <tr>
     <td><code>md_to_pptx</code></td>
     <td>
-      <a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides">
+      <div>
+      
         Markdown slides
       </a>
+      </div>
+      <div>
+      with <a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides"> md2pptx </a> style
+      </div>
     </td>
     <td>PowerPoint file (.pptx)</td>
   </tr>
   <tr>
     <td><code>md_to_codeblock</code></td>
     <td>
-    	<p>
+      <div>
       <a href="https://www.markdownguide.org/extended-syntax/#fenced-code-blocks">
-       Code Blocks in Markdown text
+        Code Blocks
       </a>
-      </p>
+      </div>
+      <div>
+         in Markdown text
+      </div>
     </td>
     <td>
-      Generating files by language types:
+      Generating files by language:
       <ul>
           <li>python → .py file</li>
           <li>javascript → .js file</li>
@@ -80,6 +88,9 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
           <li>css → .css file</li>
           <li>markdown → .md file</li>
       </ul>
+      
+      Support exporting all code files in a single zip file.
+
     </td>
   </tr>
   <tr>
@@ -239,6 +250,8 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 0.4.0:
+    - support exporting Markdown codeblocks in to single zip file in `md_to_codeblocks` tool
 
 - 0.3.0:
     - Fixed the error in importing libraries of `md_to_pptx` tool when running on self-hosted Dify plugin-daemon service

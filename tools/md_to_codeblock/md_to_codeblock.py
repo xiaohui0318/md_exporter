@@ -25,7 +25,7 @@ class MarkdownToCodeblockTool(Tool):
         # extract code blocks
         code_blocks = self.extract_code_blocks(md_text)
 
-        if "true" == is_compress:
+        if "true" == is_compress.lower():
             with NamedTemporaryFile(suffix=".zip", delete=True) as temp_zip_file, \
                     zipfile.ZipFile(temp_zip_file.name, mode='w', compression=zipfile.ZIP_DEFLATED) as zip_file:
                 for idx, code_block in enumerate(code_blocks, 1):
