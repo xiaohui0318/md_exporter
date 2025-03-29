@@ -53,7 +53,6 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     <td><code>md_to_pptx</code></td>
     <td>
       <div>
-      
         Markdown slides
       </a>
       </div>
@@ -198,6 +197,10 @@ The input Markdown text of slides must follows the syle rules of [md2pptx's  syn
   </ul>
 
 ![](_assets/usage_md_to_codeblock_2.png)
+
+If compression is enabled, all the code blocks will be generated into a single ZIP file.
+![](_assets/usage_md_to_codeblock_3.png)
+![](_assets/usage_md_to_codeblock_4.png)
 
 ---
 
