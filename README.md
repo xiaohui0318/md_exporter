@@ -88,7 +88,7 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
           <li>markdown → .md file</li>
       </ul>
       
-      Support exporting all code files in a single zip file.
+      Or a ZIP file of codeblock files.
 
     </td>
   </tr>
