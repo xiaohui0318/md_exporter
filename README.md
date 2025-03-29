@@ -287,6 +287,6 @@ This Dify plugin uses the following open sourced projects:
 
 ## Privacy
 
-This plugin collects no personal data.
+This plugin collects no data.
 
-All the file transformation is done in the place of the plugin and no data is transmitted to other services.
+All the file transformations are completed locally. NO data is transmitted to third-party services.
