@@ -87,9 +87,9 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
           <li>css → .css file</li>
           <li>markdown → .md file</li>
       </ul>
-      
+      <div>
       Or a ZIP file of codeblock files.
-
+      </div>
     </td>
   </tr>
   <tr>
