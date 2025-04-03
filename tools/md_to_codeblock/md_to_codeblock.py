@@ -74,6 +74,7 @@ class MarkdownToCodeblockTool(Tool):
             "xml": MimeType.XML,
             "html": MimeType.HTML,
             "markdown": MimeType.MD,
+            "yaml": MimeType.YAML,
         }
         return mime_types.get(lang_type.lower(), MimeType.TXT)
 
