@@ -2,8 +2,8 @@ from enum import StrEnum
 
 
 class MimeType(StrEnum):
-    CSV = "text/csv"
     CSS = "text/css"
+    CSV = "text/csv"
     DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     HTML = "text/html"
     JS = "text/javascript"
