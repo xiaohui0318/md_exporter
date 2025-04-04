@@ -19,5 +19,5 @@ class MimeType(StrEnum):
     SVG = "image/svg+xml"
     XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     XML = "text/xml"
-    YAML = "application/yaml"
+    YAML = "text/yaml"
     ZIP = "application/zip"
