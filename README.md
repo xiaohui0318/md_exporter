@@ -253,6 +253,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 0.4.1:
+    - support YAML file exporting in `md_to_codeblocks` tool
+
 - 0.4.0:
     - support exporting Markdown codeblocks in to single zip file in `md_to_codeblocks` tool
 
