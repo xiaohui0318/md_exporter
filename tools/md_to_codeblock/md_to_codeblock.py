@@ -73,6 +73,7 @@ class MarkdownToCodeblockTool(Tool):
             "svg": MimeType.SVG,
             "xml": MimeType.XML,
             "html": MimeType.HTML,
+            "ruby": MimeType.RUBY,
             "markdown": MimeType.MD,
             "yaml": MimeType.YAML,
         }
@@ -92,5 +93,7 @@ class MarkdownToCodeblockTool(Tool):
             "xml": ".xml",
             "html": ".html",
             "markdown": ".md",
+            "yaml": ".yaml",
+            "ruby": ".rb",
         }
         return suffixes.get(lang_type.lower(), ".txt")
