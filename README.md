@@ -86,6 +86,9 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
           <li>svg → .svg file</li>
           <li>css → .css file</li>
           <li>yaml → .yaml file</li>
+          <li>ruby → .rb file</li>
+          <li>java → .java file</li>
+          <li>php → .php file</li>
           <li>markdown → .md file</li>
       </ul>
       <div>
@@ -195,6 +198,9 @@ The input Markdown text of slides must follows the syle rules of [md2pptx's  syn
       <li>svg → .svg file</li>
       <li>css → .css file</li>
       <li>yaml → .yaml file</li>
+      <li>ruby → .rb file</li>
+      <li>java → .java file</li>
+      <li>php → .php file</li>
       <li>markdown → .md file</li>
   </ul>
 
@@ -255,6 +261,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 0.4.2:
+    - support Java, PHP and Ruby file exporting in `md_to_codeblocks` tool
+
 - 0.4.1:
     - support YAML file exporting in `md_to_codeblocks` tool
 

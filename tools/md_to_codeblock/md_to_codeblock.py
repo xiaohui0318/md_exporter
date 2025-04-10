@@ -76,6 +76,8 @@ class MarkdownToCodeblockTool(Tool):
             "ruby": MimeType.RUBY,
             "markdown": MimeType.MD,
             "yaml": MimeType.YAML,
+            "php": MimeType.PHP,
+            "java": MimeType.JAVA,
         }
         return mime_types.get(lang_type.lower(), MimeType.TXT)
 
@@ -95,5 +97,7 @@ class MarkdownToCodeblockTool(Tool):
             "markdown": ".md",
             "yaml": ".yaml",
             "ruby": ".rb",
+            "php": ".php",
+            "java": ".java",
         }
         return suffixes.get(lang_type.lower(), ".txt")
