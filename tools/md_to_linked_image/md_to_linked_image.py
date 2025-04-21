@@ -1,7 +1,7 @@
 import re
 from typing import Generator
 
-import requests
+import httpx
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
@@ -24,7 +24,7 @@ class MarkdownToLinkedImageTool(Tool):
 
         for url in image_urls:
             try:
-                response = requests.get(url, timeout=60)
+                response = httpx.get(url, timeout=60)
                 if response.status_code != 200:
                     yield self.create_text_message(f"Failed to download image from URL: {url},"
                                                    f" HTTP status code: {response.status_code}")
