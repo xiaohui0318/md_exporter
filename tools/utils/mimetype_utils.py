@@ -13,6 +13,7 @@ class MimeType(StrEnum):
     MD = "text/markdown"
     PDF = "application/pdf"
     PHP = "application/x-httpd-php"
+    PNG = "image/png"
     PPTX = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
     PY = "text/x-python"
     RST = "text/prs.fallenstein.rst"

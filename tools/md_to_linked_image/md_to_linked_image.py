@@ -5,6 +5,7 @@ import httpx
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 
 
@@ -31,7 +32,7 @@ class MarkdownToLinkedImageTool(Tool):
                     continue
                 yield self.create_blob_message(
                     blob=response.content,
-                    meta={"mime_type": response.headers['Content-Type'] or "image/png"}
+                    meta={"mime_type": response.headers['Content-Type'] or MimeType.PNG}
                 )
             except:
                 yield self.create_text_message(f"Failed to download image from URL: {url}")
