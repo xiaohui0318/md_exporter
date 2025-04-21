@@ -1,7 +1,10 @@
+import logging
 import re
 from typing import Generator
 
 import httpx
+import markdown
+from bs4 import BeautifulSoup
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
@@ -38,17 +41,31 @@ class MarkdownToLinkedImageTool(Tool):
                 yield self.create_text_message(f"Failed to download image from URL: {url}")
                 continue
 
-    def extract_image_urls(self, markdown_text: str) -> list[str]:
-        urls: list[str] = []
-        match_image_tags = re.findall(self.markdown_image_pattern, markdown_text)
+    def extract_image_urls(self, md_text: str) -> list[str]:
+        html = markdown.markdown(text=md_text, extensions=["extra", "toc"])
 
-        for img in match_image_tags:
-            # => ![](xxx.png)
-            # <= xxx.png
-            url = re.findall(r"\((.*?)\)", img)[0]
+        image_urls: list[str] = []
+        try:
+            soup = BeautifulSoup(html, 'html.parser')
+            img_tags = soup.find_all('img')
+            image_urls = [img.get('src') for img in img_tags if img.get('src')]
+        except:
+            logging.exception("Failed to extract image URLs from markdown text by html parser")
+
+            match_image_tags = re.findall(self.markdown_image_pattern, md_text)
+            for img in match_image_tags:
+                # => ![](xxx.png)
+                # <= xxx.png
+                url = re.findall(r"\((.*?)\)", img)[0]
+                image_urls.append(url)
+
+        result_image_urls = []
+        for url in image_urls:
             if not url or not url.lower().startswith("http"):
                 continue
+            elif url in result_image_urls:
+                continue
             else:
-                urls.append(url)
+                result_image_urls.append(url)
 
-        return urls
+        return result_image_urls
