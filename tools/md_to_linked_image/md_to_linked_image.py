@@ -37,9 +37,6 @@ class MarkdownToLinkedImageTool(Tool):
                 yield self.create_text_message(f"Failed to download image from URL: {url}")
                 continue
 
-        # join code_blocks with sep ","
-        yield self.create_text_message(",".join(image_urls))
-
     def extract_image_urls(self, markdown_text: str) -> list[str]:
         urls: list[str] = []
         match_image_tags = re.findall(self.markdown_image_pattern, markdown_text)
