@@ -261,6 +261,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 0.4.3:
+    - improve the display of Chinese characters in text paragraph in `md_to_docx` tool
+
 - 0.4.2:
     - support Java, PHP and Ruby file exporting in `md_to_codeblocks` tool
 
