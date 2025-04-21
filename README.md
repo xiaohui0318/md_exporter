@@ -97,6 +97,27 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     </td>
   </tr>
   <tr>
+    <td><code>md_to_linked_image</code></td>
+    <td>
+      <div>
+      <a href="https://www.markdownguide.org/basic-syntax/#linking-images">
+        Linked images
+      </a>
+      </div>
+      <div>
+         in Markdown text
+      </div>
+    </td>
+    <td>
+      <div>
+      Images files from the linked image URLs.
+      </div>
+      <div>
+      Only http or https URLs are supported.
+      </div>
+    </td>
+  </tr>
+  <tr>
     <td><code>md_to_xlsx</code></td>
     <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
     <td>Excel file (.xlsx)</td>
@@ -212,6 +233,12 @@ If compression is enabled, all the code blocks will be generated into a single Z
 
 ---
 
+### Markdown → Linked Image files
+
+![](_assets/usage_md_to_linked_image_1.png)
+
+---
+
 ### Markdown → RST (reStructedText)
 
 Converted .rst file by using mistune's RST render with basic reStructedText syntax support.
@@ -261,6 +288,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 0.5.0:
+    -  Introducing `md_to_linked_image` tool, support extracting image files in links in Markdown text
+
 - 0.4.3:
     - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese     - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese charactor
 
