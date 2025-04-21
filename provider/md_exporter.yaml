@@ -23,6 +23,7 @@ tools:
   - tools/md_to_pptx/md_to_pptx.yaml
   - tools/md_to_rst/md_to_rst.yaml
   - tools/md_to_codeblock/md_to_codeblock.yaml
+  - tools/md_to_linked_image/md_to_linked_image.yaml
 extra:
   python:
     source: provider/md_exporter.py

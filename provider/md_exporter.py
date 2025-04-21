@@ -8,6 +8,7 @@ from tools.md_to_csv.md_to_csv import MarkdownToCsvTool
 from tools.md_to_docx.md_to_docx import MarkdownToDocxTool
 from tools.md_to_html.md_to_html import MarkdownToHtmlTool
 from tools.md_to_json.md_to_json import MarkdownToJsonTool
+from tools.md_to_linked_image.md_to_linked_image import MarkdownToLinkedImageTool
 from tools.md_to_md.md_to_md import MarkdownToMarkdownTool
 from tools.md_to_pdf.md_to_pdf import MarkdownToPdfTool
 from tools.md_to_pptx.md_to_pptx import MarkdownToPptxTool
@@ -31,5 +32,6 @@ class MdExporterProvider(ToolProvider):
             MarkdownToXlsxTool.from_credentials({})
             MarkdownToRstTool.from_credentials({})
             MarkdownToCodeblockTool.from_credentials({})
+            MarkdownToLinkedImageTool.from_credentials({})
         except Exception as e:
             raise ToolProviderCredentialValidationError(str(e))
