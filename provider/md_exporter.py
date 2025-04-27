@@ -8,12 +8,14 @@ from tools.md_to_csv.md_to_csv import MarkdownToCsvTool
 from tools.md_to_docx.md_to_docx import MarkdownToDocxTool
 from tools.md_to_html.md_to_html import MarkdownToHtmlTool
 from tools.md_to_json.md_to_json import MarkdownToJsonTool
+from tools.md_to_latex.md_to_latex import MarkdownToLatexTool
 from tools.md_to_linked_image.md_to_linked_image import MarkdownToLinkedImageTool
 from tools.md_to_md.md_to_md import MarkdownToMarkdownTool
 from tools.md_to_pdf.md_to_pdf import MarkdownToPdfTool
 from tools.md_to_pptx.md_to_pptx import MarkdownToPptxTool
 from tools.md_to_rst.md_to_rst import MarkdownToRstTool
 from tools.md_to_xlsx.md_to_xlsx import MarkdownToXlsxTool
+from tools.md_to_xml.md_to_xml import MarkdownToXmlTool
 
 
 class MdExporterProvider(ToolProvider):
@@ -22,16 +24,22 @@ class MdExporterProvider(ToolProvider):
             """
             IMPLEMENT YOUR VALIDATION HERE
             """
-            MarkdownToCsvTool.from_credentials({})
-            MarkdownToDocxTool.from_credentials({})
-            MarkdownToHtmlTool.from_credentials({})
-            MarkdownToJsonTool.from_credentials({})
-            MarkdownToMarkdownTool.from_credentials({})
-            MarkdownToPdfTool.from_credentials({})
-            MarkdownToPptxTool.from_credentials({})
-            MarkdownToXlsxTool.from_credentials({})
-            MarkdownToRstTool.from_credentials({})
-            MarkdownToCodeblockTool.from_credentials({})
-            MarkdownToLinkedImageTool.from_credentials({})
+            tools = [
+                MarkdownToCodeblockTool,
+                MarkdownToCsvTool,
+                MarkdownToDocxTool,
+                MarkdownToHtmlTool,
+                MarkdownToJsonTool,
+                MarkdownToLatexTool,
+                MarkdownToLinkedImageTool,
+                MarkdownToMarkdownTool,
+                MarkdownToPdfTool,
+                MarkdownToPptxTool,
+                MarkdownToRstTool,
+                MarkdownToXlsxTool,
+                MarkdownToXmlTool,
+            ]
+            for tool in tools:
+                tool.from_credentials({})
         except Exception as e:
             raise ToolProviderCredentialValidationError(str(e))
