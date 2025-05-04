@@ -1,4 +1,5 @@
 from typing import Optional
+from urllib.parse import quote
 
 from tools.utils.mimetype_utils import MimeType
 
@@ -9,14 +10,15 @@ def get_meta_data(mime_type: MimeType, output_filename: Optional[str]) -> dict[s
 
     # normalize the filename
     result_filename: Optional[str] = None
-    if output_filename and output_filename.strip():
+    temp_filename = output_filename.strip() if output_filename else None
+    if temp_filename:
         # ensure extension name
-        temp_filename = output_filename.strip()
         extension = MimeType.get_extension(mime_type)
         if temp_filename.lower().endswith(extension):
-            result_filename = temp_filename
+            temp_filename = temp_filename
         else:
-            result_filename = f"{temp_filename}{extension}"
+            temp_filename = f"{temp_filename}{extension}"
+        result_filename = quote(temp_filename)
 
     return {
         "mime_type": mime_type,
