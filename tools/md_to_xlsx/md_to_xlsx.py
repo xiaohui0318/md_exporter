@@ -7,6 +7,7 @@ import pandas as pd
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.utils.file_utils import get_meta_data
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 from tools.utils.table_utils import TableParser
@@ -40,6 +41,9 @@ class MarkdownToXlsxTool(Tool):
 
         yield self.create_blob_message(
             blob=result_file_bytes,
-            meta={"mime_type": MimeType.XLSX},
+            meta=get_meta_data(
+                mime_type=MimeType.XLSX,
+                output_filename=tool_parameters.get("output_filename"),
+            ),
         )
         return

@@ -20,6 +20,16 @@ parameters:
       en_US: Markdown text
       zh_Hans: Markdown格式文本
     form: llm
+  - name: output_filename
+    type: string
+    required: false
+    label:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    human_description:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    form: llm
 extra:
   python:
     source: tools/md_to_md/md_to_md.py

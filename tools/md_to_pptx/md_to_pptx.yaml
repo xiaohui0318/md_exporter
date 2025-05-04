@@ -20,6 +20,16 @@ parameters:
       en_US: Markdown text，style docs：https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides
       zh_Hans: Markdown格式文本，样式文档： https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides
     form: llm
+  - name: output_filename
+    type: string
+    required: false
+    label:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    human_description:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    form: llm
 extra:
   python:
     source: tools/md_to_pptx/md_to_pptx.py

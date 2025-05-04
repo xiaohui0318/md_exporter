@@ -20,6 +20,16 @@ parameters:
       en_US: Markdown table text
       zh_Hans: Markdown格式文本，必须为Markdown表格格式，可包含多个表格
     form: llm
+  - name: output_filename
+    type: string
+    required: false
+    label:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    human_description:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    form: llm
 extra:
   python:
     source: tools/md_to_xlsx/md_to_xlsx.py

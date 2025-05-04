@@ -10,6 +10,7 @@ from docx import Document
 from docx.oxml.ns import qn
 from htmldocx import HtmlToDocx
 
+from tools.utils.file_utils import get_meta_data
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 
@@ -46,7 +47,10 @@ class MarkdownToDocxTool(Tool):
 
         yield self.create_blob_message(
             blob=result_file_bytes,
-            meta={"mime_type": MimeType.DOCX},
+            meta=get_meta_data(
+                mime_type=MimeType.DOCX,
+                output_filename=tool_parameters.get("output_filename"),
+            ),
         )
         return
 

@@ -8,6 +8,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.md_to_codeblock.codeblock import CodeBlock
+from tools.utils.file_utils import get_meta_data
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text, get_param_value
 
@@ -37,7 +38,10 @@ class MarkdownToCodeblockTool(Tool):
                 zip_file.close()
                 yield self.create_blob_message(
                     blob=Path(zip_file.filename).read_bytes(),
-                    meta={"mime_type": MimeType.ZIP}
+                    meta=get_meta_data(
+                        mime_type=MimeType.ZIP,
+                        output_filename=tool_parameters.get("output_filename"),
+                    ),
                 )
         else:
             for code_block in code_blocks:
