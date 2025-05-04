@@ -10,11 +10,13 @@ def get_meta_data(mime_type: MimeType, output_filename: Optional[str]) -> dict[s
     # normalize the filename
     result_filename: Optional[str] = None
     if output_filename and output_filename.strip():
-        # remove the declared extension
-        if "." in output_filename:
-            result_filename = output_filename.split(".")[0]
+        # ensure extension name
+        temp_filename = output_filename.strip()
+        extension = MimeType.get_extension(mime_type)
+        if temp_filename.lower().endswith(extension):
+            result_filename = temp_filename
         else:
-            result_filename = output_filename
+            result_filename = f"{temp_filename}{extension}"
 
     return {
         "mime_type": mime_type,
