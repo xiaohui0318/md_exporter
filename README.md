@@ -288,8 +288,11 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.0.0:
+    - Support customize the output file name
+
 - 0.5.0:
-    -  Introducing `md_to_linked_image` tool, support extracting image files in links in Markdown text
+    - Introducing `md_to_linked_image` tool, support extracting image files in links in Markdown text
 
 - 0.4.3:
     - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese     - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese charactor
