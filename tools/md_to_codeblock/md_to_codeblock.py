@@ -49,7 +49,8 @@ class MarkdownToCodeblockTool(Tool):
                     blob=code_block.code_bytes,
                     meta=get_meta_data(
                         mime_type=self.get_mime_type(code_block.lang_type),
-                        output_filename=tool_parameters.get("output_filename") + "_" + str(index + 1),
+                        output_filename=tool_parameters.get("output_filename") +
+                                        (("_" + str(index + 1)) if len(code_blocks) > 1 else ""),
                     ),
                 )
 
