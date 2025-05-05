@@ -14,9 +14,7 @@ def get_meta_data(mime_type: MimeType, output_filename: Optional[str]) -> dict[s
     if temp_filename:
         # ensure extension name
         extension = MimeType.get_extension(mime_type)
-        if temp_filename.lower().endswith(extension):
-            temp_filename = temp_filename
-        else:
+        if not temp_filename.lower().endswith(extension):
             temp_filename = f"{temp_filename}{extension}"
         result_filename = quote(temp_filename)
 
