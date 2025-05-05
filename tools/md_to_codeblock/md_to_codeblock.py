@@ -44,10 +44,13 @@ class MarkdownToCodeblockTool(Tool):
                     ),
                 )
         else:
-            for code_block in code_blocks:
+            for index, code_block in enumerate(code_blocks):
                 yield self.create_blob_message(
                     blob=code_block.code_bytes,
-                    meta={"mime_type": self.get_mime_type(code_block.lang_type)}
+                    meta=get_meta_data(
+                        mime_type=self.get_mime_type(code_block.lang_type),
+                        output_filename=tool_parameters.get("output_filename") + "_" + str(index + 1),
+                    ),
                 )
 
     @staticmethod
@@ -65,7 +68,7 @@ class MarkdownToCodeblockTool(Tool):
         return code_blocks
 
     @staticmethod
-    def get_mime_type(lang_type: str) -> str:
+    def get_mime_type(lang_type: str) -> MimeType:
         mime_types = {
             "css": MimeType.CSS,
             "csv": MimeType.CSV,
