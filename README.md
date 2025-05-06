@@ -288,6 +288,12 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.0.2:
+    - Fix missing custom output filename support in md_to_csv, md_to_json, md_to_latex tool
+
+- 1.0.1:
+    - Remove redundant URL safe conversion in custom output filename
+
 - 1.0.0:
     - Support customize the output file name
 
