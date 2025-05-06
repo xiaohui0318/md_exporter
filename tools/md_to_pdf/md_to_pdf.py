@@ -18,9 +18,8 @@ class MarkdownToPdfTool(Tool):
         from xhtml2pdf import pisa
 
         # get parameters
-        md_text = get_md_text(tool_parameters)
+        md_text = get_md_text(tool_parameters, is_strip_wrapper=True)
         try:
-            md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
             html_str = self._convert_to_html(md_text)
             result_file_bytes = pisa.CreatePDF(
                 src=html_str,
