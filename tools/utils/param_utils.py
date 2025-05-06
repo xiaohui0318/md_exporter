@@ -15,9 +15,10 @@ def get_md_text(tool_parameters: dict[str, Any],
         raise ValueError("Empty input md_text")
 
     # remove think tag
-    if is_remove_think_tag and "<think>" in md_text:
-        think_tag_pattern = r'<think>.*?</think>'
-        md_text = re.sub(think_tag_pattern, '', md_text, flags=re.DOTALL)
+    if is_remove_think_tag:
+        if "<think>" in md_text and "</think>" in md_text:
+            think_tag_pattern = r'<think>.*?</think>'
+            md_text = re.sub(think_tag_pattern, '', md_text, flags=re.DOTALL)
 
     if is_strip_wrapper:
         md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
