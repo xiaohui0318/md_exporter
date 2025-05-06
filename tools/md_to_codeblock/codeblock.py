@@ -4,5 +4,5 @@ class CodeBlock:
         self.code = code
 
     @property
-    def code_bytes(self)-> bytes:
+    def code_bytes(self) -> bytes:
         return self.code.encode("utf-8")
