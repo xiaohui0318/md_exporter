@@ -6,6 +6,7 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 from html2docx import html2docx
 
+from tools.utils.file_utils import get_meta_data
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 
@@ -33,6 +34,9 @@ class MarkdownToDocxTool(Tool):
 
         yield self.create_blob_message(
             blob=result_file_bytes,
-            meta={"mime_type": MimeType.DOCX},
+            meta=get_meta_data(
+                mime_type=MimeType.DOCX,
+                output_filename=tool_parameters.get("output_filename"),
+            ),
         )
         return
