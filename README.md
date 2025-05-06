@@ -288,9 +288,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
-- 1.0.2:
+- 1.1.0:
+    - Enable line breaks normalization in all tools by default, replacing all the occurrences of `\\n` to `\n`
     - Fix missing custom output filename support in md_to_csv, md_to_json, md_to_latex tool
-    - adaptive conversion for `\\n` to `\n` in markdown table parsing
 
 - 1.0.1:
     - Remove redundant URL safe conversion in custom output filename
