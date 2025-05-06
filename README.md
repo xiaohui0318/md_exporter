@@ -332,10 +332,10 @@ Output `.md` file with orginal input Markdown text.
 
 This Dify plugin uses the following open sourced projects:
 
-- [html2docx](https://github.com/erezlife/html2docx), MIT License
 - [md2pptx](https://github.com/MartinPacker/md2pptx) , MIT License
 - [mistune](https://github.com/lepture/mistune), BSD 3-Clause License
 - [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
+- [python-docx](https://github.com/python-openxml/python-docx), MIT License
 - [python-pptx](https://github.com/scanny/python-pptx), MIT License
 - [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf), Apache License 2.0
 
