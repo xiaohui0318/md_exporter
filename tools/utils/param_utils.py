@@ -3,6 +3,8 @@ from typing import Any
 
 from tools.utils.md_utils import MarkdownUtils
 
+THINK_TAG_REGEX = re.compile(r'<think>.*?</think>', flags=re.DOTALL)
+
 
 def get_md_text(tool_parameters: dict[str, Any],
                 is_strip_wrapper: bool = False,
@@ -16,9 +18,7 @@ def get_md_text(tool_parameters: dict[str, Any],
 
     # remove think tag
     if is_remove_think_tag:
-        if "<think>" in md_text and "</think>" in md_text:
-            think_tag_pattern = r'<think>.*?</think>'
-            md_text = re.sub(think_tag_pattern, '', md_text, flags=re.DOTALL)
+        md_text = THINK_TAG_REGEX.sub('', md_text)
 
     if is_strip_wrapper:
         md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
