@@ -290,6 +290,7 @@ Output `.md` file with orginal input Markdown text.
 ## Changelog
 - 1.1.0:
     - Enable line breaks normalization in all tools by default, replacing all the occurrences of `\\n` to `\n`
+    - Remove `<think>` tags of reasoning content in the input Markdown text
     - Fix missing custom output filename support in md_to_csv, md_to_json, md_to_latex tool
 
 - 1.0.1:

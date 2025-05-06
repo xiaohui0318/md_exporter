@@ -1,3 +1,4 @@
+import re
 from typing import Any
 
 from tools.utils.md_utils import MarkdownUtils
@@ -5,12 +6,18 @@ from tools.utils.md_utils import MarkdownUtils
 
 def get_md_text(tool_parameters: dict[str, Any],
                 is_strip_wrapper: bool = False,
+                is_remove_think_tag: bool = True,
                 is_normalize_line_breaks: bool = True,
                 ) -> str:
     md_text = tool_parameters.get("md_text")
     md_text = md_text.strip() if md_text else None
     if not md_text:
         raise ValueError("Empty input md_text")
+
+    # remove think tag
+    if is_remove_think_tag and "<think>" in md_text:
+        think_tag_pattern = r'<think>.*?</think>'
+        md_text = re.sub(think_tag_pattern, '', md_text, flags=re.DOTALL)
 
     if is_strip_wrapper:
         md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
