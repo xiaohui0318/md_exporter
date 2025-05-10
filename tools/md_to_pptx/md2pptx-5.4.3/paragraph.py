@@ -5,12 +5,35 @@ paragraph
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.enum.shapes import PP_PLACEHOLDER
 from lxml import etree
+from pptx.oxml.xmlchemy import OxmlElement
 import re
 from pptx.dml.color import RGBColor, MSO_THEME_COLOR
+from pptx.util import Pt
 
 import globals
 from processingOptions import *
 from symbols import resolveSymbols
+from colour import parseRGB
+
+def setHighlight(run, color):
+    # get run properties
+    rPr = run._r.get_or_add_rPr()
+
+    # Create highlight element
+    hl = OxmlElement("a:highlight")
+
+    # Create specify RGB Colour element with color specified
+    srgbClr = OxmlElement("a:srgbClr")
+    setattr(srgbClr, "val", color)
+
+    # Add colour specification to highlight element
+    hl.append(srgbClr)
+
+    # Add highlight element to run properties
+    rPr.append(hl)
+
+    return run
+
 
 def removeBullet(paragraph):
     pPr = paragraph._p.get_or_add_pPr()
@@ -146,6 +169,8 @@ def parseText(text):
     # Replace any </sup> with char "\uFDE0"
     text2 = text2.replace("</sup>", u"\uFDE0")
 
+    # Note FDE1 - FDE3 used in resolveSymbols
+    
     # Handle escaped underscore
     text2 = text2.replace("\\_", "_")
 
@@ -396,10 +421,10 @@ def parseText(text):
             else:
                 fragment = fragment + c
 
-        elif ord(c) == 235:
+        elif c == u"\uFDE3":
             fragment = fragment + "`"
 
-        elif ord(c) == 236:
+        elif c == u"\uFDE1":
             fragment = fragment + "<"
 
         elif c == u"\uFDD6":
@@ -500,12 +525,12 @@ def addFormattedText(p, text):
     # fragment
     parsedText = parseText(text)
 
-    # Replace chr(237) with > in each Fragment
+    # Replace u"\uFDE2" with > in each Fragment
     for f in range(len(parsedText)):
         if parsedText[f][0] in ["SpanClass", "SpanStyle"]:
-            parsedText[f][1][1] = parsedText[f][1][1].replace(chr(237), ">")
+            parsedText[f][1][1] = parsedText[f][1][1].replace(u"\uFDE2", ">")
         else:
-            parsedText[f][-1] = parsedText[f][-1].replace(chr(237), ">")
+            parsedText[f][-1] = parsedText[f][-1].replace(u"\uFDE2", ">")
 
     # Prime flattened Text
     flattenedText = ""
