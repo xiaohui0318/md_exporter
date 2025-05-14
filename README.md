@@ -54,7 +54,6 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     <td>
       <div>
         Markdown slides
-      </a>
       </div>
       <div>
       with <a href="https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides"> md2pptx </a> style
@@ -288,6 +287,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.2.0:
+    - Support compressing images to single zip file in `md_to_linked_image` tool
+
 - 1.1.0:
     - Enable line breaks normalization in all tools by default, replacing all the occurrences of `\\n` to `\n`
     - Remove `<think>` tags of reasoning content in the input Markdown text
