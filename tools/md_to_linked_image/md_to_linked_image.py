@@ -1,5 +1,8 @@
 import logging
 import re
+import zipfile
+from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Generator
 
 import httpx
@@ -8,8 +11,9 @@ from bs4 import BeautifulSoup
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
+from tools.utils.file_utils import get_meta_data
 from tools.utils.mimetype_utils import MimeType
-from tools.utils.param_utils import get_md_text
+from tools.utils.param_utils import get_md_text, get_param_value
 
 
 class MarkdownToLinkedImageTool(Tool):
@@ -22,10 +26,12 @@ class MarkdownToLinkedImageTool(Tool):
 
         # get parameters
         md_text = get_md_text(tool_parameters)
+        is_compress = get_param_value(tool_parameters, "is_compress", "true")
 
         # extract code blocks
         image_urls = self.extract_image_urls(md_text)
 
+        images_for_zip = []
         for url in image_urls:
             try:
                 response = httpx.get(url, timeout=120)
@@ -33,13 +39,42 @@ class MarkdownToLinkedImageTool(Tool):
                     yield self.create_text_message(f"Failed to download image from URL: {url},"
                                                    f" HTTP status code: {response.status_code}")
                     continue
-                yield self.create_blob_message(
-                    blob=response.content,
-                    meta={"mime_type": response.headers['Content-Type'] or MimeType.PNG}
-                )
+                if "true" == is_compress.lower():
+                    images_for_zip.append({
+                        "blob": response.content,
+                        "meta": {
+                            "mime_type": response.headers['Content-Type'] or MimeType.PNG,
+                        }
+                    })
+                else:
+                    yield self.create_blob_message(
+                        blob=response.content,
+                        meta={"mime_type": response.headers['Content-Type'] or MimeType.PNG}
+                    )
             except:
                 yield self.create_text_message(f"Failed to download image from URL: {url}")
                 continue
+
+        if "true" == is_compress.lower():
+            with NamedTemporaryFile(suffix=".zip", delete=True) as temp_zip_file, \
+                    zipfile.ZipFile(temp_zip_file.name, mode='w', compression=zipfile.ZIP_DEFLATED) as zip_file:
+                for idx, code_block in enumerate(images_for_zip, 1):
+                    blob = code_block["blob"]
+                    meta = code_block["meta"]
+                    mime_type = meta["mime_type"]
+                    suffix = MimeType.get_extension(mime_type)
+                    with NamedTemporaryFile(delete=True) as temp_file:
+                        temp_file.write(blob)
+                        temp_file.flush()
+                        zip_file.write(temp_file.name, arcname=f"image_{idx}{suffix}")
+                zip_file.close()
+                yield self.create_blob_message(
+                    blob=Path(zip_file.filename).read_bytes(),
+                    meta=get_meta_data(
+                        mime_type=MimeType.ZIP,
+                        output_filename=tool_parameters.get("output_filename"),
+                    ),
+                )
 
     def extract_image_urls(self, md_text: str) -> list[str]:
         html = markdown.markdown(text=md_text, extensions=["extra", "toc"])
