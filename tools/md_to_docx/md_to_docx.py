@@ -16,6 +16,9 @@ from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToDocxTool(Tool):
+
+    logger= logging.getLogger(__name__)
+
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools

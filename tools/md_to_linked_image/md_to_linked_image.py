@@ -12,11 +12,13 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.file_utils import get_meta_data
+from tools.utils.logger_utils import get_logger
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text, get_param_value
 
 
 class MarkdownToLinkedImageTool(Tool):
+    logger = get_logger(__name__)
     markdown_image_pattern = re.compile(r"!\[.*?]\(.*?\)")
 
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:

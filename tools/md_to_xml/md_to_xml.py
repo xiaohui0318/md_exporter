@@ -7,11 +7,14 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from lxml import html, etree
 
 from tools.utils.file_utils import get_meta_data
+from tools.utils.logger_utils import get_logger
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToXmlTool(Tool):
+    logger = get_logger(__name__)
+
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
         invoke tools
