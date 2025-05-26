@@ -11,7 +11,7 @@ logger = get_logger(__name__)
 
 class TableParser:
     @staticmethod
-    def parse_md_to_tables(self, md_text: str) -> list[pd.DataFrame]:
+    def parse_md_to_tables(md_text: str) -> list[pd.DataFrame]:
         """
         Parse markdown text to tables
         :param md_text: markdown text
