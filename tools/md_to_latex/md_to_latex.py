@@ -23,7 +23,7 @@ class MarkdownToLatexTool(Tool):
         md_text = get_md_text(tool_parameters)
 
         # parse markdown to tables
-        tables = TableParser.parse_md_to_tables(md_text)
+        tables = TableParser.parse_md_to_tables(self.logger, md_text)
 
         try:
             table = tables[0]

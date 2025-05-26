@@ -1,4 +1,3 @@
-import logging
 from typing import Generator
 
 from dify_plugin import Tool
@@ -12,7 +11,7 @@ from tools.utils.table_utils import TableParser
 
 
 class MarkdownToCsvTool(Tool):
-    logger= get_logger(__name__)
+    logger = get_logger(__name__)
 
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
@@ -22,7 +21,7 @@ class MarkdownToCsvTool(Tool):
         # get parameters
         md_text = get_md_text(tool_parameters)
         # parse markdown to tables
-        tables = TableParser.parse_md_to_tables(md_text)
+        tables = TableParser.parse_md_to_tables(self.logger, md_text)
 
         try:
             table = tables[0]

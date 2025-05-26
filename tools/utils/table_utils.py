@@ -1,19 +1,18 @@
 from io import StringIO
+from logging import Logger
 
 import markdown
 import pandas as pd
 
-from tools.utils.logger_utils import get_logger
 from tools.utils.md_utils import MarkdownUtils
-
-logger = get_logger(__name__)
 
 
 class TableParser:
     @staticmethod
-    def parse_md_to_tables(md_text: str) -> list[pd.DataFrame]:
+    def parse_md_to_tables(logger: Logger, md_text: str) -> list[pd.DataFrame]:
         """
         Parse markdown text to tables
+        :param logger: Logger
         :param md_text: markdown text
         :return: list of tables
         """
