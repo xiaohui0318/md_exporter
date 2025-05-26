@@ -29,7 +29,7 @@ class MarkdownToCsvTool(Tool):
             csv_str = table.to_csv(index=False, encoding="utf-8")
             result_file_bytes = csv_str.encode("utf-8")
         except Exception as e:
-            logging.exception("Failed to convert to CSV file")
+            self.logger.exception("Failed to convert to CSV file")
             yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")
             return
 

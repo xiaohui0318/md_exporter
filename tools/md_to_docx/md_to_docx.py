@@ -44,7 +44,7 @@ class MarkdownToDocxTool(Tool):
             doc.save(result_bytes_io)
             result_file_bytes = result_bytes_io.getvalue()
         except Exception as e:
-            logging.exception("Failed to convert file")
+            self.logger.exception("Failed to convert file")
             yield self.create_text_message(f"Failed to convert markdown text to DOCX file, error: {str(e)}")
             return
 

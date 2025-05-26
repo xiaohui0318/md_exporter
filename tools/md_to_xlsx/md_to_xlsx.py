@@ -37,7 +37,7 @@ class MarkdownToXlsxTool(Tool):
                 result_file_bytes = Path(temp_xlsx_file.name).read_bytes()
 
         except Exception as e:
-            logging.exception("Failed to convert file")
+            self.logger.exception("Failed to convert file")
             yield self.create_text_message(
                 f"Failed to convert markdown text to XLSX file, error: {str(e)}")
             return

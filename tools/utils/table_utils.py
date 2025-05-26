@@ -1,15 +1,17 @@
-import logging
 from io import StringIO
 
 import markdown
 import pandas as pd
 
+from tools.utils.logger_utils import get_logger
 from tools.utils.md_utils import MarkdownUtils
+
+logger = get_logger(__name__)
 
 
 class TableParser:
     @staticmethod
-    def parse_md_to_tables(md_text: str) -> list[pd.DataFrame]:
+    def parse_md_to_tables(self, md_text: str) -> list[pd.DataFrame]:
         """
         Parse markdown text to tables
         :param md_text: markdown text
@@ -24,5 +26,5 @@ class TableParser:
             return tables
         except Exception as e:
             msg = "Failed to parse markdown to tables"
-            logging.exception(msg)
+            self.logger.exception(msg)
             raise ValueError(f"{msg}, exception: {str(e)}")

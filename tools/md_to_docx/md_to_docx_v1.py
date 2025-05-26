@@ -28,7 +28,7 @@ class MarkdownToDocxTool(Tool):
             output_buf = html2docx(html, title="My Document")
             result_file_bytes = output_buf.getvalue()
         except Exception as e:
-            logging.exception("Failed to convert file")
+            self.logger.exception("Failed to convert file")
             yield self.create_text_message(f"Failed to convert markdown text to DOCX file, error: {str(e)}")
             return
 

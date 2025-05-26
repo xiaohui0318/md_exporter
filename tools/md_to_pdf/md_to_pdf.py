@@ -30,7 +30,7 @@ class MarkdownToPdfTool(Tool):
                 encoding="utf-8",
             )
         except Exception as e:
-            logging.exception("Failed to convert file")
+            self.logger.exception("Failed to convert file")
             yield self.create_text_message(f"Failed to convert markdown text to PDF file, error: {str(e)}")
             return
 

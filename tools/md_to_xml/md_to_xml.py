@@ -28,7 +28,7 @@ class MarkdownToXmlTool(Tool):
             result_file_bytes = etree.tostring(element_or_tree=xml_element,
                                                xml_declaration=True, pretty_print=True, encoding="UTF-8")
         except Exception as e:
-            logging.exception("Failed to convert to XML file")
+            self.logger.exception("Failed to convert to XML file")
             yield self.create_text_message(f"Failed to convert markdown text to XML file, error: {str(e)}")
             return
 

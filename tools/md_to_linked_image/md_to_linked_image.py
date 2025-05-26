@@ -87,7 +87,7 @@ class MarkdownToLinkedImageTool(Tool):
             img_tags = soup.find_all('img')
             image_urls = [img.get('src') for img in img_tags if img.get('src')]
         except:
-            logging.exception("Failed to extract image URLs from markdown text by html parser")
+            self.logger.exception("Failed to extract image URLs from markdown text by html parser")
 
             match_image_tags = re.findall(self.markdown_image_pattern, md_text)
             for img in match_image_tags:

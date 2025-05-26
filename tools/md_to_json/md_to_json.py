@@ -30,7 +30,7 @@ class MarkdownToJsonTool(Tool):
             json_str = table.to_json(index=False, orient='records', force_ascii=False, indent=2)
             result_file_bytes = json_str.encode("utf-8")
         except Exception as e:
-            logging.exception("Failed to convert to JSON file")
+            self.logger.exception("Failed to convert to JSON file")
             yield self.create_text_message(f"Failed to convert markdown text to JSON file, error: {str(e)}")
             return
 
