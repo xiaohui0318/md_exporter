@@ -26,5 +26,5 @@ class TableParser:
             return tables
         except Exception as e:
             msg = "Failed to parse markdown to tables"
-            self.logger.exception(msg)
+            logger.exception(msg)
             raise ValueError(f"{msg}, exception: {str(e)}")
