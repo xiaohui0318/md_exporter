@@ -25,6 +25,6 @@ class TableParser:
                 raise ValueError("No available tables parsed from markdown text")
             return tables
         except Exception as e:
-            msg = "Failed to parse markdown to tables"
+            msg = f"Failed to parse markdown to tables, exception: {str(e)}"
             logger.exception(msg)
-            raise ValueError(f"{msg}, exception: {str(e)}")
+            raise ValueError(msg)
