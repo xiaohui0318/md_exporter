@@ -1,0 +1,35 @@
+identity:
+  name: md_to_png
+  author: Bowen Liang
+  label:
+    en_US: Markdown to PNG file
+    zh_Hans: Markdown转PNG文件
+description:
+  human:
+    en_US: A tool for generating PNG file from Markdown text
+    zh_Hans: 一个用于将Markdown转换为PNG文件的工具
+  llm: A tool for generating PNG file from Markdown text
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    form: llm
+  - name: output_filename
+    type: string
+    required: false
+    label:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    human_description:
+      en_US: Filename of the output file
+      zh_Hans: 输出文件名
+    form: llm
+extra:
+  python:
+    source: tools/md_to_png/md_to_png.py

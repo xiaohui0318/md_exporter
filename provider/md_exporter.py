@@ -12,6 +12,7 @@ from tools.md_to_latex.md_to_latex import MarkdownToLatexTool
 from tools.md_to_linked_image.md_to_linked_image import MarkdownToLinkedImageTool
 from tools.md_to_md.md_to_md import MarkdownToMarkdownTool
 from tools.md_to_pdf.md_to_pdf import MarkdownToPdfTool
+from tools.md_to_png.md_to_png import MarkdownToPngTool
 from tools.md_to_pptx.md_to_pptx import MarkdownToPptxTool
 from tools.md_to_rst.md_to_rst import MarkdownToRstTool
 from tools.md_to_xlsx.md_to_xlsx import MarkdownToXlsxTool
@@ -34,6 +35,7 @@ class MdExporterProvider(ToolProvider):
                 MarkdownToLinkedImageTool,
                 MarkdownToMarkdownTool,
                 MarkdownToPdfTool,
+                MarkdownToPngTool,
                 MarkdownToPptxTool,
                 MarkdownToRstTool,
                 MarkdownToXlsxTool,

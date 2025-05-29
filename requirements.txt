@@ -22,6 +22,10 @@ bs4~=0.0.2
 # for markdown to pptx
 python-pptx~=1.0.2
 
+# for markdown to png
+PyMuPDF~=1.26.0
+pillow~=11.2.1
+
 # deprecated 1:
 # markdowntodocx~=0.1.5.10
 # python-docx~=1.1.2
