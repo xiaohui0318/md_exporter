@@ -205,6 +205,12 @@ The input Markdown text of slides must follows the syle rules of [md2pptx's  syn
 
 ---
 
+### Markdown → PNG
+
+![](_assets/md_to_png_1.png)
+
+---
+
 ### Markdown → Code Blocks files (.py/.sh/.html/.css, etc.)
 
   Multiple generated files in formats by language type of the extracted code blocks:
@@ -287,6 +293,13 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.4.100:
+    - Special version for celebrating [Dify](https://github.com/langgenius/dify)'s 100k GitHub stars milestone
+    - add `md_to_png` tool, support converting Markdown text to PNG image files
+
+- 1.3.0:
+    - update SDK version  
+
 - 1.2.0:
     - Support compressing images to single zip file in `md_to_linked_image` tool
 
