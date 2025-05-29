@@ -35,6 +35,10 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     <td>PDF file (.pdf)</td>
   </tr>
   <tr>
+    <td><code>md_to_png</code></td>
+    <td>PNG files (.png) of generated PDF pages</td>
+  </tr>
+  <tr>
     <td><code>md_to_md</code></td>
     <td>Markdown file (.md)</td>
   </tr>
