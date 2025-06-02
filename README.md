@@ -297,6 +297,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.5.0:
+    - Improve PDF display for pure English markdown text input in `md_to_pdf` tool, by skipping the font setting for CJK characters
+
 - 1.4.100:
     - Special version for celebrating [Dify](https://github.com/langgenius/dify)'s 100k GitHub stars milestone
     - add `md_to_png` tool, support converting Markdown text to PNG image files
