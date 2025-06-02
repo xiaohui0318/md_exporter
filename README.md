@@ -1,4 +1,4 @@
-# Markdown Exporter - Generate files from Mardown
+# Markdown Exporter - Generate files from Markdown
 
 **Author:** [bowenliang123](https://github.com/bowenliang123)
 
