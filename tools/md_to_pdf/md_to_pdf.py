@@ -1,4 +1,3 @@
-import logging
 from typing import Generator
 
 from dify_plugin import Tool
@@ -45,7 +44,12 @@ class MarkdownToPdfTool(Tool):
 
     @staticmethod
     def _convert_to_html(md_text: str) -> str:
+        # convert markdown to html
         html_str = MarkdownUtils.convert_markdown_to_html(md_text)
+
+        if not MarkdownUtils.contains_chinese(md_text) \
+                and not MarkdownUtils.contains_japanese(md_text):
+            return html_str
 
         # prepend additional CSS style
 

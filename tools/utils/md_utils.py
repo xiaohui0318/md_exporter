@@ -1,4 +1,10 @@
+import re
+
 import markdown
+
+CHINESE_CHAR_PATTERN = re.compile(r'[\u4e00-\u9fff]')
+# 正则表达式组合：平假名 + 片假名 + 日文汉字
+JAPANESE_CHAR_PATTERN = re.compile(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]')
 
 
 class MarkdownUtils:
@@ -38,3 +44,11 @@ class MarkdownUtils:
                 md_text = md_text[(len(f"{wrapper}markdown")): -len(wrapper)]
 
         return md_text
+
+    @staticmethod
+    def contains_chinese(md_text: str) -> bool:
+        return bool(CHINESE_CHAR_PATTERN.search(md_text))
+
+    @ staticmethod
+    def contains_japanese(md_text: str) -> bool:
+        return bool(JAPANESE_CHAR_PATTERN.search(md_text))
