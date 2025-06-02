@@ -46,6 +46,10 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     <td>Markdown file (.md)</td>
   </tr>
   <tr>
+    <td><code>md_to_epub</code></td>
+    <td>Epub file (.epub)</td>
+  </tr>
+  <tr>
     <td><code>md_to_xml</code></td>
     <td>XML file (.xml)</td>
   </tr>
@@ -302,6 +306,7 @@ Output `.md` file with orginal input Markdown text.
 ## Changelog
 - 1.5.0:
     - Improve PDF display for pure English markdown text input in `md_to_pdf` tool, by skipping the font setting for CJK characters
+    - Introduce `md_to_epub` tool, support converting Markdown text to EPUB eBook files
     - Support compressing all png files in single zip file in `md_to_png` tool
     - Increase capacity limit for PDF file to 100MB in `md_to_pdf` tool
     - Remove explicit timeout config MAX_REQUEST_TIMEOUT

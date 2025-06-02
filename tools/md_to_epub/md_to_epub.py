@@ -12,7 +12,6 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 
 from tools.utils.file_utils import get_meta_data
 from tools.utils.logger_utils import get_logger
-from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 
@@ -30,17 +29,19 @@ class MarkdownToEpubTool(Tool):
         current_script_folder = os.path.split(os.path.realpath(__file__))[0]
 
         try:
-            with TemporaryDirectory(ignore_cleanup_errors=True) as temp_md_dir:
-                markdown_file_path = os.path.join(temp_md_dir, "input_markdown.md")
-                Path(markdown_file_path).write_text(md_text, encoding="utf-8")
-                Path(temp_md_dir + "/images").mkdir()
-                Path(temp_md_dir + "/css").mkdir()
-                shutil.copyfile(current_script_folder + "/mark2epub/images/cover.jpg",
-                                temp_md_dir + "/images/cover.jpg")
-                shutil.copyfile(current_script_folder + "/mark2epub/css/code_styles.css",
-                                temp_md_dir + "/css/code_styles.css")
-                shutil.copyfile(current_script_folder + "/mark2epub/css/general.css", temp_md_dir + "/css/general.css")
+            with TemporaryDirectory(ignore_cleanup_errors=True, delete=True) as temp_md_dir:
+                # skeleton resources
+                shutil.copytree(
+                    src=current_script_folder + "/mark2epub/skeleton",
+                    dst=temp_md_dir,
+                    dirs_exist_ok=True,
+                )
 
+                # markdown resources
+                md_file_name = "input_markdown.md"
+                Path(os.path.join(temp_md_dir, md_file_name)).write_text(md_text, encoding="utf-8")
+
+                # description.json for mark2epub
                 description_json = """
                 {
                     "metadata":{
@@ -67,13 +68,12 @@ class MarkdownToEpubTool(Tool):
                 description_json_path = os.path.join(temp_md_dir, "description.json")
                 Path(description_json_path).write_text(description_json, encoding="utf-8")
 
-                # run md2pptx to convert md file to pptx file
+                # run mark2epub to convert md file to epub file
                 with NamedTemporaryFile(suffix=".epub", delete=True) as temp_epub_file:
                     python_exec = sys.executable or "python3"
                     cmd = [python_exec, f"{current_script_folder}/mark2epub/mark2epub.py",
                            temp_md_dir,
                            temp_epub_file.name]
-
                     logging.info(cmd)
 
                     result = subprocess.run(
