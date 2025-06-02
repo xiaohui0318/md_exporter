@@ -38,7 +38,7 @@ class MarkdownToEpubTool(Tool):
                 )
 
                 # markdown resources
-                md_file_name = "input_markdown.md"
+                md_file_name = "markdown.md"
                 Path(os.path.join(temp_md_dir, md_file_name)).write_text(md_text, encoding="utf-8")
 
                 # description.json for mark2epub
@@ -46,12 +46,12 @@ class MarkdownToEpubTool(Tool):
                 {
                     "metadata":{
                         "dc:title":"Mark2Epub Sample",
-                        "dc:creator":"Mark2Epub",
+                        "dc:creator":"md_exporter",
                         "dc:language":"en-US",
                         "dc:identifier":"mark2epub-sample",
                         "dc:source":"",
                         "meta":"",
-                        "dc:date":"2023-01-01",
+                        "dc:date":"2025-01-01",
                         "dc:publisher":"",
                         "dc:contributor":"",
                         "dc:rights":"",
@@ -59,9 +59,9 @@ class MarkdownToEpubTool(Tool):
                         "dc:subject":""
                         },
                     "default_css":["code_styles.css","general.css"],
-                    "cover_image":"cover.jpg",
+                    "cover_image":"cover.png",
                     "chapters":[
-                                {"markdown":"input_markdown.md","css":""}
+                                {"markdown":"markdown.md","css":""}
                             ]
                     }
                     """
@@ -89,16 +89,16 @@ class MarkdownToEpubTool(Tool):
                                         f" stdout: {result.stdout},"
                                         f" error: {result.stderr}")
                     result_file_bytes = Path(temp_epub_file.name).read_bytes()
+
+            yield self.create_blob_message(
+                blob=result_file_bytes,
+                meta=get_meta_data(
+                    mime_type=MimeType.EPUB,
+                    output_filename=tool_parameters.get("output_filename"),
+                ),
+            )
+
         except Exception as e:
             self.logger.exception("Failed to convert file")
-            yield self.create_text_message(f"Failed to convert markdown text to HTML file, error: {str(e)}")
+            yield self.create_text_message(f"Failed to convert markdown text to Epub file, error: {str(e)}")
             return
-
-        yield self.create_blob_message(
-            blob=result_file_bytes,
-            meta=get_meta_data(
-                mime_type=MimeType.EPUB,
-                output_filename=tool_parameters.get("output_filename"),
-            ),
-        )
-        return

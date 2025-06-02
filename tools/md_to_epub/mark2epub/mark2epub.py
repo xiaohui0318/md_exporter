@@ -165,7 +165,7 @@ def get_coverpage_XML(cover_image_path):
     all_xhtml = """<?xml version="1.0" encoding="utf-8"?>\n"""
     all_xhtml += """<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">\n"""
     all_xhtml += """<head>\n</head>\n<body>\n"""
-    all_xhtml += """<img src="images/{}" style="height:100%;max-width:100%;"/>\n""".format(cover_image_path)
+    all_xhtml += """<img src="images/{}" style="max-width:100%;"/>\n""".format(cover_image_path)
     all_xhtml += """</body>\n</html>"""
 
     return all_xhtml
