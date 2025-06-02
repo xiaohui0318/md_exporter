@@ -59,7 +59,6 @@ class MarkdownToEpubTool(Tool):
                         "dc:subject":""
                         },
                     "default_css":["code_styles.css","general.css"],
-                    "cover_image":"cover.png",
                     "chapters":[
                                 {"markdown":"markdown.md","css":""}
                             ]

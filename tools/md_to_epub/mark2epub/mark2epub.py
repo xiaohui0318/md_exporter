@@ -25,6 +25,9 @@ plt.show()
 '''
 
 def get_all_filenames(the_dir,extensions=[]):
+    if True:
+        return []
+
     all_files = [x for x in os.listdir(the_dir)]
     all_files = [x for x in all_files if x.split(".")[-1] in extensions]
 
@@ -75,11 +78,11 @@ def get_packageOPF_XML(md_filenames=[],image_filenames=[],css_filenames=[],descr
     x.setAttribute('media-type',"application/x-dtbncx+xml")
     manifest.appendChild(x)
 
-    x = doc.createElement('item')
-    x.setAttribute('id',"titlepage")
-    x.setAttribute('href',"titlepage.xhtml")
-    x.setAttribute('media-type',"application/xhtml+xml")
-    manifest.appendChild(x)
+    # x = doc.createElement('item')
+    # x.setAttribute('id',"titlepage")
+    # x.setAttribute('href',"titlepage.xhtml")
+    # x.setAttribute('media-type',"application/xhtml+xml")
+    # manifest.appendChild(x)
 
     for i,md_filename in enumerate(md_filenames):
         x = doc.createElement('item')
@@ -100,14 +103,14 @@ def get_packageOPF_XML(md_filenames=[],image_filenames=[],css_filenames=[],descr
             x.setAttribute('media-type',"image/jpg")
         elif "png" in image_filename:
             x.setAttribute('media-type',"image/png")
-        if image_filename==description_data["cover_image"]:
-            x.setAttribute('properties',"cover-image")
-
-            ## Ensure compatibility by also providing a meta tag in the metadata
-            y = doc.createElement('meta')
-            y.setAttribute('name',"cover")
-            y.setAttribute('content',"image-{:05d}".format(i))
-            metadata.appendChild(y)
+        # if image_filename==description_data["cover_image"]:
+        #     x.setAttribute('properties',"cover-image")
+        #
+        #     ## Ensure compatibility by also providing a meta tag in the metadata
+        #     y = doc.createElement('meta')
+        #     y.setAttribute('name',"cover")
+        #     y.setAttribute('content',"image-{:05d}".format(i))
+        #     metadata.appendChild(y)
         manifest.appendChild(x)
 
     for i,css_filename in enumerate(css_filenames):
@@ -278,8 +281,8 @@ if __name__ == "__main__":
         myZipFile.writestr("OPS/package.opf",package_data, zipfile.ZIP_DEFLATED)
 
         ## First, we create the cover page
-        coverpage_data = get_coverpage_XML(json_data["cover_image"])
-        myZipFile.writestr("OPS/titlepage.xhtml",coverpage_data.encode('utf-8'),zipfile.ZIP_DEFLATED)
+        # coverpage_data = get_coverpage_XML(json_data["cover_image"])
+        # myZipFile.writestr("OPS/titlepage.xhtml",coverpage_data.encode('utf-8'),zipfile.ZIP_DEFLATED)
 
         ## Now, we are going to convert the Markdown files to xhtml files
         for i,chapter in enumerate(json_data["chapters"]):
