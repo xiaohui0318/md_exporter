@@ -25,6 +25,7 @@ tools:
   - tools/md_to_codeblock/md_to_codeblock.yaml
   - tools/md_to_linked_image/md_to_linked_image.yaml
   - tools/md_to_png/md_to_png.yaml
+  - tools/md_to_epub/md_to_epub.yaml
 extra:
   python:
     source: provider/md_exporter.py

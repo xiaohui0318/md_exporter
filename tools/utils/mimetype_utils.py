@@ -5,6 +5,7 @@ class MimeType(StrEnum):
     CSS = "text/css"
     CSV = "text/csv"
     DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    EPUB = "application/epub+zip"
     HTML = "text/html"
     JS = "text/javascript"
     JAVA = "text/x-java-source"
@@ -35,6 +36,7 @@ class MimeType(StrEnum):
         mime_type_map = {
             cls.CSS: ".css",
             cls.CSV: ".csv",
+            cls.EPUB: ".epub",
             cls.DOCX: ".docx",
             cls.HTML: ".html",
             cls.JS: ".js",

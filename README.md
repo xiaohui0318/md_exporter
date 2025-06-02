@@ -360,6 +360,7 @@ Output `.md` file with orginal input Markdown text.
 
 This Dify plugin uses the following open sourced projects:
 
+- [mark2epub](https://github.com/AlexPof/xf)
 - [md2pptx](https://github.com/MartinPacker/md2pptx) , MIT License
 - [mistune](https://github.com/lepture/mistune), BSD 3-Clause License
 - [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
