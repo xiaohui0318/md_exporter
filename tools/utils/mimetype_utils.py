@@ -55,5 +55,6 @@ class MimeType(StrEnum):
             cls.XLSX: ".xlsx",
             cls.XML: ".xml",
             cls.YAML: ".yaml",
+            cls.ZIP: ".zip",
         }
         return mime_type_map.get(mime_type, ".bin")

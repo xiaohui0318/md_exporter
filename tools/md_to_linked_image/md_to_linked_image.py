@@ -70,6 +70,7 @@ class MarkdownToLinkedImageTool(Tool):
                         temp_file.flush()
                         zip_file.write(temp_file.name, arcname=f"image_{idx}{suffix}")
                 zip_file.close()
+
                 yield self.create_blob_message(
                     blob=Path(zip_file.filename).read_bytes(),
                     meta=get_meta_data(

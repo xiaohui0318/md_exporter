@@ -1,4 +1,7 @@
 import io
+import zipfile
+from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Generator
 
 import pymupdf
@@ -10,7 +13,7 @@ from tools.utils.file_utils import get_meta_data
 from tools.utils.logger_utils import get_logger
 from tools.utils.md_utils import MarkdownUtils
 from tools.utils.mimetype_utils import MimeType
-from tools.utils.param_utils import get_md_text
+from tools.utils.param_utils import get_md_text, get_param_value
 
 
 class MarkdownToPngTool(Tool):
@@ -25,6 +28,9 @@ class MarkdownToPngTool(Tool):
         # get parameters
         md_text = get_md_text(tool_parameters, is_strip_wrapper=True)
         output_filename = tool_parameters.get("output_filename", "output")
+        is_compress = "true" == get_param_value(tool_parameters, "is_compress", "true").lower()
+
+        images_for_zip = []
         try:
             html_str = self._convert_to_html(md_text)
             result_file_bytes = pisa.CreatePDF(
@@ -53,22 +59,54 @@ class MarkdownToPngTool(Tool):
 
                 # Create filename for this page
                 if total_page_count > 1:
-                    output_filename = f"{output_filename}_page{page_num + 1}.png"
+                    image_filename = f"{output_filename}_page{page_num + 1}.png"
                 else:
-                    output_filename = f"{output_filename}.png"
+                    image_filename = f"{output_filename}.png"
 
-                # Send the PNG image
-                yield self.create_blob_message(
-                    blob=img_buffer.getvalue(),
-                    meta=get_meta_data(
-                        mime_type=MimeType.PNG,
-                        output_filename=output_filename,
+                image_bytes = img_buffer.getvalue()
+                if not is_compress:
+                    # Send the PNG image
+                    yield self.create_blob_message(
+                        blob=image_bytes,
+                        meta=get_meta_data(
+                            mime_type=MimeType.PNG,
+                            output_filename=image_filename,
+                        )
                     )
-                )
+                else:
+                    images_for_zip.append({
+                        "blob": image_bytes,
+                        "meta": {
+                            "mime_type": MimeType.PNG,
+                        }
+                    })
+
+            if is_compress:
+                with NamedTemporaryFile(suffix=".zip", delete=True) as temp_zip_file, \
+                        zipfile.ZipFile(temp_zip_file.name, mode='w', compression=zipfile.ZIP_DEFLATED) as zip_file:
+                    for idx, code_block in enumerate(images_for_zip, 1):
+                        blob = code_block["blob"]
+                        meta = code_block["meta"]
+                        mime_type = meta["mime_type"]
+                        suffix = MimeType.get_extension(mime_type)
+                        with NamedTemporaryFile(delete=True) as temp_file:
+                            temp_file.write(blob)
+                            temp_file.flush()
+                            zip_file.write(temp_file.name, arcname=f"image_{idx}{suffix}")
+                    zip_file.close()
+
+                    yield self.create_blob_message(
+                        blob=Path(zip_file.filename).read_bytes(),
+                        meta=get_meta_data(
+                            mime_type=MimeType.ZIP,
+                            output_filename=output_filename,
+                        ),
+                    )
+
 
         except Exception as e:
             self.logger.exception("Failed to convert file")
-            yield self.create_text_message(f"Failed to convert markdown text to PNG file, error: {str(e)}")
+            yield self.create_text_message(f"Failed to convert markdown text to PNG files, error: {str(e)}")
             return
 
         return
@@ -109,4 +147,3 @@ class MarkdownToPngTool(Tool):
         {html_str}
         """
         return result
-

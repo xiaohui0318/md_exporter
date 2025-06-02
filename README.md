@@ -36,7 +36,10 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
   </tr>
   <tr>
     <td><code>md_to_png</code></td>
-    <td>PNG files (.png) of generated PDF pages</td>
+    <td>
+      <div>PNG image (.png) of generated PDF pages.</div>
+      Or a ZIP file of image files.
+    </td>
   </tr>
   <tr>
     <td><code>md_to_md</code></td>
@@ -299,6 +302,7 @@ Output `.md` file with orginal input Markdown text.
 ## Changelog
 - 1.5.0:
     - Improve PDF display for pure English markdown text input in `md_to_pdf` tool, by skipping the font setting for CJK characters
+    - Support compressing all png files in single zip file in `md_to_png` tool
 
 - 1.4.100:
     - Special version for celebrating [Dify](https://github.com/langgenius/dify)'s 100k GitHub stars milestone
