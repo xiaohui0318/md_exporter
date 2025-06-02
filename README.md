@@ -303,6 +303,8 @@ Output `.md` file with orginal input Markdown text.
 - 1.5.0:
     - Improve PDF display for pure English markdown text input in `md_to_pdf` tool, by skipping the font setting for CJK characters
     - Support compressing all png files in single zip file in `md_to_png` tool
+    - Increase capacity limit for PDF file to 100MB in `md_to_pdf` tool
+    - Remove explicit timeout config MAX_REQUEST_TIMEOUT
 
 - 1.4.100:
     - Special version for celebrating [Dify](https://github.com/langgenius/dify)'s 100k GitHub stars milestone
