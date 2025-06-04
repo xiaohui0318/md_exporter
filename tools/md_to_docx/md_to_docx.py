@@ -37,8 +37,8 @@ class MarkdownToDocxTool(Tool):
             new_parser = HtmlToDocx()
             doc: Document = new_parser.parse_html_string(html)
 
-            if self.is_contains_chinese_chars(html):
-                self.set_chinese_fonts(doc)
+            # Set fonts for all text elements
+            self.set_fonts_for_all_runs(doc)
 
             result_bytes_io = io.BytesIO()
             doc.save(result_bytes_io)
@@ -69,3 +69,30 @@ class MarkdownToDocxTool(Tool):
         font.name = 'Times New Roman'
         rPr = style.element.get_or_add_rPr()
         rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+
+    def set_fonts_for_all_runs(self, doc: Document):
+        """Set Times New Roman for English text and SimSun for Chinese text in all text elements."""
+        def apply_fonts_to_run(run):
+            if not run.text.strip():  # Skip empty text
+                return
+            # Set default font to Times New Roman
+            run.font.name = 'Times New Roman'
+            # Set East Asian font to SimSun
+            run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+            # Set ASCII font to Times New Roman
+            run._element.rPr.rFonts.set(qn('w:ascii'), 'Times New Roman')
+            # Set high ANSI font to Times New Roman
+            run._element.rPr.rFonts.set(qn('w:hAnsi'), 'Times New Roman')
+
+        # Process all paragraphs in the document
+        for paragraph in doc.paragraphs:
+            for run in paragraph.runs:
+                apply_fonts_to_run(run)
+
+        # Process all paragraphs in tables
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    for paragraph in cell.paragraphs:
+                        for run in paragraph.runs:
+                            apply_fonts_to_run(run)
