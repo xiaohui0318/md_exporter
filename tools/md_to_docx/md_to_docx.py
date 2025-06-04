@@ -96,7 +96,7 @@ class MarkdownToDocxTool(Tool):
                             self.apply_fonts_to_run(run)
 
     def apply_fonts_to_run(self, run: Run):
-        if not run or not run.text or not run.text.strip():  # Skip empty text
+        if not run or not run.text:  # Skip empty text
             return
         # Set default font to Times New Roman
         run.font.name = DocxFontEnum.TIMES_NEW_ROMAN
