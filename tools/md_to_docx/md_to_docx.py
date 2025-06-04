@@ -8,6 +8,9 @@ from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
 from docx import Document
 from docx.oxml.ns import qn
+from docx.table import Table, _Cell
+from docx.text.paragraph import Paragraph
+from docx.text.run import Run
 from htmldocx import HtmlToDocx
 
 from tools.utils.file_utils import get_meta_data
@@ -16,8 +19,7 @@ from tools.utils.param_utils import get_md_text
 
 
 class MarkdownToDocxTool(Tool):
-
-    logger= logging.getLogger(__name__)
+    logger = logging.getLogger(__name__)
 
     def _invoke(self, tool_parameters: dict) -> Generator[ToolInvokeMessage, None, None]:
         """
@@ -72,27 +74,34 @@ class MarkdownToDocxTool(Tool):
 
     def set_fonts_for_all_runs(self, doc: Document):
         """Set Times New Roman for English text and SimSun for Chinese text in all text elements."""
-        def apply_fonts_to_run(run):
-            if not run.text.strip():  # Skip empty text
-                return
-            # Set default font to Times New Roman
-            run.font.name = 'Times New Roman'
-            # Set East Asian font to SimSun
-            run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
-            # Set ASCII font to Times New Roman
-            run._element.rPr.rFonts.set(qn('w:ascii'), 'Times New Roman')
-            # Set high ANSI font to Times New Roman
-            run._element.rPr.rFonts.set(qn('w:hAnsi'), 'Times New Roman')
 
         # Process all paragraphs in the document
+        paragraph: Paragraph
         for paragraph in doc.paragraphs:
+            run: Run
             for run in paragraph.runs:
-                apply_fonts_to_run(run)
+                self.apply_fonts_to_run(run)
 
         # Process all paragraphs in tables
+        table: Table
         for table in doc.tables:
             for row in table.rows:
+                cell: _Cell
                 for cell in row.cells:
+                    paragraph: Paragraph
                     for paragraph in cell.paragraphs:
+                        run: Run
                         for run in paragraph.runs:
-                            apply_fonts_to_run(run)
+                            self.apply_fonts_to_run(run)
+
+    def apply_fonts_to_run(self, run: Run):
+        if not run or not run.text or not run.text.strip():  # Skip empty text
+            return
+        # Set default font to Times New Roman
+        run.font.name = 'Times New Roman'
+        # Set East Asian font to SimSun
+        run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+        # Set ASCII font to Times New Roman
+        run._element.rPr.rFonts.set(qn('w:ascii'), 'Times New Roman')
+        # Set high ANSI font to Times New Roman
+        run._element.rPr.rFonts.set(qn('w:hAnsi'), 'Times New Roman')
