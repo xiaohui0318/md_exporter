@@ -13,6 +13,7 @@ from docx.text.paragraph import Paragraph
 from docx.text.run import Run
 from htmldocx import HtmlToDocx
 
+from tools.md_to_docx.font_enum import DocxFontEnum
 from tools.utils.file_utils import get_meta_data
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
@@ -68,9 +69,9 @@ class MarkdownToDocxTool(Tool):
         # https://zhuanlan.zhihu.com/p/548039429
         style = doc.styles['Normal']
         font = style.font
-        font.name = 'Times New Roman'
+        font.name = DocxFontEnum.TIMES_NEW_ROMAN
         rPr = style.element.get_or_add_rPr()
-        rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+        rPr.rFonts.set(qn('w:eastAsia'), DocxFontEnum.SONG_TI)
 
     def set_fonts_for_all_runs(self, doc: Document):
         """Set Times New Roman for English text and SimSun for Chinese text in all text elements."""
@@ -98,10 +99,10 @@ class MarkdownToDocxTool(Tool):
         if not run or not run.text or not run.text.strip():  # Skip empty text
             return
         # Set default font to Times New Roman
-        run.font.name = 'Times New Roman'
+        run.font.name = DocxFontEnum.TIMES_NEW_ROMAN
         # Set East Asian font to SimSun
-        run._element.rPr.rFonts.set(qn('w:eastAsia'), '宋体')
+        run._element.rPr.rFonts.set(qn('w:eastAsia'), DocxFontEnum.SONG_TI)
         # Set ASCII font to Times New Roman
-        run._element.rPr.rFonts.set(qn('w:ascii'), 'Times New Roman')
+        run._element.rPr.rFonts.set(qn('w:ascii'), DocxFontEnum.TIMES_NEW_ROMAN)
         # Set high ANSI font to Times New Roman
-        run._element.rPr.rFonts.set(qn('w:hAnsi'), 'Times New Roman')
+        run._element.rPr.rFonts.set(qn('w:hAnsi'), DocxFontEnum.TIMES_NEW_ROMAN)
