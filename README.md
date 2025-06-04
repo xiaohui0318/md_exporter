@@ -305,61 +305,61 @@ Output `.md` file with orginal input Markdown text.
 
 ## Changelog
 - 1.5.0:
-    - Improve PDF display for pure English markdown text input in `md_to_pdf` tool, by skipping the font setting for CJK characters
-    - Introduce `md_to_epub` tool, support converting Markdown text to EPUB eBook files
-    - Support compressing all png files in single zip file in `md_to_png` tool
-    - Increase capacity limit for PDF file to 100MB in `md_to_pdf` tool
-    - Remove explicit timeout config MAX_REQUEST_TIMEOUT
+  - Improve PDF display for pure English markdown text input in `md_to_pdf` tool, by skipping the font setting for CJK characters
+  - Introduce `md_to_epub` tool, support converting Markdown text to EPUB eBook files
+  - Support compressing all png files in single zip file in `md_to_png` tool
+  - Increase capacity limit for PDF file to 100MB in `md_to_pdf` tool
+  - Remove explicit timeout config MAX_REQUEST_TIMEOUT
 
 - 1.4.100:
-    - Special version for celebrating [Dify](https://github.com/langgenius/dify)'s 100k GitHub stars milestone
-    - add `md_to_png` tool, support converting Markdown text to PNG image files
+  - Special version for celebrating [Dify](https://github.com/langgenius/dify)'s 100k GitHub stars milestone
+  - add `md_to_png` tool, support converting Markdown text to PNG image files
 
 - 1.3.0:
-    - update SDK version  
+  - update SDK version  
 
 - 1.2.0:
-    - Support compressing images to single zip file in `md_to_linked_image` tool
+  - Support compressing images to single zip file in `md_to_linked_image` tool
 
 - 1.1.0:
-    - Enable line breaks normalization in all tools by default, replacing all the occurrences of `\\n` to `\n`
-    - Remove `<think>` tags of reasoning content in the input Markdown text
-    - Fix missing custom output filename support in md_to_csv, md_to_json, md_to_latex tool
+  - Enable line breaks normalization in all tools by default, replacing all the occurrences of `\\n` to `\n`
+  - Remove `<think>` tags of reasoning content in the input Markdown text
+  - Fix missing custom output filename support in md_to_csv, md_to_json, md_to_latex tool
 
 - 1.0.1:
-    - Remove redundant URL safe conversion in custom output filename
+  - Remove redundant URL safe conversion in custom output filename
 
 - 1.0.0:
-    - Support customize the output file name
+  - Support customize the output file name
 
 - 0.5.0:
-    - Introducing `md_to_linked_image` tool, support extracting image files in links in Markdown text
+  - Introducing `md_to_linked_image` tool, support extracting image files in links in Markdown text
 
 - 0.4.3:
-    - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese     - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese charactor
+  - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese     - improve the display of Chinese characters in text paragraph in `md_to_docx` tool, by setting global font to Song if content contains Chinese charactor
 
 - 0.4.2:
-    - support Java, PHP and Ruby file exporting in `md_to_codeblocks` tool
+  - support Java, PHP and Ruby file exporting in `md_to_codeblocks` tool
 
 - 0.4.1:
-    - support YAML file exporting in `md_to_codeblocks` tool
+  - support YAML file exporting in `md_to_codeblocks` tool
 
 - 0.4.0:
-    - support exporting Markdown codeblocks in to single zip file in `md_to_codeblocks` tool
+  - support exporting Markdown codeblocks in to single zip file in `md_to_codeblocks` tool
 
 - 0.3.0:
-    - Fixed the error in importing libraries of `md_to_pptx` tool when running on self-hosted Dify plugin-daemon service
+  - Fixed the error in importing libraries of `md_to_pptx` tool when running on self-hosted Dify plugin-daemon service
 
 - 0.2.0:
-    - Introducing `md_to_codeblock` tool, support extracting code blocks in Markdown to Python, JSON, JS, BASH, SVG, HTML, XML, MARKDOWN files. 
-    - Introducing `md_to_rst` tool, support reStructuredText `.rst` file format as destination file format
+  - Introducing `md_to_codeblock` tool, support extracting code blocks in Markdown to Python, JSON, JS, BASH, SVG, HTML, XML, MARKDOWN files. 
+  - Introducing `md_to_rst` tool, support reStructuredText `.rst` file format as destination file format
 
 - 0.1.x:
-    - Introducing `md_to_pptx` tool, support PowerPoint `.pptx` file format as destination file format
+  - Introducing `md_to_pptx` tool, support PowerPoint `.pptx` file format as destination file format
 
 - 0.0.x:
-    - Published to Dify Marketplace
-    - support exporting Markdown to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files
+  - Published to Dify Marketplace
+  - support exporting Markdown to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, LaTex files
 
 ## Used Open sourced projects
 
