@@ -41,7 +41,10 @@ class MarkdownToDocxTool(Tool):
             doc: Document = new_parser.parse_html_string(html)
 
             # Set fonts for all text elements
-            self.set_fonts_for_all_runs(doc)
+            try:
+                self.set_fonts_for_all_runs(doc)
+            except Exception as e:
+                self.logger.exception(e)
 
             result_bytes_io = io.BytesIO()
             doc.save(result_bytes_io)
@@ -96,13 +99,17 @@ class MarkdownToDocxTool(Tool):
                             self.apply_fonts_to_run(run)
 
     def apply_fonts_to_run(self, run: Run):
-        if not run or not run.text:  # Skip empty text
+        if not run or not run.text:  # skip elements without text
             return
-        # Set default font to Times New Roman
-        run.font.name = DocxFontEnum.TIMES_NEW_ROMAN
-        # Set East Asian font to SimSun
-        run._element.rPr.rFonts.set(qn('w:eastAsia'), DocxFontEnum.SONG_TI)
-        # Set ASCII font to Times New Roman
-        run._element.rPr.rFonts.set(qn('w:ascii'), DocxFontEnum.TIMES_NEW_ROMAN)
-        # Set high ANSI font to Times New Roman
-        run._element.rPr.rFonts.set(qn('w:hAnsi'), DocxFontEnum.TIMES_NEW_ROMAN)
+
+        try:
+            # Set default font to Times New Roman
+            run.font.name = DocxFontEnum.TIMES_NEW_ROMAN
+            # Set East Asian font to SimSun
+            run._element.rPr.rFonts.set(qn('w:eastAsia'), DocxFontEnum.SONG_TI)
+            # Set ASCII font to Times New Roman
+            run._element.rPr.rFonts.set(qn('w:ascii'), DocxFontEnum.TIMES_NEW_ROMAN)
+            # Set high ANSI font to Times New Roman
+            run._element.rPr.rFonts.set(qn('w:hAnsi'), DocxFontEnum.TIMES_NEW_ROMAN)
+        except Exception as e:
+            self.logger.exception("Failed to apply fonts to run")
