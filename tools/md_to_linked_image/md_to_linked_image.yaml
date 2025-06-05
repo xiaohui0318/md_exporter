@@ -3,7 +3,7 @@ identity:
   author: Bowen Liang
   label:
     en_US: Image files extraction
-    zh_Hans: 提取图片链接为文件
+    zh_Hans: 提取 图片链接 为文件
 description:
   human:
     en_US: Generate files from code blocks from Markdown text
