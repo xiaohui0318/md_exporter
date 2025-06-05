@@ -8,6 +8,7 @@ from tools.md_to_csv.md_to_csv import MarkdownToCsvTool
 from tools.md_to_docx.md_to_docx import MarkdownToDocxTool
 from tools.md_to_epub.md_to_epub import MarkdownToEpubTool
 from tools.md_to_html.md_to_html import MarkdownToHtmlTool
+from tools.md_to_html_text.md_to_html_text import MarkdownToHtmlTextTool
 from tools.md_to_json.md_to_json import MarkdownToJsonTool
 from tools.md_to_latex.md_to_latex import MarkdownToLatexTool
 from tools.md_to_linked_image.md_to_linked_image import MarkdownToLinkedImageTool
@@ -32,6 +33,7 @@ class MdExporterProvider(ToolProvider):
                 MarkdownToDocxTool,
                 MarkdownToEpubTool,
                 MarkdownToHtmlTool,
+                MarkdownToHtmlTextTool,
                 MarkdownToJsonTool,
                 MarkdownToLatexTool,
                 MarkdownToLinkedImageTool,
