@@ -2,13 +2,13 @@ identity:
   name: md_to_docx
   author: Bowen Liang
   label:
-    en_US: Markdown to DOCX file
-    zh_Hans: Markdown转Docx文件
+    en_US: Markdown to Docx file
+    zh_Hans: Markdown 转 Docx 文件
 description:
   human:
-    en_US: A tool for generating DOCX file from Markdown text
-    zh_Hans: 一个用于将Markdown转换为DOCX文件的工具
-  llm: A tool for generating DOCX file from Markdown text
+    en_US: Generate DOCX file from Markdown text
+    zh_Hans: 将 Markdown 转换为 DOCX 文件的工具
+  llm: Generate DOCX file from Markdown text
 parameters:
   - name: md_text
     type: string

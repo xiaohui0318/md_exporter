@@ -3,12 +3,12 @@ identity:
   author: Bowen Liang
   label:
     en_US: Markdown to CSV file
-    zh_Hans: Markdown转CSV文件
+    zh_Hans: Markdown 转 CSV 文件
 description:
   human:
-    en_US: A tool for generating CSV file from Markdown text
-    zh_Hans: 一个用于将Markdown转换为CSV文件的工具
-  llm: A tool for generating CSV file from Markdown text
+    en_US: Generate CSV file from Markdown text
+    zh_Hans: 将 Markdown 转换为 CSV 文件的工具
+  llm: Generate CSV file from Markdown text
 parameters:
   - name: md_text
     type: string

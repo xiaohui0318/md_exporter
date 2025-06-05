@@ -2,13 +2,13 @@ identity:
   name: md_to_png
   author: Bowen Liang
   label:
-    en_US: Markdown to PNG file
-    zh_Hans: Markdown转PNG文件
+    en_US: Markdown to PNG images
+    zh_Hans: Markdown 转 PNG 图片
 description:
   human:
-    en_US: A tool for generating PNG file from Markdown text
-    zh_Hans: 一个用于将Markdown转换为PNG文件的工具
-  llm: A tool for generating PNG file from Markdown text
+    en_US: Generate PNG images from Markdown text
+    zh_Hans: 将 Markdown 转换为 PNG 图片的工具
+  llm: Generate PNG images from Markdown text
 parameters:
   - name: md_text
     type: string

@@ -3,12 +3,12 @@ identity:
   author: Bowen Liang
   label:
     en_US: Codeblocks to files
-    zh_Hans: 提取Codeblock为文件
+    zh_Hans: 提取 Codeblock 为文件
 description:
   human:
-    en_US: A tool for generating files from code blocks from Markdown text
-    zh_Hans: 一个用于将Markdown中代码块转换为文件的工具
-  llm: A tool for generating files from code blocks from Markdown text
+    en_US: Generate files from code blocks from Markdown text
+    zh_Hans: 将Markdown中代码块转换为 文件的工具
+  llm: Generate files from code blocks from Markdown text
 parameters:
   - name: md_text
     type: string

@@ -3,12 +3,12 @@ identity:
   author: Bowen Liang
   label:
     en_US: Markdown to XLSX file
-    zh_Hans: Markdown转XLSX文件
+    zh_Hans: Markdown 转 XLSX 文件
 description:
   human:
-    en_US: A tool for generating XLSX file from Markdown text
-    zh_Hans: 一个用于将Markdown转换为XLSX文件的工具
-  llm: A tool for generating XLSX file from Markdown text
+    en_US: Generate XLSX file from Markdown text
+    zh_Hans: 将 Markdown 转换为 XLSX 文件的工具
+  llm: Generate XLSX file from Markdown text
 parameters:
   - name: md_text
     type: string

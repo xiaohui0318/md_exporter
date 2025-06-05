@@ -3,12 +3,12 @@ identity:
   author: Bowen Liang
   label:
     en_US: Markdown to Epub file
-    zh_Hans: Markdown转Epub文件
+    zh_Hans: Markdown 转 Epub 文件
 description:
   human:
-    en_US: A tool for generating Epub file from Markdown.
-    zh_Hans: 一个用于将Markdown转换为Epub文件的工具
-  llm: A tool for generating Epub file from Markdown text
+    en_US: Generate Epub file from Markdown.
+    zh_Hans: 将 Markdown 转换为 Epub 文件的工具
+  llm: Generate Epub file from Markdown text
 parameters:
   - name: md_text
     type: string

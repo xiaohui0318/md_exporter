@@ -3,12 +3,12 @@ identity:
   author: Bowen Liang
   label:
     en_US: Markdown to HTML file
-    zh_Hans: Markdown转HTML文件
+    zh_Hans: Markdown 转 HTML 文件
 description:
   human:
-    en_US: A tool for generating HTML file from Markdown.
-    zh_Hans: 一个用于将Markdown转换为HTML文件的工具
-  llm: A tool for generating HTML file from Markdown text
+    en_US: Generate HTML file from Markdown.
+    zh_Hans: 将 Markdown 转换为 HTML 文件的工具
+  llm: Generate HTML file from Markdown text
 parameters:
   - name: md_text
     type: string
