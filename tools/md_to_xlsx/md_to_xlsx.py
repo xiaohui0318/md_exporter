@@ -36,17 +36,15 @@ class MarkdownToXlsxTool(Tool):
                         table.to_excel(writer, sheet_name=f"Sheet {i + 1}", index=False)
                 result_file_bytes = Path(temp_xlsx_file.name).read_bytes()
 
+            yield self.create_blob_message(
+                blob=result_file_bytes,
+                meta=get_meta_data(
+                    mime_type=MimeType.XLSX,
+                    output_filename=tool_parameters.get("output_filename"),
+                ),
+            )
         except Exception as e:
             self.logger.exception("Failed to convert file")
             yield self.create_text_message(
                 f"Failed to convert markdown text to XLSX file, error: {str(e)}")
             return
-
-        yield self.create_blob_message(
-            blob=result_file_bytes,
-            meta=get_meta_data(
-                mime_type=MimeType.XLSX,
-                output_filename=tool_parameters.get("output_filename"),
-            ),
-        )
-        return

@@ -310,6 +310,7 @@ Output `.md` file with orginal input Markdown text.
 ## Changelog
 - 1.7.0:
   - Support custom PPTX template file in `md_to_pptx` tool
+  - Support file generation from multiple tables in md_to_csv, md_to_latex, md_to_xlsx tools
 
 - 1.6.0:
   - Introducing `md_to_html_text` tool, support converting Markdown text to HTML text

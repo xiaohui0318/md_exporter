@@ -1,4 +1,4 @@
-from typing import Generator
+from typing import Generator, Optional
 
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
@@ -20,23 +20,31 @@ class MarkdownToCsvTool(Tool):
 
         # get parameters
         md_text = get_md_text(tool_parameters)
+        output_filename = tool_parameters.get("output_filename")
+
         # parse markdown to tables
         tables = TableParser.parse_md_to_tables(self.logger, md_text)
 
-        try:
-            table = tables[0]
-            csv_str = table.to_csv(index=False, encoding="utf-8")
-            result_file_bytes = csv_str.encode("utf-8")
-        except Exception as e:
-            self.logger.exception("Failed to convert to CSV file")
-            yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")
-            return
+        for i, table in enumerate(tables):
+            try:
+                csv_str = table.to_csv(index=False, encoding="utf-8")
+                result_file_bytes = csv_str.encode("utf-8")
 
-        yield self.create_blob_message(
-            blob=result_file_bytes,
-            meta=get_meta_data(
-                mime_type=MimeType.CSV,
-                output_filename=tool_parameters.get("output_filename"),
-            ),
-        )
-        return
+                result_filename: Optional[str] = None
+                if output_filename:
+                    if len(tables) > 1:
+                        result_filename = f"{output_filename}_{i + 1}.csv"
+                    else:
+                        result_filename = output_filename
+
+                yield self.create_blob_message(
+                    blob=result_file_bytes,
+                    meta=get_meta_data(
+                        mime_type=MimeType.CSV,
+                        output_filename=result_filename,
+                    ),
+                )
+            except Exception as e:
+                self.logger.exception("Failed to convert to CSV file")
+                yield self.create_text_message(f"Failed to convert markdown text to CSV file, error: {str(e)}")
+                return
