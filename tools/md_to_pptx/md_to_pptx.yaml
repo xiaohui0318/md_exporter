@@ -20,6 +20,17 @@ parameters:
       en_US: Markdown text，style docs：https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides
       zh_Hans: Markdown格式文本，样式文档： https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides
     form: llm
+  - name: pptx_template_file
+    type: file
+    required: true
+    label:
+      en_US: PPTX Template File
+      zh_Hans: PPTX 模板文件
+    human_description:
+      en_US: An optional .pptx file that serves as a template for the generated presentation
+      zh_Hans: 可选，一个.pptx文件，作为生成的演示文稿的模板
+    llm_description: An optional .pptx file that serves as a template for the generated presentation
+    form: llm
   - name: output_filename
     type: string
     required: false
