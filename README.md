@@ -133,14 +133,13 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
   </tr>
   <tr>
     <td><code>md_to_xlsx</code></td>
-    <td><a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
+    <td rowspan="5">
+      <a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a>
+  </td>
     <td>Excel file (.xlsx)</td>
   </tr>
   <tr>
     <td><code>md_to_csv</code></td>
-    <td rowspan="4">
-      <a href="https://www.markdownguide.org/extended-syntax/#tables">Single Markdown table</a>
-  </td>
     <td>CSV file (.csv)</td>
   </tr>
   <tr>
