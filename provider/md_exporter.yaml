@@ -15,6 +15,7 @@ tools:
   - tools/md_to_html/md_to_html.yaml
   - tools/md_to_html_text/md_to_html_text.yaml
   - tools/md_to_pdf/md_to_pdf.yaml
+  - tools/md_to_png/md_to_png.yaml
   - tools/md_to_md/md_to_md.yaml
   - tools/md_to_xlsx/md_to_xlsx.yaml
   - tools/md_to_csv/md_to_csv.yaml
@@ -25,7 +26,6 @@ tools:
   - tools/md_to_rst/md_to_rst.yaml
   - tools/md_to_codeblock/md_to_codeblock.yaml
   - tools/md_to_linked_image/md_to_linked_image.yaml
-  - tools/md_to_png/md_to_png.yaml
   - tools/md_to_epub/md_to_epub.yaml
 extra:
   python:
