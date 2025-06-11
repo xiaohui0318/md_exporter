@@ -7,8 +7,8 @@ identity:
 description:
   human:
     en_US: Generate script files from code blocks from Markdown text
-    zh_Hans: 将Markdown中代码片段转换为脚本文件的工具
-  llm: Generate files from code blocks from Markdown text
+    zh_Hans: 提取Markdown中代码片段转换为脚本文件
+  llm: Generate script files from code blocks from Markdown text
 parameters:
   - name: md_text
     type: string

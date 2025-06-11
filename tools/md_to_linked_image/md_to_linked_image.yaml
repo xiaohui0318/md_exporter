@@ -6,9 +6,9 @@ identity:
     zh_Hans: 提取 图片链接 为文件
 description:
   human:
-    en_US: Generate files from code blocks from Markdown text
-    zh_Hans: 将Markdown中代码块转换为 文件的工具
-  llm: Generate files from code blocks from Markdown text
+    en_US: Extract image links in Markdown text to image files
+    zh_Hans: 提取Markdown中图片链接为图片文件
+  llm: Extract image links in Markdown text to image files
 parameters:
   - name: md_text
     type: string
