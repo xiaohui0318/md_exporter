@@ -307,6 +307,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.8.0:
+  - Solve issues with garbled characters when opening CSV files containing non-ASCII characters (eg. Chinese or Japanese characters, Emoji characters etc.) in Microsoft Excel
+
 - 1.7.0:
   - Support custom PPTX template file in `md_to_pptx` tool
   - Support file generation from multiple tables in md_to_csv, md_to_latex, md_to_xlsx tools
