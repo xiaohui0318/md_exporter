@@ -28,7 +28,8 @@ class MarkdownToCsvTool(Tool):
         for i, table in enumerate(tables):
             try:
                 csv_str = table.to_csv(index=False, encoding="utf-8")
-                result_file_bytes = csv_str.encode("utf-8")
+                csv_output_encoding = "utf-8" if csv_str.isascii() else "utf-8-sig"
+                result_file_bytes = csv_str.encode(csv_output_encoding)
 
                 result_filename: Optional[str] = None
                 if output_filename:
