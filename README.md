@@ -307,6 +307,11 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.9.0:
+  - Support custom sheet name in `md_to_xlsx` tool by using headings in Markdown text
+  - Force convert column type to string in `md_to_xlsx` tool to prevent data precision loss and display issues in Microsoft Excel
+  - Autofit column width in `md_to_xlsx` tool
+
 - 1.8.0:
   - Solve issues with garbled characters when opening CSV files containing non-ASCII characters (eg. Chinese or Japanese characters, Emoji characters etc.) in Microsoft Excel
 
