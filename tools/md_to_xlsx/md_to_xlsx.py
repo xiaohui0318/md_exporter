@@ -5,7 +5,6 @@ from typing import Generator
 import pandas as pd
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
-from pandas import DataFrame
 
 from tools.utils.file_utils import get_meta_data
 from tools.utils.logger_utils import get_logger
@@ -35,7 +34,7 @@ class MarkdownToXlsxTool(Tool):
                     for i, table in enumerate(tables):
                         sheet_name = f"Sheet{i + 1}"
                         table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep='')
-                        self.adjust_column_length(table, writer.sheets[sheet_name])
+                        writer.sheets[sheet_name].autofit(max_width=200)
 
                 result_file_bytes = Path(temp_xlsx_file.name).read_bytes()
 
@@ -51,16 +50,3 @@ class MarkdownToXlsxTool(Tool):
             yield self.create_text_message(
                 f"Failed to convert markdown text to XLSX file, error: {str(e)}")
             return
-
-    def adjust_column_length(self, table: DataFrame, worksheet):
-        """
-        auto adjust column width by maximum length of content
-        """
-        for idx, col in enumerate(table):
-            series = table[col]
-            max_len = max((
-                series.astype(str).map(len).max(),
-                len(str(series.name))
-            ))
-            max_len = min(max_len, 100)
-            worksheet.set_column(idx, idx, width=max_len)
