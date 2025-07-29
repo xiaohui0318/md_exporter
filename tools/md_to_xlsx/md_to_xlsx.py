@@ -32,7 +32,7 @@ class MarkdownToXlsxTool(Tool):
             with NamedTemporaryFile(suffix=".xlsx", delete=True) as temp_xlsx_file:
                 with pd.ExcelWriter(temp_xlsx_file) as writer:
                     for i, table in enumerate(tables):
-                        sheet_name = f"Sheet {i + 1}"
+                        sheet_name = f"Sheet{i + 1}"
                         table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep='')
                         worksheet = writer.sheets[sheet_name]
                         # auto adjust column width by maximum length of content
