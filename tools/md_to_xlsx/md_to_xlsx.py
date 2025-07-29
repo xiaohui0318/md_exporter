@@ -1,4 +1,3 @@
-import logging
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Generator
@@ -33,7 +32,19 @@ class MarkdownToXlsxTool(Tool):
             with NamedTemporaryFile(suffix=".xlsx", delete=True) as temp_xlsx_file:
                 with pd.ExcelWriter(temp_xlsx_file) as writer:
                     for i, table in enumerate(tables):
-                        table.to_excel(writer, sheet_name=f"Sheet {i + 1}", index=False)
+                        sheet_name = f"Sheet {i + 1}"
+                        table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep='')
+                        worksheet = writer.sheets[sheet_name]
+                        # auto adjust column width by maximum length of content
+                        for idx, col in enumerate(table):
+                            series = table[col]
+                            max_len = max((
+                                series.astype(str).map(len).max(),
+                                len(str(series.name))
+                            ))
+                            max_len = min(max_len, 100)
+                            worksheet.set_column(idx, idx, width=max_len)
+
                 result_file_bytes = Path(temp_xlsx_file.name).read_bytes()
 
             yield self.create_blob_message(
