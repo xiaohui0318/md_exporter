@@ -10,7 +10,7 @@ from tools.utils.file_utils import get_meta_data
 from tools.utils.logger_utils import get_logger
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
-from tools.utils.table_utils import TableParser
+from tools.utils.table_utils import TableParser, SUGGESTED_SHEET_NAME
 
 
 class MarkdownToXlsxTool(Tool):
@@ -32,7 +32,7 @@ class MarkdownToXlsxTool(Tool):
             with NamedTemporaryFile(suffix=".xlsx", delete=True) as temp_xlsx_file:
                 with pd.ExcelWriter(temp_xlsx_file) as writer:
                     for i, table in enumerate(tables):
-                        sheet_name = f"Sheet{i + 1}"
+                        sheet_name = table.attrs.get(SUGGESTED_SHEET_NAME, f"Sheet{i + 1}")
                         table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep='')
                         writer.sheets[sheet_name].autofit(max_width=200)
 
