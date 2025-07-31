@@ -86,8 +86,8 @@ except:
     have_graphviz = False
 
 
-md2pptx_level = "5.4.3"
-md2pptx_date = "14 April, 2025"
+md2pptx_level = "5.4.4"
+md2pptx_date = "13 July, 2025"
 
 namespaceURL = {
     "mc":  "http://schemas.openxmlformats.org/markup-compatibility/2006",
@@ -168,7 +168,21 @@ class AudioVideoInfo:
         else:
             self.poster = None
 
+def parseColorStyle(whichStyleType, name, value, colorList):
+    spanClass = name[len("style." + whichStyleType) + 1 :]
 
+    if value.startswith("#"):
+        value2 = value
+    else:
+        value2 = "#" + value
+
+    (check, colour) = parseRGB(value2)
+
+    if check:
+        # Valid RGB hex value
+        colorList[spanClass] = colour
+    else:
+        print(f"Invalid value for {name} - {value}. Ignoring.")
 
 # Get a picture's rId
 def get_picture_rId(picture):
@@ -881,7 +895,7 @@ def getGraphicDimensions(fname):
                 width, height = struct.unpack(">ii", head[16:24])
             elif fname2.endswith(".gif"):
                 width, height = struct.unpack("<HH", head[6:10])
-            elif fname.endswith((".jpeg", ".jpg")):
+            elif fname.endswith((".jpeg", ".jpg")) | (head[0:3] == b'\xFF\xD8\xFF'):
                 try:
                     fhandle.seek(0)  # Read 0xff next
                     size = 2
@@ -3225,6 +3239,8 @@ def createTableBlock(slideInfo, slide, renderingRectangle, tableBlockNumber):
         tableHeadingSize = globals.processingOptions.getCurrentOption("tableHeadingSize")
 
         # Fill in the cells
+        cellsWithExplicitBoxStyle = []
+        
         for rowNumber, row in enumerate(tableRows):
             # Add dummy cells to the end of the row so that there are as many
             # cells in the row as there are columns in the table
@@ -3283,13 +3299,64 @@ def createTableBlock(slideInfo, slide, renderingRectangle, tableBlockNumber):
                 else:
                     p.alignment = PP_ALIGN.LEFT
 
+                # Add the cell text, respecting formatting
                 addFormattedText(p, cell)
+                
+                # Potentially colour cell background
+                firstSpanClassWithCellColor = None
+
+                for spanClassMatch in globals.spanClassRegex.finditer(cell):
+                    # There are span classes that might feature in cellcolors
+                    afterSpanTag = cell[spanClassMatch.end(1) :]
+                    className = afterSpanTag[7 : afterSpanTag.index(">") - 1]
+                    if className in globals.cellcolors:
+                        # First <span> of cell text specifies cellcolor
+                        firstSpanClassWithCellColor = className
+                        
+                        # Don't search any further
+                        break
+
+                if firstSpanClassWithCellColor is not None:
+                    cellBackgroundColor = globals.cellcolors[firstSpanClassWithCellColor]
+
+                    cff = newCell.fill
+                    cff.solid()
+                    cff.fore_color.rgb = RGBColor.from_string(cellBackgroundColor)
+
 
         # Apply table border styling - whether there is any or not
         applyTableLineStyling(
             newTable,
             globals.processingOptions,
         )
+
+        # Potentially adjust cell boxes
+        for rowNumber, row in enumerate(tableRows):
+            for columnNumber, cell in enumerate(row):
+                firstSpanClassWithCellBorderStyling = None
+
+                for spanClassMatch in globals.spanClassRegex.finditer(cell):
+                    # There are span classes that might feature in cellBorderStyling
+                    afterSpanTag = cell[spanClassMatch.end(1) :]
+                    className = afterSpanTag[7 : afterSpanTag.index(">") - 1]
+                    if className in globals.cellBorderStyling:
+                        # First <span> of cell text specifies cellBorderStyling
+                        firstSpanClassWithCellBorderStyling = className
+                        
+                        # Don't search any further
+                        break
+
+                if firstSpanClassWithCellBorderStyling is not None:
+                    applyCellBorderStyling(
+                        newTable.cell(rowNumber, columnNumber),
+                        globals.cellBorderStyling[firstSpanClassWithCellBorderStyling],
+                        globals.cellLineWidthMultiplier[firstSpanClassWithCellBorderStyling],
+                        globals.cellLineCount[firstSpanClassWithCellBorderStyling],
+                        globals.cellLineColour[firstSpanClassWithCellBorderStyling],
+                    )
+
+
+
 
     return slide
 
@@ -4942,43 +5009,35 @@ for line in metadata_lines:
         globals.processingOptions.setOptionValues(name, value)
 
     # Following relate to styling and don't use Processing Options class
+    elif name.startswith("style."):
+        if name.startswith("style.bgcolor."):
+            parseColorStyle("bgcolor", name, value, globals.bgcolors)
 
-    elif name.startswith("style.bgcolor."):
-        spanClass = name[14:]
-        if value.startswith("#"):
-            value2 = value
-        else:
-            value2 = "#" + value
-        (check, colour) = parseRGB(value2)
-        if check:
-            # Valid RGB hex value
-            globals.bgcolors[spanClass] = colour
-        else:
-            print(f"Invalid value for {name} - {value}. Ignoring.")
+        elif name.startswith("style.fgcolor."):
+            parseColorStyle("fgcolor", name, value, globals.fgcolors)
 
-    elif name.startswith("style.fgcolor."):
-        spanClass = name[14:]
-        if value.startswith("#"):
-            value2 = value
-        else:
-            value2 = "#" + value
-        (check, colour) = parseRGB(value2)
-        if check:
-            # Valid RGB hex value
-            globals.fgcolors[spanClass] = colour
-        else:
-            print(f"Invalid value for {name} - {value}. Ignoring.")
+        elif name.startswith("style.cellcolor."):
+            parseColorStyle("cellcolor", name, value, globals.cellcolors)
 
-    elif name.startswith("style.emphasis."):
-        spanClass = name[15:]
-        globals.emphases[spanClass] = value
+        elif name.startswith("style.cellbox."):
+            spanClass = name[14:]
+            cellboxArray = value.split(" ")
+            if len(cellboxArray) > 0:
+                parseColorStyle("cellbox", name, cellboxArray[0], globals.cellLineColour)
+                globals.cellLineWidthMultiplier[spanClass] = 4
+                globals.cellLineCount[spanClass] = 2
+                globals.cellBorderStyling[spanClass] = "lrtb"
 
-    elif name.startswith("style.fontsize."):
-        spanClass = name[15:]
+        elif name.startswith("style.emphasis."):
+            spanClass = name[15:]
+            globals.emphases[spanClass] = value
+
+        elif name.startswith("style.fontsize."):
+            spanClass = name[15:]
         
-        # Assumed "px" on the end
-        value2 = value[:-2]
-        globals.fontsizes[spanClass] = value2
+            # Assumed "px" on the end
+            value2 = value[:-2]
+            globals.fontsizes[spanClass] = value2
 
     elif name in ["codeforeground", "codebackground"]:
         globals.processingOptions.setOptionValues(name, value)
@@ -5385,9 +5444,11 @@ for lineNumber, line in enumerate(linesAfterConcatenation):
     elif line.startswith("<!-- md2pptx: "):
         # Dynamic metadata line
         inTitle = False
+        
         if DMMatch := dynamicMetadataRegex.match(line):
             metadataKey = DMMatch.group(1).lower().strip()
             metadataValue = DMMatch.group(2).lower()
+
             if (metadataKey != "") & (metadataValue != ""):
                 # Valid metadata pair so parse key / value - and apply if valid
 
