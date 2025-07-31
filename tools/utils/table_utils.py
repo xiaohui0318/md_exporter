@@ -28,7 +28,7 @@ class TableParser:
         try:
             md_text = MarkdownUtils.strip_markdown_wrapper(md_text)
             html_str = markdown.markdown(text=md_text, extensions=['tables'])
-            tables: list[DataFrame] = pd.read_html(StringIO(html_str))
+            tables: list[DataFrame] = pd.read_html(StringIO(html_str), encoding="utf-8")
             headings: list[str] = TableParser.extract_headings(html_str, extract_headings_for_sheet_names)
 
             def post_process_table(table: DataFrame) -> DataFrame:
