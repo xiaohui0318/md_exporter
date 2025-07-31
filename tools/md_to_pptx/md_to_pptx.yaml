@@ -35,7 +35,7 @@ parameters:
     type: string
     required: false
     label:
-      en_US: Output filename
+      en_US: Output Filename
       zh_Hans: 输出文件名
     human_description:
       en_US: Optional custom output file name, and the file suffix is not required.
