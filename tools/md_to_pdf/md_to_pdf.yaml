@@ -24,11 +24,11 @@ parameters:
     type: string
     required: false
     label:
-      en_US: Filename of the output file
+      en_US: Output filename
       zh_Hans: 输出文件名
     human_description:
-      en_US: Filename of the output file
-      zh_Hans: 输出文件名
+      en_US: Optional custom output file name, and the file suffix is not required.
+      zh_Hans: 可选的自定义输出文件名，后缀名无需指定
     form: llm
 extra:
   python:
