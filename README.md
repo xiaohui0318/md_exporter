@@ -307,6 +307,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 1.9.1:
+  - Minor doc updates in parameter description
+
 - 1.9.0:
   - Support custom sheet name in `md_to_xlsx` tool by using headings in Markdown text
   - Force convert column type to string in `md_to_xlsx` tool to prevent data precision loss and display issues in Microsoft Excel
