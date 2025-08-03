@@ -1,6 +1,6 @@
 identity:
   name: md_to_linked_image
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Image files extraction
     zh_Hans: 提取 图片链接 为文件

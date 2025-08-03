@@ -1,6 +1,6 @@
 identity:
   name: md_to_epub
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Markdown to Epub file
     zh_Hans: Markdown 转 Epub 文件

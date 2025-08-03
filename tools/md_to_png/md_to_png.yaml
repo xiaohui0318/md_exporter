@@ -1,6 +1,6 @@
 identity:
   name: md_to_png
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Markdown to PNG images
     zh_Hans: Markdown 转 PNG 图片

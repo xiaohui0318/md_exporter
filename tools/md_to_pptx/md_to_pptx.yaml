@@ -1,6 +1,6 @@
 identity:
   name: md_to_pptx
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Markdown to PPTX file
     zh_Hans: Markdown 转 PPTX 文件

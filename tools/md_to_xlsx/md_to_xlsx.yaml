@@ -1,6 +1,6 @@
 identity:
   name: md_to_xlsx
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Markdown to XLSX file
     zh_Hans: Markdown 转 XLSX 文件

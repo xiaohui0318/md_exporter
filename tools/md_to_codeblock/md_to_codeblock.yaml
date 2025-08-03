@@ -1,6 +1,6 @@
 identity:
   name: md_to_codeblock
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Codeblocks to files
     zh_Hans: 提取 代码片段 为文件

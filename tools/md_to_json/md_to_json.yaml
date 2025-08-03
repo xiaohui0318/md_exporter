@@ -1,6 +1,6 @@
 identity:
   name: md_to_json
-  author: Bowen Liang
+  author: bowenliang123
   label:
     en_US: Markdown to JSON file
     zh_Hans: Markdown 转 JSON 文件
