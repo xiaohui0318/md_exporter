@@ -1,3 +1,4 @@
+from enum import StrEnum
 from typing import Generator, Optional
 
 from dify_plugin import Tool
@@ -8,6 +9,11 @@ from tools.utils.logger_utils import get_logger
 from tools.utils.mimetype_utils import MimeType
 from tools.utils.param_utils import get_md_text
 from tools.utils.table_utils import TableParser
+
+
+class JsonOutputStyle(StrEnum):
+    JSONL = "jsonl"
+    JSON_ARRAY = "json"
 
 
 class MarkdownToJsonTool(Tool):
@@ -21,13 +27,16 @@ class MarkdownToJsonTool(Tool):
         # get parameters
         md_text = get_md_text(tool_parameters)
         output_filename = tool_parameters.get("output_filename")
+        output_style = tool_parameters.get("output_style", JsonOutputStyle.JSONL)
 
         # parse markdown to tables
         tables = TableParser.parse_md_to_tables(self.logger, md_text)
 
         for i, table in enumerate(tables):
             try:
-                json_str = table.to_json(index=False, orient='records', force_ascii=False, indent=2)
+                indent, object_per_line = self.get_json_sytles(output_style)
+                json_str = table.to_json(index=False, orient='records', force_ascii=False,
+                                         indent=indent, lines=object_per_line)
                 result_file_bytes = json_str.encode("utf-8")
 
                 result_filename: Optional[str] = None
@@ -48,3 +57,13 @@ class MarkdownToJsonTool(Tool):
                 self.logger.exception("Failed to convert to JSON file")
                 yield self.create_text_message(f"Failed to convert markdown text to JSON file, error: {str(e)}")
                 return
+
+    def get_json_sytles(self, output_style) -> tuple[int, bool]:
+        """
+        :return: indent, object_per_line
+        """
+        match output_style:
+            case JsonOutputStyle.JSONL:
+                return 0, True
+            case _:
+                return 0, True

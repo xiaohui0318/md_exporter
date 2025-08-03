@@ -20,6 +20,27 @@ parameters:
       en_US: Markdown table text
       zh_Hans: Markdown格式文本，必须为Markdown表格格式
     form: llm
+  - name: output_style
+    type: select
+    required: true
+    default: "jsonl"
+    options:
+      - value: "jsonl"
+        label:
+          en_US: "JSONL (one object per line)"
+          zh_Hans: JSONL (每行一个对象)
+      - value: "json_array"
+        label:
+          en_US: "JSON Array (all objects in single array)"
+          zh_Hans: JSON 数组 (单个数组包含所有对象)
+    label:
+      en_US: JSON Output Style
+      zh_Hans: JSON输出格式
+    human_description:
+      en_US: "JSONL: each line represents a JSON object; JSON Array: all objects are in a single array."
+      zh_Hans: "JSONL：每行代表一个JSON对象；JSON数组：所有对象在一个数组中。"
+    llm_description: "jsonl: each line represents a JSON object; json_array: all objects are in a single array."
+    form: form
   - name: output_filename
     type: string
     required: false

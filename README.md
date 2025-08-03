@@ -144,7 +144,13 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
   </tr>
   <tr>
     <td><code>md_to_json</code></td>
-    <td>JSON file (.json)</td>
+    <td>
+      JSON file (.json), in style of
+      <ul>
+        <li>JSONL (JSON Lines, one object per line)</li>
+        <li>JSON Array (all objects in single array)</li>
+      </ul>
+    </td>
   </tr>
   <tr>
     <td><code>md_to_latex</code></td>
@@ -307,7 +313,9 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
-- 1.9.1:
+- 1.10.0:
+  - Support output JSONL style in `md_to_json` tool, as JSON Lines format with one object per line
+  - Change the default output style of `md_to_json` tool to JSONL
   - Minor doc updates in parameter description
 
 - 1.9.0:
