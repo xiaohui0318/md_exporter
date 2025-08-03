@@ -280,9 +280,15 @@ Converted .rst file by using mistune's RST render with basic reStructedText synt
 
 ---
 
-### Markdown → JSON
+### Markdown → JSON / JSONL
 
-![](_assets/md_to_json_1.png)
+- JSONL style (default output style)
+  - one object per line
+   ![](_assets/md_to_json_2.png)
+
+- JSON Array style
+  - all objects in a single array
+  ![](_assets/md_to_json_1.png)
 
 ---
 
