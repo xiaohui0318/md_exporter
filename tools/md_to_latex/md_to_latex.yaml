@@ -6,19 +6,19 @@ identity:
     zh_Hans: Markdown 转 LaTeX 文件
 description:
   human:
-    en_US: Generate LaTeX file from Markdown text
-    zh_Hans: 将 Markdown 转换为 LaTeX 文件的工具
-  llm: Generate LaTeX file from Markdown text
+    en_US: Generate LaTeX file from Markdown table
+    zh_Hans: 将 Markdown 表格转换为 LaTeX 文件的工具
+  llm: Generate LaTeX file from Markdown table
 parameters:
   - name: md_text
     type: string
     required: true
     label:
-      en_US: Markdown text
-      zh_Hans: Markdown格式文本
-    human_description:
       en_US: Markdown table text
-      zh_Hans: Markdown格式文本，必须为Markdown表格格式
+      zh_Hans: Markdown 表格文本
+    human_description:
+      en_US: Input text of single Markdown table
+      zh_Hans: 单个Markdown格式文本
     form: llm
   - name: output_filename
     type: string

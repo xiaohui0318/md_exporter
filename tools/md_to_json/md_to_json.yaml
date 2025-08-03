@@ -6,19 +6,19 @@ identity:
     zh_Hans: Markdown 转 JSON 文件
 description:
   human:
-    en_US: Generate JSON file from Markdown text
-    zh_Hans: 将 Markdown 转换为 JSON 文件的工具
+    en_US: Generate JSON or JSONL file from Markdown tables
+    zh_Hans: 将 Markdown 表格转换为 JSON 或 JSONL 文件的工具
   llm: Generate JSON file from Markdown text
 parameters:
   - name: md_text
     type: string
     required: true
     label:
-      en_US: Markdown text
-      zh_Hans: Markdown格式文本
-    human_description:
       en_US: Markdown table text
-      zh_Hans: Markdown格式文本，必须为Markdown表格格式
+      zh_Hans: Markdown 表格文本
+    human_description:
+      en_US: Input text of single Markdown table
+      zh_Hans: 单个Markdown格式文本
     form: llm
   - name: output_style
     type: select
