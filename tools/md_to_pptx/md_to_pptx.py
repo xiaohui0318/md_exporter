@@ -49,7 +49,7 @@ class MarkdownToPptxTool(Tool):
                 with NamedTemporaryFile(suffix=".pptx", delete=True) as temp_pptx_file:
                     current_script_folder = os.path.split(os.path.realpath(__file__))[0]
                     python_exec = sys.executable or "python3"
-                    cmd = [python_exec, f"{current_script_folder}/md2pptx-5.4.4/md2pptx.py",
+                    cmd = [python_exec, f"{current_script_folder}/md2pptx-5.4.5/md2pptx.py",
                            Path(temp_md_file.name),
                            Path(temp_pptx_file.name)]
 
