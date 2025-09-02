@@ -22,7 +22,7 @@ parameters:
     form: llm
   - name: pptx_template_file
     type: file
-    required: true
+    required: false
     label:
       en_US: PPTX Template File
       zh_Hans: PPTX 模板文件
