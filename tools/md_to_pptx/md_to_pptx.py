@@ -50,8 +50,8 @@ class MarkdownToPptxTool(Tool):
                     current_script_folder = os.path.split(os.path.realpath(__file__))[0]
                     python_exec = sys.executable or "python3"
                     cmd = [python_exec, f"{current_script_folder}/md2pptx-5.4.5/md2pptx.py",
-                           Path(temp_md_file.name),
-                           Path(temp_pptx_file.name)]
+                           temp_md_file.name,
+                           temp_pptx_file.name]
 
                     result = subprocess.run(
                         cmd,
@@ -60,6 +60,7 @@ class MarkdownToPptxTool(Tool):
                         text=True
                     )
                     if result.returncode != 0:
+                        print(cmd)
                         raise Exception(f"Failed to convert markdown text to PPTX file,"
                                         f" command: {" ".join(cmd)},"
                                         f" return code: {result.returncode},"
