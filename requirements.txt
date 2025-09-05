@@ -1,5 +1,5 @@
 # dify plugin python sdk
-dify_plugin~=0.4.3
+dify_plugin~=0.4.4
 markdown~=3.8.2
 
 # for tables
