@@ -12,7 +12,7 @@ xhtml2pdf~=0.2.17
 lxml>=6.0.1
 
 # for markdown to rst
-mistune~=3.1.3
+mistune~=3.1.4
 
 # for markdown to docx
 htmldocx~=0.0.6
