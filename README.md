@@ -319,7 +319,7 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
-- 1.11.0:
+- 1.12.0:
   - fix input pptx template file optional in `md_to_pptx` tool
   - fix error message with file path in cmd assembly in `md_to_pptx` tool
 
