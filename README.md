@@ -216,16 +216,22 @@ output XLSX file:
 
 As with the input Markdown text in [md2pptx](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides) sytle below:
 ```
-# This Is A Presentation Title Page
+# Markdown Exporter
 
-## This Is A Presentation Section Page
-
-### This Is A Bulleted List Page
-
+### Slide 1 Title
 * One
     * One A
     * One B
 * Two
+    * Two X
+    * Two Y
+
+### Slide 2 Title
+|Left Heading|Centre Heading|Right Heading|
+|:---|:-:|--:|
+|Alpha|Bravo|1|
+|Charlie|Delta|2|
+
 ```
 
 
