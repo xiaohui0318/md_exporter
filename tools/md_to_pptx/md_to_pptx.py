@@ -73,8 +73,8 @@ class MarkdownToPptxTool(Tool):
 
         except Exception as e:
             self.logger.exception("Failed to convert markdown text to PPTX file")
-            yield self.create_text_message(f"Failed to convert markdown text to PPTX file, error: {str(e)}")
-            return
+            # yield self.create_text_message(f"Failed to convert markdown text to PPTX file, error: {str(e)}")
+            raise e
         finally:
             if temp_pptx_template_file:
                 Path(temp_pptx_template_file.name).unlink(missing_ok=True)

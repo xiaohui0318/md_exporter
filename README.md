@@ -197,7 +197,6 @@ output XLSX file:
 > It supports:
 > - [Title Slides](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#presentation-title-slides)
 > - [Bullet Items](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#bullet-slides)
-> - [Images](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#graphics-slides)
 > - [Tables](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#table-slides)
 > - [Hyper links and Inner links](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#hyperlinks-and-vba-macros)
 > - and more, please refer to [docs](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md).
