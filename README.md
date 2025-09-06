@@ -190,10 +190,31 @@ output XLSX file:
 ---
 
 ### Markdown → PPTX
-The input Markdown text of slides must follows the syle rules of [md2pptx's  syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides).
 
-<details>
+> **Syntax**
+> 
+> The input Markdown text of slides **MUST** follows the syle rules of [md2pptx's  syntax](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides).
+> It supports:
+> - [Title Slides](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#presentation-title-slides)
+> - [Bullet Items](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#bullet-slides)
+> - [Images](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#graphics-slides)
+> - [Tables](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#table-slides)
+> - [Hyper links and Inner links](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#hyperlinks-and-vba-macros)
+> - and more, please refer to [docs](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md).
 
+> **Template PPTX file: Slide Master**
+> 
+> In Microsoft PowerPoint, a slide master controls the overall design and layout of the slides in a presentation,
+> eg. font size on title, color style for text, layouts.
+> 
+> `md_to_pptx` tool supports using an optional custom PPTX template file with slide master.
+> The default template pptx file used in `md_to_pptx` tool could be fond in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_pptx/template).
+> 
+> If you are looking for a way to customize the appearance of your slides, you can create a template PPTX file with slide master.
+> 
+> To update the slide master of template pptx file, please refer to Microsoft's official docs at [Customize a slide master](https://support.microsoft.com/en-us/office/customize-a-slide-master-036d317b-3251-4237-8ddc-22f4668e2b56).
+
+As with the input Markdown text in [md2pptx](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#creating-slides) sytle below:
 ```
 # This Is A Presentation Title Page
 
@@ -206,8 +227,9 @@ The input Markdown text of slides must follows the syle rules of [md2pptx's  syn
     * One B
 * Two
 ```
-</details>
 
+
+The output PPTX file:
 
 ![](_assets/md_to_pptx_1.png)
 
@@ -322,6 +344,7 @@ Output `.md` file with orginal input Markdown text.
 - 1.12.0:
   - fix input pptx template file optional in `md_to_pptx` tool
   - fix error message with file path in cmd assembly in `md_to_pptx` tool
+  - bump `md2pptx` to 6.0
 
 - 1.10.2:
   - bump `md2pptx` from 5.4.4 to 5.4.5
