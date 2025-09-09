@@ -14,10 +14,7 @@ lxml>=6.0.1
 # for markdown to rst
 mistune~=3.1.4
 
-# for markdown to docx
-htmldocx~=0.0.6
-python-docx~=1.2.0
-bs4~=0.0.2
+
 
 # for markdown to pptx
 python-pptx~=1.0.2
@@ -35,3 +32,8 @@ pypandoc-binary~=1.15
 
 # deprecated 2:
 # html2docx~=1.6.0
+
+# deprecated in md_to_docx v2
+# htmldocx~=0.0.6
+# python-docx~=1.2.0
+# bs4~=0.0.2
