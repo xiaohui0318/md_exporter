@@ -26,6 +26,9 @@ python-pptx~=1.0.2
 PyMuPDF~=1.26.4
 pillow~=11.3.0
 
+# pandoc
+pypandoc-binary~=1.15
+
 # deprecated 1:
 # markdowntodocx~=0.1.5.10
 # python-docx~=1.1.2
