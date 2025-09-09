@@ -21,16 +21,14 @@ class MarkdownToDocxTool(Tool):
         md_text = get_md_text(tool_parameters, is_strip_wrapper=True)
         try:
             result_file_bytes = pandoc_convert_file(md_text, "docx")
+            yield self.create_blob_message(
+                blob=result_file_bytes,
+                meta=get_meta_data(
+                    mime_type=MimeType.DOCX,
+                    output_filename=tool_parameters.get("output_filename"),
+                ),
+            )
         except Exception as e:
-            self.logger.exception("Failed to convert file")
+            self.logger.exception("Failed to convert markdown text to DOCX file")
             yield self.create_text_message(f"Failed to convert markdown text to DOCX file, error: {str(e)}")
-            return
-
-        yield self.create_blob_message(
-            blob=result_file_bytes,
-            meta=get_meta_data(
-                mime_type=MimeType.DOCX,
-                output_filename=tool_parameters.get("output_filename"),
-            ),
-        )
-        return
+            raise e
