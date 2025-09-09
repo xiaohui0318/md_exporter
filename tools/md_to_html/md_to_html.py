@@ -21,7 +21,7 @@ class MarkdownToHtmlTool(Tool):
         md_text = get_md_text(tool_parameters)
 
         try:
-            result_file_bytes = pandoc_convert_text(md_text, "html5")
+            result_file_bytes = pandoc_convert_text(md_text, "html")
             yield self.create_blob_message(
                 blob=result_file_bytes,
                 meta=get_meta_data(

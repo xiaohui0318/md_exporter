@@ -1,4 +1,3 @@
-import logging
 from typing import Generator
 
 from dify_plugin import Tool
