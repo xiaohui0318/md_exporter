@@ -346,6 +346,10 @@ Output `.md` file with orginal input Markdown text.
 ---
 
 ## Changelog
+- 2.0.0:
+  - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in the following tools:
+    - `md_to_docx`
+
 - 1.12.0:
   - fix input pptx template file optional in `md_to_pptx` tool
   - fix error message with file path in cmd assembly in `md_to_pptx` tool
