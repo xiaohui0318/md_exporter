@@ -337,7 +337,7 @@ Output `.md` file with orginal input Markdown text.
 ## Changelog
 - 2.0.0:
   - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in the following tools:
-    - `md_to_docx`
+    - `md_to_docx`, improvements in syntax parsing, file size optimization and font support for multi-language content
     - `md_to_html`
     - `md_to_html_text`
   - remove `md_to_rst` and `md_to_epub` tools
