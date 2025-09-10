@@ -154,6 +154,19 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
 ## Tools
 
 ### Markdown → DOCX
+
+> **Custom styling: Template DOCX file**
+> `md_to_docx` tool supports using an optional custom DOCX template file.
+> The default template docx file used in `md_to_docx` tool could be fond in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_docx/template).
+>
+> In Microsoft Word, the template docx file controls the styles
+> for headings, paragraphs, tables, lists, etc.
+>
+> Please refer to Microsoft Words's official docs at `Modify an existing style`
+> section of [Customize or create new styles](https://support.microsoft.com/en-us/office/customize-or-create-new-styles-d38d6e47-f6fc-48eb-a607-1eb120dec563).
+> Use Microsoft Word's "Home" - "Style Panel"
+> to set the fonts, font size, color, spacing, indentation, alignment, etc.
+
 ![](_assets/md_to_docx_1.png)
 
 ---
@@ -190,14 +203,13 @@ output XLSX file:
 > - [Hyper links and Inner links](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md#hyperlinks-and-vba-macros)
 > - and more, please refer to [docs](https://github.com/MartinPacker/md2pptx/blob/master/docs/user-guide.md).
 
-> **Template PPTX file: Slide Master**
-> 
-> In Microsoft PowerPoint, a slide master controls the overall design and layout of the slides in a presentation,
-> eg. font size on title, color style for text, layouts.
-> 
+> **Custom styling by Template PPTX file: Slide Master**
 > `md_to_pptx` tool supports using an optional custom PPTX template file with slide master.
 > The default template pptx file used in `md_to_pptx` tool could be fond in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_pptx/template).
-> 
+>
+> In Microsoft PowerPoint, a slide master controls the overall design and layout of the slides in a presentation,
+> eg. font size on title, color style for text, layouts.
+>
 > If you are looking for a way to customize the appearance of your slides, you can create a template PPTX file with slide master.
 > 
 > To update the slide master of template pptx file, please refer to Microsoft's official docs at [Customize a slide master](https://support.microsoft.com/en-us/office/customize-a-slide-master-036d317b-3251-4237-8ddc-22f4668e2b56).
@@ -336,10 +348,11 @@ Output `.md` file with orginal input Markdown text.
 
 ## Changelog
 - 2.0.0:
-  - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in the following tools:
-    - `md_to_docx`, improvements in syntax parsing, file size optimization and font support for multi-language content
-    - `md_to_html`
-    - `md_to_html_text`
+  - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in `md_to_docx` tool 
+  - Major improvements in `md_to_docx` tool
+    - support custom styling by using a template DOCX file, setting the fonts, font size, color style for headings, paragraphs, etc.
+    - optimized file size in generated docx file
+    - better support for multi-language content
   - remove `md_to_rst` and `md_to_epub` tools
   - add `force_text_value` option in md_to_xlsx tool to control whether to force convert all cell values to text string
 
