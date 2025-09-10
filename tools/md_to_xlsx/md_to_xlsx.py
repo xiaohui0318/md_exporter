@@ -9,7 +9,7 @@ from dify_plugin.entities.tool import ToolInvokeMessage
 from tools.utils.file_utils import get_meta_data
 from tools.utils.logger_utils import get_logger
 from tools.utils.mimetype_utils import MimeType
-from tools.utils.param_utils import get_md_text
+from tools.utils.param_utils import get_md_text, get_param_value
 from tools.utils.table_utils import TableParser, SUGGESTED_SHEET_NAME
 
 
@@ -23,9 +23,10 @@ class MarkdownToXlsxTool(Tool):
 
         # get parameters
         md_text = get_md_text(tool_parameters)
+        force_text_value: bool = ("true" == get_param_value(tool_parameters, "force_text_value", "true").lower())
 
         # parse markdown to tables
-        tables = TableParser.parse_md_to_tables(self.logger, md_text)
+        tables = TableParser.parse_md_to_tables(self.logger, md_text=md_text, force_value_to_str=force_text_value)
 
         # generate XLSX file
         try:

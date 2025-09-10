@@ -339,6 +339,7 @@ Output `.md` file with orginal input Markdown text.
   - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in the following tools:
     - `md_to_docx`
   - remove `md_to_rst` and `md_to_epub` tools
+  - add `force_text_value` option in md_to_xlsx tool to control whether to force convert all cell values to text string
 
 - 1.12.0:
   - fix input pptx template file optional in `md_to_pptx` tool
