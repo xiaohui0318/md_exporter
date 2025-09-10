@@ -348,7 +348,7 @@ Output `.md` file with orginal input Markdown text.
 
 ## Changelog
 - 2.0.0:
-  - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in `md_to_docx` tool 
+  - [ BREAKING CHANGE ] migrate `md_to_docx` tool to use `pandoc` for conversion 
   - Major improvements in `md_to_docx` tool
     - support custom styling by using a template DOCX file, setting the fonts, font size, color style for headings, paragraphs, etc.
     - optimized file size in generated docx file
