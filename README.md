@@ -50,19 +50,8 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
     <td>Markdown file (.md)</td>
   </tr>
   <tr>
-    <td><code>md_to_epub</code></td>
-    <td>Epub file (.epub)</td>
-  </tr>
-  <tr>
     <td><code>md_to_xml</code></td>
     <td>XML file (.xml)</td>
-  </tr>
-  <tr>
-    <td><code>md_to_rst</code></td>
-    <td>
-      <p>reStructuredText file (.rst)</p>
-      [with basic syntax support]
-    </td>
   </tr>
   <tr>
     <td><code>md_to_pptx</code></td>
@@ -349,6 +338,7 @@ Output `.md` file with orginal input Markdown text.
 - 2.0.0:
   - [ BREAKING CHANGE ] migrate to `pandoc` for conversion in the following tools:
     - `md_to_docx`
+  - remove `md_to_rst` and `md_to_epub` tools
 
 - 1.12.0:
   - fix input pptx template file optional in `md_to_pptx` tool
@@ -442,9 +432,7 @@ Output `.md` file with orginal input Markdown text.
 
 This Dify plugin uses the following open sourced projects:
 
-- [mark2epub](https://github.com/AlexPof/mark2epub)
 - [md2pptx](https://github.com/MartinPacker/md2pptx) , MIT License
-- [mistune](https://github.com/lepture/mistune), BSD 3-Clause License
 - [pypandoc](https://github.com/JessicaTegner/pypandoc), MIT License
 - [pandas](https://github.com/pandas-dev/pandas), BSD 3-Clause License
 - [python-pptx](https://github.com/scanny/python-pptx), MIT License
