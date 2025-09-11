@@ -157,7 +157,7 @@ This Dify plugin `md_exporter` provides tools to export Markdown text to DOCX, P
 
 > **Custom styling: Template DOCX file**
 > `md_to_docx` tool supports using an optional custom DOCX template file.
-> The default template docx file used in `md_to_docx` tool could be fond in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_docx/template).
+> The default template docx file used in `md_to_docx` tool could be found in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_docx/template).
 >
 > In Microsoft Word, the template docx file controls the styles
 > for headings, paragraphs, tables, lists, etc.
@@ -205,7 +205,7 @@ output XLSX file:
 
 > **Custom styling by Template PPTX file: Slide Master**
 > `md_to_pptx` tool supports using an optional custom PPTX template file with slide master.
-> The default template pptx file used in `md_to_pptx` tool could be fond in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_pptx/template).
+> The default template pptx file used in `md_to_pptx` tool could be found in [this link](https://github.com/bowenliang123/md_exporter/tree/main/tools/md_to_pptx/template).
 >
 > In Microsoft PowerPoint, a slide master controls the overall design and layout of the slides in a presentation,
 > eg. font size on title, color style for text, layouts.
