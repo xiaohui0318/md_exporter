@@ -348,7 +348,7 @@ Output `.md` file with original input Markdown text.
 
 ## Changelog
 - 2.1.0:
-  - fix missing table border issue in `md_to_docx` tool by updating default docx template file
+  - fix missing table border in `md_to_docx` tool by updating default docx template file
 
 - 2.0.0:
   - [ BREAKING CHANGE ] migrate `md_to_docx` tool to use `pandoc` for conversion 
