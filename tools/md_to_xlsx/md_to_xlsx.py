@@ -23,6 +23,9 @@ class MarkdownToXlsxTool(Tool):
 
         # get parameters
         md_text = get_md_text(tool_parameters)
+        print("tool start =============================")
+        print(tool_parameters)
+        print("tool end   =============================")
         force_text_value: bool = ("true" == get_param_value(tool_parameters, "force_text_value", "true").lower())
 
         # parse markdown to tables
